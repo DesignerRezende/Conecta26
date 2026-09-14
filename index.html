@@ -125,7 +125,7 @@
           rgba(8,13,40,.28) 72%,
           rgba(8,13,40,.55) 100%
         ),
-        url("assets/hero.jpg") center / cover no-repeat;
+        url("hero.jpg") center / cover no-repeat;
     }
 
     .hero::after {
@@ -387,7 +387,7 @@
 
     .family-image {
       min-height: 520px;
-      background: url("assets/familia.jpg") center / cover;
+      background: url("familia.jpg") center / cover;
     }
 
     .family-content {
@@ -784,7 +784,7 @@
       <a href="#inicio">
         <img
           class="top-logo"
-          src="assets/logo-conecta26.png"
+          src="logo-conecta26.png"
           alt="Conecta Profissionais 26"
         />
       </a>
@@ -809,7 +809,7 @@
 
           <img
             class="hero-logo"
-            src="assets/logo-conecta26.png"
+            src="logo-conecta26.png"
             alt="Conecta Profissionais 26"
           />
 
@@ -873,22 +873,22 @@
         <div class="gallery">
 
           <figure>
-            <img src="assets/publico.jpg" alt="Público de edição anterior do Conecta" />
+            <img src="publico.jpg" alt="Público de edição anterior do Conecta" />
             <figcaption>Gente de verdade</figcaption>
           </figure>
 
           <figure>
-            <img src="assets/premio-1.jpg" alt="Profissional premiado em edição anterior" />
+            <img src="premio-1.jpg" alt="Profissional premiado em edição anterior" />
             <figcaption>Prêmios</figcaption>
           </figure>
 
           <figure>
-            <img src="assets/musica.jpg" alt="Música ao vivo no Conecta" />
+            <img src="musica.jpg" alt="Música ao vivo no Conecta" />
             <figcaption>Música ao vivo</figcaption>
           </figure>
 
           <figure>
-            <img src="assets/familia.jpg" alt="Famílias no Conecta" />
+            <img src="familia.jpg" alt="Famílias no Conecta" />
             <figcaption>Família</figcaption>
           </figure>
 
@@ -920,7 +920,7 @@
         <div class="experience-grid">
 
           <article class="experience-card">
-            <img src="assets/churrasco.jpg" alt="Churrasco de edição anterior" />
+            <img src="churrasco.jpg" alt="Churrasco de edição anterior" />
             <div class="experience-body">
               <span class="tag">Gastronomia</span>
               <h3>Comida de verdade</h3>
@@ -932,7 +932,7 @@
           </article>
 
           <article class="experience-card">
-            <img src="assets/musica.jpg" alt="Músicos em edição anterior do Conecta" />
+            <img src="musica.jpg" alt="Músicos em edição anterior do Conecta" />
             <div class="experience-body">
               <span class="tag">Celebração</span>
               <h3>Música ao vivo</h3>
@@ -944,7 +944,7 @@
           </article>
 
           <article class="experience-card">
-            <img src="assets/publico.jpg" alt="Profissionais reunidos" />
+            <img src="publico.jpg" alt="Profissionais reunidos" />
             <div class="experience-body">
               <span class="tag">Profissão</span>
               <h3>Experiências e fornecedores</h3>
@@ -1011,7 +1011,7 @@
 
             <img
               class="points-logo"
-              src="assets/logo-ponto-premiado.png"
+              src="logo-ponto-premiado.png"
               alt="Programa Ponto Premiado"
             />
 
@@ -1044,17 +1044,17 @@
           <div class="prize-gallery">
 
             <img
-              src="assets/ponto-premiado.jpg"
+              src="ponto-premiado.png"
               alt="Lojinha Ponto Premiado no Conecta"
             />
 
             <img
-              src="assets/premio-2.jpg"
+              src="premio-2.jpg"
               alt="Produto entregue no Conecta"
             />
 
             <img
-              src="assets/premio-3.jpg"
+              src="premio-3.jpg"
               alt="Profissional com prêmio"
             />
 
@@ -1250,7 +1250,7 @@
       <div>
         <img
           class="footer-logo"
-          src="assets/logo-conecta26.png"
+          src="logo-conecta26.png"
           alt="Conecta Profissionais 26"
         />
 
@@ -1274,25 +1274,13 @@
 
   <script>
 
-    /*
-      COLOQUE AQUI O WHATSAPP DA REZENDE.
-
-      Formato:
-      55 + DDD + número
-
-      Exemplo fictício:
-      const whatsapp = "5522981740330";
-    */
-
     const whatsapp = "5522981740330";
-
 
     const answers = {
       participou: "",
       filho: "",
       interesse: ""
     };
-
 
     document.querySelectorAll(".poll-btn").forEach(button => {
 
@@ -1315,7 +1303,6 @@
 
     });
 
-
     function showToast() {
 
       const toast = document.getElementById("toast");
@@ -1327,7 +1314,6 @@
       }, 1700);
 
     }
-
 
     function selectFamily() {
 
@@ -1349,7 +1335,6 @@
 
     }
 
-
     function sendWhatsApp(message) {
 
       const url =
@@ -1358,7 +1343,6 @@
       window.open(url, "_blank");
 
     }
-
 
     document
       .getElementById("confirmationForm")
@@ -1374,7 +1358,6 @@
 
         const mensagem =
           document.getElementById("mensagem").value.trim();
-
 
         const text =
 `Olá! Quero participar do Conecta Profissionais 26.
@@ -1394,8 +1377,9 @@ ${answers.interesse || "Não informado"}
 Mensagem:
 ${mensagem || "Sem mensagem adicional"}
 
-Local: Haras Kaylua`;
-
+Local: Haras Kaylua
+Data: 03/10
+Horário: 9h`;
 
         sendWhatsApp(text);
 
