@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Conecta Profissionais 26</title>
+  <meta
+    name="description"
+    content="Conecta Profissionais 26 — o grande encontro dos profissionais da construção."
+  />
+
+  <style>
+    :root {
+      --navy: #171d48;
+      --navy-2: #0d1231;
+      --orange: #f58220;
+      --yellow: #ffd21f;
+      --cream: #faf5e8;
+      --blue: #61bfdc;
+      --white: #ffffff;
+      --text: #1c2343;
+      --muted: #68708a;
+      --radius: 28px;
+      --shadow: 0 18px 50px rgba(13, 18, 49, 0.17);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    /* TOPO */
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(13, 18, 49, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .topbar-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .top-logo {
+      width: 175px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a:hover {
+      color: var(--yellow);
+    }
+
+    .mini-cta {
+      background: var(--orange);
+      color: white;
+      padding: 13px 18px;
+      border-radius: 999px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      padding: 130px 0 70px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,13,40,.94) 0%,
+          rgba(8,13,40,.78) 40%,
+          rgba(8,13,40,.28) 72%,
+          rgba(8,13,40,.55) 100%
+        ),
+        url("assets/hero.jpg") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(transparent, var(--cream));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-logo {
+      width: min(500px, 88vw);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 13px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 94px);
+      line-height: .9;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+      max-width: 760px;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .hero-copy {
+      max-width: 580px;
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 24px 0 30px;
+      color: rgba(255,255,255,.9);
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 27px;
+    }
+
+    .info-pill {
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.1);
+      padding: 13px 16px;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: .2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--navy);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-outline {
+      color: white;
+      border: 1px solid rgba(255,255,255,.55);
+      background: transparent;
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 span {
+      color: var(--orange);
+    }
+
+    .section-head p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* GALERIA */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 14px;
+    }
+
+    .gallery figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery figure:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .gallery figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery figcaption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      color: white;
+      background: rgba(13,18,49,.84);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* EXPERIÊNCIAS */
+
+    .dark-section {
+      background: var(--navy-2);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-section .section-head p {
+      color: rgba(255,255,255,.72);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .experience-card {
+      background: #171d3b;
+      border-radius: 25px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.09);
+      transition: .25s;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .experience-card img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .experience-body {
+      padding: 23px;
+    }
+
+    .experience-card h3 {
+      font-size: 25px;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .experience-card p {
+      line-height: 1.55;
+      color: rgba(255,255,255,.7);
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 10px;
+    }
+
+    /* FAMÍLIA */
+
+    .family {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      border-radius: 35px;
+      overflow: hidden;
+      background: var(--yellow);
+      box-shadow: var(--shadow);
+    }
+
+    .family-image {
+      min-height: 520px;
+      background: url("assets/familia.jpg") center / cover;
+    }
+
+    .family-content {
+      padding: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .family-content h2 {
+      font-size: clamp(43px, 5vw, 72px);
+      line-height: .92;
+      text-transform: uppercase;
+      letter-spacing: -.05em;
+      margin-bottom: 22px;
+    }
+
+    .family-content p {
+      line-height: 1.65;
+      font-size: 18px;
+      max-width: 480px;
+      margin-bottom: 24px;
+    }
+
+    /* PONTO PREMIADO */
+
+    .points {
+      background:
+        radial-gradient(circle at 80% 10%, #ffed53 0, transparent 28%),
+        var(--yellow);
+    }
+
+    .points-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .points-logo {
+      width: 250px;
+      max-width: 70%;
+      margin-bottom: 25px;
+    }
+
+    .points h2 {
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: .94;
+      text-transform: uppercase;
+      letter-spacing: -.05em;
+      margin-bottom: 18px;
+    }
+
+    .points-copy {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      max-width: 560px;
+    }
+
+    .prize-gallery {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      grid-template-rows: 250px 250px;
+      gap: 12px;
+    }
+
+    .prize-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 14px 35px rgba(55,38,0,.15);
+    }
+
+    .prize-gallery img:first-child {
+      grid-row: span 2;
+    }
+
+    /* ATRAÇÕES */
+
+    .coming {
+      background: white;
+    }
+
+    .coming-box {
+      background:
+        linear-gradient(120deg, var(--navy), #28377a);
+      min-height: 430px;
+      color: white;
+      border-radius: 38px;
+      padding: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .coming-box::after {
+      content: "EM BREVE";
+      position: absolute;
+      right: -25px;
+      bottom: -22px;
+      font-size: 115px;
+      font-weight: 900;
+      opacity: .06;
+      white-space: nowrap;
+    }
+
+    .coming-box h2 {
+      font-size: clamp(44px, 6vw, 78px);
+      text-transform: uppercase;
+      letter-spacing: -.05em;
+      line-height: .9;
+      max-width: 680px;
+    }
+
+    .coming-box h2 span {
+      color: var(--orange);
+    }
+
+    /* PARTICIPE */
+
+    .participate {
+      background: var(--navy-2);
+      color: white;
+    }
+
+    .polls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 45px;
+    }
+
+    .poll {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      padding: 25px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .poll h3 {
+      font-size: 20px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .poll-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .poll-btn {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 13px;
+      cursor: pointer;
+    }
+
+    .poll-btn:hover,
+    .poll-btn.selected {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .form-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      padding: 45px;
+      background: white;
+      color: var(--text);
+      border-radius: 30px;
+    }
+
+    .form-card h2 {
+      font-size: 45px;
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: -.04em;
+      margin-bottom: 18px;
+    }
+
+    .form-card p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid #dfe3ed;
+      border-radius: 14px;
+      padding: 14px 16px;
+      outline: none;
+      background: #f9fafc;
+    }
+
+    .field:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(245,130,32,.12);
+    }
+
+    textarea.field {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #080b1c;
+      color: white;
+      padding: 46px 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .footer-logo {
+      width: 210px;
+      margin-bottom: 15px;
+    }
+
+    .footer-copy {
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 120px);
+      opacity: 0;
+      background: white;
+      color: var(--navy);
+      z-index: 100;
+      padding: 15px 19px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      font-weight: 800;
+      transition: .3s;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+      .nav a:not(.mini-cta) {
+        display: none;
+      }
+
+      .top-logo {
+        width: 145px;
+      }
+
+      .hero {
+        min-height: 860px;
+        padding-bottom: 90px;
+        background-position: 61% center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-logo {
+        width: 360px;
+      }
+
+      h1 {
+        font-size: 53px;
+      }
+
+      .section-head,
+      .points-grid,
+      .family,
+      .form-card {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        gap: 20px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 360px 220px 220px;
+      }
+
+      .gallery figure:first-child {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .family-image {
+        min-height: 390px;
+      }
+
+      .family-content {
+        padding: 40px 28px;
+      }
+
+      .prize-gallery {
+        min-height: 500px;
+      }
+
+      .coming-box {
+        padding: 45px 28px;
+      }
+
+      .polls {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 30px 22px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 520px) {
+      section {
+        padding: 70px 0;
+      }
+
+      .container {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 300px);
+      }
+
+      .gallery figure:first-child {
+        grid-column: auto;
+      }
+
+      .prize-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 180px;
+      }
+
+      .prize-gallery img:first-child {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#inicio">
+        <img
+          class="top-logo"
+          src="assets/logo-conecta26.png"
+          alt="Conecta Profissionais 26"
+        />
+      </a>
+
+      <nav class="nav">
+        <a href="#conecta">O Conecta</a>
+        <a href="#experiencias">Experiências</a>
+        <a href="#pontos">Ponto Premiado</a>
+        <a href="#atracoes">Atrações</a>
+        <a class="mini-cta" href="#participar">Quero ir</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ABERTURA -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+
+          <img
+            class="hero-logo"
+            src="assets/logo-conecta26.png"
+            alt="Conecta Profissionais 26"
+          />
+
+          <div class="eyebrow">
+            O grande encontro de quem faz acontecer
+          </div>
+
+          <h1>
+            A festa de <span>quem faz.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Um dia inteiro de encontros, comida boa, música, fornecedores,
+            experiências, prêmios e muita gente que vive a construção todos os dias.
+          </p>
+
+          <div class="hero-info">
+            <div class="info-pill">📍 Haras Kaylua</div>
+            <div class="info-pill">📅 03/10</div>
+            <div class="info-pill">🕘 às 9h</div>
+          </div>
+
+          <div class="actions">
+            <a href="#participar" class="btn btn-primary">
+              Quero participar
+            </a>
+
+            <a href="#experiencias" class="btn btn-outline">
+              Descobrir o evento ↓
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- O CONECTA -->
+    <section id="conecta">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" style="color:var(--orange)">
+              Isso é o Conecta
+            </div>
+
+            <h2>
+              Quem já viveu,
+              <span>sabe.</span>
+            </h2>
+          </div>
+
+          <p>
+            O Conecta reúne os profissionais que fazem a obra acontecer.
+            Mais que uma programação, é um dia para encontrar gente,
+            trocar experiências, comemorar e viver momentos que ficam na memória.
+          </p>
+        </div>
+
+        <div class="gallery">
+
+          <figure>
+            <img src="assets/publico.jpg" alt="Público de edição anterior do Conecta" />
+            <figcaption>Gente de verdade</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/premio-1.jpg" alt="Profissional premiado em edição anterior" />
+            <figcaption>Prêmios</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/musica.jpg" alt="Música ao vivo no Conecta" />
+            <figcaption>Música ao vivo</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/familia.jpg" alt="Famílias no Conecta" />
+            <figcaption>Família</figcaption>
+          </figure>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIÊNCIAS -->
+    <section class="dark-section" id="experiencias">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">O que te espera</div>
+            <h2>
+              Um dia inteiro
+              <span>para viver.</span>
+            </h2>
+          </div>
+
+          <p>
+            Estamos preparando uma experiência completa para os profissionais,
+            seus filhos e todos que fazem parte dessa história.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+
+          <article class="experience-card">
+            <img src="assets/churrasco.jpg" alt="Churrasco de edição anterior" />
+            <div class="experience-body">
+              <span class="tag">Gastronomia</span>
+              <h3>Comida de verdade</h3>
+              <p>
+                Um dos momentos mais esperados do dia:
+                comida boa e aquele clima perfeito para confraternizar.
+              </p>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <img src="assets/musica.jpg" alt="Músicos em edição anterior do Conecta" />
+            <div class="experience-body">
+              <span class="tag">Celebração</span>
+              <h3>Música ao vivo</h3>
+              <p>
+                Porque um grande encontro também merece música,
+                diversão e bons momentos.
+              </p>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <img src="assets/publico.jpg" alt="Profissionais reunidos" />
+            <div class="experience-body">
+              <span class="tag">Profissão</span>
+              <h3>Experiências e fornecedores</h3>
+              <p>
+                Demonstrações, workshops, grandes marcas
+                e muito conteúdo para quem faz acontecer.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FAMÍLIA -->
+    <section>
+      <div class="container">
+
+        <div class="family">
+
+          <div class="family-image"></div>
+
+          <div class="family-content">
+
+            <div class="eyebrow" style="color:var(--navy)">
+              Esse dia também é deles
+            </div>
+
+            <h2>
+              Pode trazer
+              seus filhos.
+            </h2>
+
+            <p>
+              O Conecta é um dia para compartilhar.
+              Os profissionais podem trazer seus filhos para viver
+              esse momento junto com eles.
+            </p>
+
+            <button
+              class="btn btn-dark"
+              onclick="selectFamily()"
+              style="align-self:flex-start"
+            >
+              Vou levar meu filho
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PONTO PREMIADO -->
+    <section class="points" id="pontos">
+      <div class="container">
+
+        <div class="points-grid">
+
+          <div>
+
+            <img
+              class="points-logo"
+              src="assets/logo-ponto-premiado.png"
+              alt="Programa Ponto Premiado"
+            />
+
+            <div class="eyebrow" style="color:var(--navy)">
+              Ponto Premiado no Conecta
+            </div>
+
+            <h2>
+              Seus pontos
+              também vêm
+              pra festa.
+            </h2>
+
+            <p class="points-copy">
+              A lojinha do Ponto Premiado estará no evento.
+              Você poderá usar seus pontos para resgatar produtos
+              e aproveitar ainda mais o Conecta.
+            </p>
+
+            <button
+              class="btn btn-dark"
+              onclick="sendWhatsApp('Quero saber mais sobre o Ponto Premiado no Conecta 26.')"
+            >
+              Quero saber dos meus pontos
+            </button>
+
+          </div>
+
+
+          <div class="prize-gallery">
+
+            <img
+              src="assets/ponto-premiado.jpg"
+              alt="Lojinha Ponto Premiado no Conecta"
+            />
+
+            <img
+              src="assets/premio-2.jpg"
+              alt="Produto entregue no Conecta"
+            />
+
+            <img
+              src="assets/premio-3.jpg"
+              alt="Profissional com prêmio"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ATRAÇÕES -->
+    <section class="coming" id="atracoes">
+      <div class="container">
+
+        <div class="coming-box">
+
+          <div>
+            <div class="eyebrow">Conecta 26</div>
+
+            <h2>
+              Tem muito mais
+              <span>vindo aí.</span>
+            </h2>
+
+            <p style="
+              margin-top:25px;
+              max-width:540px;
+              line-height:1.6;
+              color:rgba(255,255,255,.75)
+            ">
+              Estamos preparando as atrações do Conecta 26.
+              Em breve, você vai conhecer tudo que fará parte deste dia.
+            </p>
+          </div>
+
+          <a href="#participar" class="btn btn-yellow">
+            Quero receber novidades
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PARTICIPAÇÃO -->
+    <section class="participate" id="participar">
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="eyebrow">Agora queremos ouvir você</div>
+
+            <h2>
+              Faça parte
+              <span>desde agora.</span>
+            </h2>
+          </div>
+
+          <p>
+            Conta pra gente como você pretende viver o Conecta 26.
+            Sua resposta será enviada diretamente para a equipe Rezende
+            pelo WhatsApp.
+          </p>
+
+        </div>
+
+
+        <div class="polls">
+
+          <div class="poll">
+            <h3>Você já participou de algum Conecta?</h3>
+
+            <div class="poll-options">
+              <button class="poll-btn" data-group="participou" data-value="Sim">
+                🔥 Sim
+              </button>
+
+              <button class="poll-btn" data-group="participou" data-value="Não">
+                👀 Ainda não
+              </button>
+            </div>
+          </div>
+
+
+          <div class="poll">
+            <h3>Vai levar seu filho?</h3>
+
+            <div class="poll-options">
+              <button class="poll-btn" data-group="filho" data-value="Sim">
+                👨‍👧 Sim
+              </button>
+
+              <button class="poll-btn" data-group="filho" data-value="Talvez">
+                🤔 Talvez
+              </button>
+
+              <button class="poll-btn" data-group="filho" data-value="Não">
+                Não
+              </button>
+            </div>
+          </div>
+
+
+          <div class="poll">
+            <h3>O que mais te anima?</h3>
+
+            <div class="poll-options">
+              <button class="poll-btn" data-group="interesse" data-value="Comida">
+                🍖 Comida
+              </button>
+
+              <button class="poll-btn" data-group="interesse" data-value="Música">
+                🎵 Música
+              </button>
+
+              <button class="poll-btn" data-group="interesse" data-value="Ponto Premiado">
+                🎁 Ponto Premiado
+              </button>
+
+              <button class="poll-btn" data-group="interesse" data-value="Workshops">
+                🛠 Workshops
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+          <div>
+            <div class="eyebrow" style="color:var(--orange)">
+              Conecta 26
+            </div>
+
+            <h2>
+              Em 2026,
+              queremos você
+              nessa história.
+            </h2>
+
+            <p>
+              Preencha seus dados e clique no botão.
+              Seu WhatsApp abrirá com a mensagem pronta para enviar.
+            </p>
+          </div>
+
+
+          <form class="form" id="confirmationForm">
+
+            <input
+              class="field"
+              id="nome"
+              type="text"
+              placeholder="Seu nome"
+              required
+            />
+
+            <input
+              class="field"
+              id="telefone"
+              type="tel"
+              placeholder="Seu telefone"
+              required
+            />
+
+            <textarea
+              class="field"
+              id="mensagem"
+              placeholder="O que você gostaria de encontrar no Conecta 26?"
+            ></textarea>
+
+            <button class="btn btn-primary" type="submit">
+              Confirmar interesse pelo WhatsApp
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        <img
+          class="footer-logo"
+          src="assets/logo-conecta26.png"
+          alt="Conecta Profissionais 26"
+        />
+
+        <div class="footer-copy">
+          Conecta Profissionais 26 • Rezende Materiais para Construção
+        </div>
+      </div>
+
+      <a href="#inicio" class="btn btn-primary">
+        Voltar ao topo ↑
+      </a>
+
+    </div>
+  </footer>
+
+
+  <div id="toast" class="toast">
+    Resposta registrada ✓
+  </div>
+
+
+  <script>
+
+    /*
+      COLOQUE AQUI O WHATSAPP DA REZENDE.
+
+      Formato:
+      55 + DDD + número
+
+      Exemplo fictício:
+      const whatsapp = "5522981740330";
+    */
+
+    const whatsapp = "5522981740330";
+
+
+    const answers = {
+      participou: "",
+      filho: "",
+      interesse: ""
+    };
+
+
+    document.querySelectorAll(".poll-btn").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const group = button.dataset.group;
+        const value = button.dataset.value;
+
+        answers[group] = value;
+
+        document
+          .querySelectorAll(`[data-group="${group}"]`)
+          .forEach(btn => btn.classList.remove("selected"));
+
+        button.classList.add("selected");
+
+        showToast();
+
+      });
+
+    });
+
+
+    function showToast() {
+
+      const toast = document.getElementById("toast");
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1700);
+
+    }
+
+
+    function selectFamily() {
+
+      answers.filho = "Sim";
+
+      document
+        .querySelectorAll('[data-group="filho"]')
+        .forEach(btn => btn.classList.remove("selected"));
+
+      const sim = document.querySelector(
+        '[data-group="filho"][data-value="Sim"]'
+      );
+
+      if (sim) sim.classList.add("selected");
+
+      document
+        .getElementById("participar")
+        .scrollIntoView({ behavior: "smooth" });
+
+    }
+
+
+    function sendWhatsApp(message) {
+
+      const url =
+        `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+
+    }
+
+
+    document
+      .getElementById("confirmationForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const nome =
+          document.getElementById("nome").value.trim();
+
+        const telefone =
+          document.getElementById("telefone").value.trim();
+
+        const mensagem =
+          document.getElementById("mensagem").value.trim();
+
+
+        const text =
+`Olá! Quero participar do Conecta Profissionais 26.
+
+Nome: ${nome}
+Telefone: ${telefone}
+
+Já participou do Conecta?
+${answers.participou || "Não informado"}
+
+Vai levar filho?
+${answers.filho || "Não informado"}
+
+Maior interesse:
+${answers.interesse || "Não informado"}
+
+Mensagem:
+${mensagem || "Sem mensagem adicional"}
+
+Local: Haras Kaylua`;
+
+
+        sendWhatsApp(text);
+
+      });
+
+  </script>
+
+</body>
+</html>
