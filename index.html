@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Conecta Profissionais 26</title>
+
   <meta
     name="description"
     content="Conecta Profissionais 26 — o grande encontro dos profissionais da construção."
   />
 
+  <!-- FAVICON
+       Coloque favicon.png junto do index.html -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <style>
+
     :root {
       --navy: #171d48;
       --navy-2: #0d1231;
@@ -22,7 +28,7 @@
       --text: #1c2343;
       --muted: #68708a;
       --radius: 28px;
-      --shadow: 0 18px 50px rgba(13, 18, 49, 0.17);
+      --shadow: 0 18px 50px rgba(13,18,49,.17);
     }
 
     * {
@@ -63,7 +69,46 @@
       margin: auto;
     }
 
-    /* TOPO */
+    section {
+      padding: 95px 0;
+    }
+
+    /* =========================
+       LINHAS VISUAIS DO CONECTA
+       ========================= */
+
+    .flow-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flow-section::before,
+    .flow-section::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      opacity: .22;
+      width: 520px;
+      height: 170px;
+      transform: rotate(-8deg);
+    }
+
+    .flow-section::before {
+      top: 35px;
+      right: -210px;
+    }
+
+    .flow-section::after {
+      bottom: 20px;
+      left: -270px;
+      border-color: var(--orange);
+    }
+
+    /* =========================
+       TOPO
+       ========================= */
 
     .topbar {
       position: fixed;
@@ -71,16 +116,20 @@
       left: 0;
       width: 100%;
       z-index: 50;
-      background: rgba(13, 18, 49, 0.88);
+
+      background: rgba(13,18,49,.92);
       backdrop-filter: blur(12px);
+
       border-bottom: 1px solid rgba(255,255,255,.1);
     }
 
     .topbar-inner {
       min-height: 74px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 24px;
     }
 
@@ -90,8 +139,9 @@
 
     .nav {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       align-items: center;
+
       color: white;
       font-size: 14px;
       font-weight: 700;
@@ -104,25 +154,33 @@
     .mini-cta {
       background: var(--orange);
       color: white;
+
       padding: 13px 18px;
       border-radius: 999px;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+       ========================= */
 
     .hero {
       min-height: 100vh;
+
       position: relative;
+
       color: white;
+
       display: flex;
       align-items: flex-end;
+
       padding: 130px 0 70px;
+
       background:
         linear-gradient(
           90deg,
-          rgba(8,13,40,.94) 0%,
-          rgba(8,13,40,.78) 40%,
-          rgba(8,13,40,.28) 72%,
+          rgba(8,13,40,.95) 0%,
+          rgba(8,13,40,.80) 40%,
+          rgba(8,13,40,.25) 72%,
           rgba(8,13,40,.55) 100%
         ),
         url("hero.jpg") center / cover no-repeat;
@@ -132,35 +190,48 @@
       content: "";
       position: absolute;
       inset: auto 0 0;
+
       height: 130px;
-      background: linear-gradient(transparent, var(--cream));
+
+      background:
+        linear-gradient(
+          transparent,
+          var(--cream)
+        );
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
+
       max-width: 720px;
     }
 
     .hero-logo {
-      width: min(500px, 88vw);
+      width: min(500px,88vw);
       margin-bottom: 28px;
     }
 
     .eyebrow {
       color: var(--yellow);
+
       text-transform: uppercase;
       letter-spacing: .16em;
+
       font-size: 13px;
       font-weight: 900;
+
       margin-bottom: 13px;
     }
 
     h1 {
-      font-size: clamp(48px, 7vw, 94px);
+      font-size: clamp(48px,7vw,94px);
+
       line-height: .9;
-      letter-spacing: -0.055em;
+      letter-spacing: -.055em;
+
       text-transform: uppercase;
+
       max-width: 760px;
     }
 
@@ -170,27 +241,41 @@
 
     .hero-copy {
       max-width: 580px;
+
       font-size: 18px;
       line-height: 1.55;
+
       margin: 24px 0 30px;
+
       color: rgba(255,255,255,.9);
     }
 
     .hero-info {
       display: flex;
       flex-wrap: wrap;
+
       gap: 12px;
+
       margin-bottom: 27px;
     }
 
     .info-pill {
       border: 1px solid rgba(255,255,255,.25);
+
       background: rgba(255,255,255,.1);
+
       padding: 13px 16px;
+
       border-radius: 999px;
+
       backdrop-filter: blur(8px);
+
       font-weight: 700;
     }
+
+    /* =========================
+       BOTÕES
+       ========================= */
 
     .actions {
       display: flex;
@@ -201,14 +286,21 @@
     .btn {
       border: 0;
       cursor: pointer;
+
       min-height: 52px;
+
       padding: 0 22px;
+
       border-radius: 999px;
+
       font-weight: 900;
+
       transition: .2s ease;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       gap: 9px;
     }
 
@@ -233,28 +325,35 @@
 
     .btn-outline {
       color: white;
+
       border: 1px solid rgba(255,255,255,.55);
+
       background: transparent;
     }
 
-    /* SEÇÕES */
-
-    section {
-      padding: 95px 0;
-    }
+    /* =========================
+       CABEÇALHOS
+       ========================= */
 
     .section-head {
       display: grid;
+
       grid-template-columns: 1fr 1.15fr;
+
       gap: 60px;
+
       align-items: end;
+
       margin-bottom: 42px;
     }
 
     .section-head h2 {
-      font-size: clamp(38px, 5vw, 65px);
+      font-size: clamp(38px,5vw,65px);
+
       line-height: .94;
+
       letter-spacing: -.045em;
+
       text-transform: uppercase;
     }
 
@@ -264,23 +363,33 @@
 
     .section-head p {
       font-size: 18px;
+
       line-height: 1.65;
+
       color: var(--muted);
     }
 
-    /* GALERIA */
+    /* =========================
+       GALERIA
+       ========================= */
 
     .gallery {
       display: grid;
+
       grid-template-columns: 1.4fr 1fr 1fr;
+
       grid-template-rows: 280px 280px;
+
       gap: 14px;
     }
 
     .gallery figure {
       position: relative;
+
       overflow: hidden;
+
       border-radius: 24px;
+
       box-shadow: var(--shadow);
     }
 
@@ -291,7 +400,9 @@
     .gallery img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       transition: .4s;
     }
 
@@ -301,22 +412,32 @@
 
     .gallery figcaption {
       position: absolute;
+
       left: 16px;
       bottom: 16px;
+
       color: white;
+
       background: rgba(13,18,49,.84);
+
       padding: 9px 13px;
+
       border-radius: 999px;
+
       font-size: 12px;
       font-weight: 900;
     }
 
-    /* EXPERIÊNCIAS */
+    /* =========================
+       EXPERIÊNCIAS
+       ========================= */
 
     .dark-section {
       background: var(--navy-2);
       color: white;
+
       position: relative;
+
       overflow: hidden;
     }
 
@@ -326,15 +447,21 @@
 
     .experience-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns: repeat(3,1fr);
+
       gap: 18px;
     }
 
     .experience-card {
       background: #171d3b;
+
       border-radius: 25px;
+
       overflow: hidden;
+
       border: 1px solid rgba(255,255,255,.09);
+
       transition: .25s;
     }
 
@@ -345,6 +472,7 @@
     .experience-card img {
       height: 250px;
       width: 100%;
+
       object-fit: cover;
     }
 
@@ -354,120 +482,258 @@
 
     .experience-card h3 {
       font-size: 25px;
+
       line-height: 1;
+
       text-transform: uppercase;
+
       margin-bottom: 10px;
     }
 
     .experience-card p {
       line-height: 1.55;
+
       color: rgba(255,255,255,.7);
     }
 
     .tag {
       display: inline-block;
+
       color: var(--orange);
+
       font-size: 12px;
       font-weight: 900;
+
       text-transform: uppercase;
+
       letter-spacing: .12em;
+
       margin-bottom: 10px;
     }
 
-    /* FAMÍLIA */
+    /* =========================
+       VÍDEOS
+       ========================= */
+
+    .videos-section {
+      background: white;
+    }
+
+    .video-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 24px;
+    }
+
+    .video-card {
+      background: var(--navy);
+
+      border-radius: 28px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame {
+      position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+    }
+
+    .video-info {
+      padding: 24px;
+
+      color: white;
+    }
+
+    .video-info span {
+      color: var(--orange);
+
+      text-transform: uppercase;
+
+      font-size: 12px;
+      font-weight: 900;
+
+      letter-spacing: .13em;
+    }
+
+    .video-info h3 {
+      margin-top: 7px;
+
+      font-size: 27px;
+
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       FAMÍLIA
+       ========================= */
 
     .family {
       display: grid;
+
       grid-template-columns: 1.05fr .95fr;
+
       border-radius: 35px;
+
       overflow: hidden;
+
       background: var(--yellow);
+
       box-shadow: var(--shadow);
     }
 
     .family-image {
       min-height: 520px;
-      background: url("familia.jpg") center / cover;
+
+      background:
+        url("familia.jpg")
+        center / cover;
     }
 
     .family-content {
       padding: 65px;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
     }
 
     .family-content h2 {
-      font-size: clamp(43px, 5vw, 72px);
+      font-size: clamp(43px,5vw,72px);
+
       line-height: .92;
+
       text-transform: uppercase;
+
       letter-spacing: -.05em;
+
       margin-bottom: 22px;
     }
 
     .family-content p {
       line-height: 1.65;
+
       font-size: 18px;
+
       max-width: 480px;
-      margin-bottom: 24px;
+
+      margin-bottom: 18px;
     }
 
-    /* PONTO PREMIADO */
+    .family-warning {
+      font-size: 14px !important;
+
+      background: rgba(255,255,255,.55);
+
+      padding: 14px 16px;
+
+      border-radius: 15px;
+
+      margin-bottom: 25px !important;
+    }
+
+    /* =========================
+       PONTO PREMIADO
+       ========================= */
 
     .points {
       background:
-        radial-gradient(circle at 80% 10%, #ffed53 0, transparent 28%),
+        radial-gradient(
+          circle at 80% 10%,
+          #ffed53 0,
+          transparent 28%
+        ),
         var(--yellow);
     }
 
     .points-grid {
       display: grid;
+
       grid-template-columns: .9fr 1.1fr;
+
       align-items: center;
+
       gap: 50px;
     }
 
     .points-logo {
       width: 250px;
+
       max-width: 70%;
+
       margin-bottom: 25px;
     }
 
     .points h2 {
-      font-size: clamp(40px, 5vw, 68px);
+      font-size: clamp(40px,5vw,68px);
+
       line-height: .94;
+
       text-transform: uppercase;
+
       letter-spacing: -.05em;
+
       margin-bottom: 18px;
     }
 
     .points-copy {
       font-size: 18px;
+
       line-height: 1.6;
+
       margin-bottom: 25px;
+
       max-width: 560px;
     }
 
     .prize-gallery {
       display: grid;
+
       grid-template-columns: 1.3fr .7fr;
+
       grid-template-rows: 250px 250px;
+
       gap: 12px;
     }
 
     .prize-gallery img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       border-radius: 22px;
-      box-shadow: 0 14px 35px rgba(55,38,0,.15);
+
+      box-shadow:
+        0 14px 35px rgba(55,38,0,.15);
     }
 
     .prize-gallery img:first-child {
       grid-row: span 2;
     }
 
-    /* ATRAÇÕES */
+    /* =========================
+       ATRAÇÕES
+       ========================= */
 
     .coming {
       background: white;
@@ -475,35 +741,59 @@
 
     .coming-box {
       background:
-        linear-gradient(120deg, var(--navy), #28377a);
+        linear-gradient(
+          120deg,
+          var(--navy),
+          #28377a
+        );
+
       min-height: 430px;
+
       color: white;
+
       border-radius: 38px;
+
       padding: 70px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 50px;
+
       overflow: hidden;
+
       position: relative;
     }
 
     .coming-box::after {
       content: "EM BREVE";
+
       position: absolute;
+
       right: -25px;
       bottom: -22px;
+
       font-size: 115px;
+
       font-weight: 900;
+
       opacity: .06;
+
       white-space: nowrap;
     }
 
     .coming-box h2 {
-      font-size: clamp(44px, 6vw, 78px);
+      font-size: clamp(44px,6vw,78px);
+
       text-transform: uppercase;
+
       letter-spacing: -.05em;
+
       line-height: .9;
+
       max-width: 680px;
     }
 
@@ -511,152 +801,517 @@
       color: var(--orange);
     }
 
-    /* PARTICIPE */
+    /* =========================
+       INSTAGRAM
+       ========================= */
+
+    .instagram-challenge {
+      background: var(--cream);
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .instagram-challenge-box {
+      display: grid;
+
+      grid-template-columns: .85fr 1.15fr;
+
+      gap: 65px;
+
+      align-items: center;
+
+      background: white;
+
+      border-radius: 38px;
+
+      padding: 55px;
+
+      box-shadow: var(--shadow);
+
+      position: relative;
+    }
+
+    .instagram-challenge-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 280px;
+      height: 280px;
+
+      border-radius: 50%;
+
+      background: var(--yellow);
+
+      right: -120px;
+      top: -140px;
+
+      opacity: .8;
+    }
+
+    .instagram-challenge-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 430px;
+      height: 140px;
+
+      border: 3px solid var(--blue);
+
+      border-radius: 50%;
+
+      right: -160px;
+      bottom: -50px;
+
+      transform: rotate(-10deg);
+
+      opacity: .25;
+    }
+
+    .instagram-video {
+      display: flex;
+
+      justify-content: center;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .instagram-video .instagram-media {
+      width: 100% !important;
+
+      min-width: 0 !important;
+
+      max-width: 470px !important;
+
+      margin: 0 !important;
+    }
+
+    .instagram-content {
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .instagram-content h2 {
+      font-size: clamp(39px,5vw,66px);
+
+      line-height: .92;
+
+      letter-spacing: -.05em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 24px;
+    }
+
+    .instagram-content h2 span {
+      color: var(--orange);
+    }
+
+    .instagram-content > p {
+      max-width: 560px;
+
+      font-size: 18px;
+
+      line-height: 1.65;
+
+      color: var(--muted);
+
+      margin-bottom: 28px;
+    }
+
+    .challenge-steps {
+      display: grid;
+
+      gap: 10px;
+
+      margin-bottom: 28px;
+    }
+
+    .challenge-steps div {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      background: var(--cream);
+
+      padding: 13px 17px;
+
+      border-radius: 15px;
+
+      font-weight: 700;
+    }
+
+    .challenge-steps strong {
+      color: var(--orange);
+
+      font-size: 13px;
+
+      letter-spacing: .08em;
+    }
+
+    .challenge-note {
+      display: block;
+
+      margin-top: 17px;
+
+      color: var(--muted);
+
+      line-height: 1.45;
+
+      max-width: 480px;
+    }
+
+    /* =========================
+       PARTICIPAÇÃO
+       ========================= */
 
     .participate {
       background: var(--navy-2);
+
       color: white;
+    }
+
+    .instruction-box {
+      background: rgba(255,210,31,.12);
+
+      border: 1px solid rgba(255,210,31,.35);
+
+      border-radius: 20px;
+
+      padding: 20px;
+
+      margin-bottom: 30px;
+
+      line-height: 1.55;
+    }
+
+    .instruction-box strong {
+      color: var(--yellow);
     }
 
     .polls {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns: repeat(3,1fr);
+
       gap: 16px;
-      margin-bottom: 45px;
+
+      margin-bottom: 28px;
     }
 
     .poll {
       border: 1px solid rgba(255,255,255,.12);
+
       border-radius: 22px;
+
       padding: 25px;
+
       background: rgba(255,255,255,.04);
     }
 
     .poll h3 {
       font-size: 20px;
+
       line-height: 1.15;
+
       margin-bottom: 18px;
+    }
+
+    .required-label {
+      color: var(--orange);
     }
 
     .poll-options {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 8px;
     }
 
     .poll-btn {
       border: 1px solid rgba(255,255,255,.18);
+
       background: rgba(255,255,255,.06);
+
       color: white;
+
       border-radius: 999px;
+
       padding: 10px 13px;
+
       cursor: pointer;
     }
 
     .poll-btn:hover,
     .poll-btn.selected {
       background: var(--orange);
+
       border-color: var(--orange);
     }
 
+    /* CRIANÇAS */
+
+    .children-box {
+      display: none;
+
+      background: rgba(255,255,255,.06);
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      border-radius: 25px;
+
+      padding: 28px;
+
+      margin-bottom: 35px;
+    }
+
+    .children-box.visible {
+      display: block;
+    }
+
+    .children-box h3 {
+      font-size: 24px;
+
+      margin-bottom: 8px;
+    }
+
+    .children-box > p {
+      color: rgba(255,255,255,.7);
+
+      margin-bottom: 20px;
+
+      line-height: 1.5;
+    }
+
+    .child-row {
+      display: grid;
+
+      grid-template-columns: 1fr 160px auto;
+
+      gap: 10px;
+
+      margin-bottom: 10px;
+    }
+
+    .child-field {
+      border: 1px solid rgba(255,255,255,.15);
+
+      border-radius: 13px;
+
+      padding: 13px;
+
+      background: white;
+
+      color: var(--text);
+
+      width: 100%;
+    }
+
+    .remove-child {
+      border: 0;
+
+      background: rgba(255,255,255,.1);
+
+      color: white;
+
+      border-radius: 13px;
+
+      padding: 0 15px;
+
+      cursor: pointer;
+    }
+
+    .add-child {
+      margin-top: 10px;
+    }
+
+    .guest-warning {
+      margin-top: 20px;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      color: rgba(255,255,255,.65);
+    }
+
+    /* FORM */
+
     .form-card {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 45px;
+
       padding: 45px;
+
       background: white;
+
       color: var(--text);
+
       border-radius: 30px;
     }
 
     .form-card h2 {
       font-size: 45px;
+
       line-height: .95;
+
       text-transform: uppercase;
+
       letter-spacing: -.04em;
+
       margin-bottom: 18px;
     }
 
     .form-card p {
       color: var(--muted);
+
       line-height: 1.55;
     }
 
     .form {
       display: grid;
+
       gap: 12px;
     }
 
     .field {
       width: 100%;
+
       border: 1px solid #dfe3ed;
+
       border-radius: 14px;
+
       padding: 14px 16px;
+
       outline: none;
+
       background: #f9fafc;
     }
 
     .field:focus {
       border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(245,130,32,.12);
+
+      box-shadow:
+        0 0 0 3px rgba(245,130,32,.12);
     }
 
     textarea.field {
       min-height: 105px;
+
       resize: vertical;
     }
 
-    /* FOOTER */
+    .form-alert {
+      display: none;
+
+      padding: 13px 15px;
+
+      border-radius: 13px;
+
+      background: #fff1e6;
+
+      color: #a54700;
+
+      font-size: 14px;
+
+      line-height: 1.4;
+    }
+
+    .form-alert.visible {
+      display: block;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
 
     footer {
       background: #080b1c;
+
       color: white;
+
       padding: 46px 0;
     }
 
     .footer-inner {
       display: grid;
+
       grid-template-columns: 1fr auto;
+
       gap: 30px;
+
       align-items: center;
     }
 
     .footer-logo {
       width: 210px;
+
       margin-bottom: 15px;
     }
 
     .footer-copy {
       color: rgba(255,255,255,.55);
+
       font-size: 13px;
     }
 
-    /* TOAST */
+    /* =========================
+       TOAST
+       ========================= */
 
     .toast {
       position: fixed;
+
       left: 50%;
       bottom: 24px;
-      transform: translate(-50%, 120px);
+
+      transform:
+        translate(-50%,120px);
+
       opacity: 0;
+
       background: white;
+
       color: var(--navy);
+
       z-index: 100;
+
       padding: 15px 19px;
+
       border-radius: 999px;
+
       box-shadow: var(--shadow);
+
       font-weight: 800;
+
       transition: .3s;
     }
 
     .toast.show {
-      transform: translate(-50%, 0);
+      transform:
+        translate(-50%,0);
+
       opacity: 1;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media(max-width: 850px) {
+
       .nav a:not(.mini-cta) {
         display: none;
       }
@@ -667,12 +1322,10 @@
 
       .hero {
         min-height: 860px;
-        padding-bottom: 90px;
-        background-position: 61% center;
-      }
 
-      .hero-content {
-        max-width: 100%;
+        padding-bottom: 90px;
+
+        background-position: 61% center;
       }
 
       .hero-logo {
@@ -696,15 +1349,19 @@
 
       .gallery {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 360px 220px 220px;
+
+        grid-template-rows:
+          360px 220px 220px;
       }
 
       .gallery figure:first-child {
         grid-column: span 2;
+
         grid-row: auto;
       }
 
-      .experience-grid {
+      .experience-grid,
+      .video-grid {
         grid-template-columns: 1fr;
       }
 
@@ -714,10 +1371,6 @@
 
       .family-content {
         padding: 40px 28px;
-      }
-
-      .prize-gallery {
-        min-height: 500px;
       }
 
       .coming-box {
@@ -732,18 +1385,36 @@
         padding: 30px 22px;
       }
 
+      .instagram-challenge-box {
+        grid-template-columns: 1fr;
+
+        padding: 35px 25px;
+
+        gap: 40px;
+      }
+
+      .instagram-video {
+        order: 2;
+      }
+
+      .instagram-content {
+        order: 1;
+      }
+
       .footer-inner {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media(max-width: 520px) {
+
       section {
         padding: 70px 0;
       }
 
       .container {
-        width: min(100% - 24px, 1160px);
+        width: min(100% - 24px,1160px);
       }
 
       .hero {
@@ -755,9 +1426,10 @@
       }
 
       .gallery {
-        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 300px);
+
+        grid-template-rows:
+          repeat(4,300px);
       }
 
       .gallery figure:first-child {
@@ -766,626 +1438,1763 @@
 
       .prize-gallery {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 300px 180px;
+
+        grid-template-rows:
+          300px 180px;
       }
 
       .prize-gallery img:first-child {
         grid-column: span 2;
+
         grid-row: auto;
       }
+
+      .child-row {
+        grid-template-columns: 1fr 90px;
+      }
+
+      .remove-child {
+        grid-column: span 2;
+
+        min-height: 42px;
+      }
+
+      .instagram-challenge-box {
+        border-radius: 26px;
+
+        padding: 30px 18px;
+      }
+
+      .instagram-content h2 {
+        font-size: 39px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#inicio">
-        <img
-          class="top-logo"
-          src="logo-conecta26.png"
-          alt="Conecta Profissionais 26"
-        />
+<header class="topbar">
+
+  <div class="container topbar-inner">
+
+    <a href="#inicio">
+
+      <img
+        class="top-logo"
+        src="logo-conecta26.png"
+        alt="Conecta Profissionais 26"
+      />
+
+    </a>
+
+    <nav class="nav">
+
+      <a href="#conecta">O Conecta</a>
+
+      <a href="#experiencias">
+        Experiências
       </a>
 
-      <nav class="nav">
-        <a href="#conecta">O Conecta</a>
-        <a href="#experiencias">Experiências</a>
-        <a href="#pontos">Ponto Premiado</a>
-        <a href="#atracoes">Atrações</a>
-        <a class="mini-cta" href="#participar">Quero ir</a>
-      </nav>
-    </div>
-  </header>
-
-
-  <main>
-
-    <!-- ABERTURA -->
-    <section class="hero" id="inicio">
-      <div class="container">
-        <div class="hero-content">
-
-          <img
-            class="hero-logo"
-            src="logo-conecta26.png"
-            alt="Conecta Profissionais 26"
-          />
-
-          <div class="eyebrow">
-            O grande encontro de quem faz acontecer
-          </div>
-
-          <h1>
-            A festa de <span>quem faz.</span>
-          </h1>
-
-          <p class="hero-copy">
-            Um dia inteiro de encontros, comida boa, música, fornecedores,
-            experiências, prêmios e muita gente que vive a construção todos os dias.
-          </p>
-
-          <div class="hero-info">
-            <div class="info-pill">📍 Haras Kaylua</div>
-            <div class="info-pill">📅 03/10</div>
-            <div class="info-pill">🕘 às 9h</div>
-          </div>
-
-          <div class="actions">
-            <a href="#participar" class="btn btn-primary">
-              Quero participar
-            </a>
-
-            <a href="#experiencias" class="btn btn-outline">
-              Descobrir o evento ↓
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- O CONECTA -->
-    <section id="conecta">
-      <div class="container">
-
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" style="color:var(--orange)">
-              Isso é o Conecta
-            </div>
-
-            <h2>
-              Quem já viveu,
-              <span>sabe.</span>
-            </h2>
-          </div>
-
-          <p>
-            O Conecta reúne os profissionais que fazem a obra acontecer.
-            Mais que uma programação, é um dia para encontrar gente,
-            trocar experiências, comemorar e viver momentos que ficam na memória.
-          </p>
-        </div>
-
-        <div class="gallery">
-
-          <figure>
-            <img src="publico.jpg" alt="Público de edição anterior do Conecta" />
-            <figcaption>Gente de verdade</figcaption>
-          </figure>
-
-          <figure>
-            <img src="premio-1.jpg" alt="Profissional premiado em edição anterior" />
-            <figcaption>Prêmios</figcaption>
-          </figure>
-
-          <figure>
-            <img src="musica.jpg" alt="Música ao vivo no Conecta" />
-            <figcaption>Música ao vivo</figcaption>
-          </figure>
-
-          <figure>
-            <img src="familia.jpg" alt="Famílias no Conecta" />
-            <figcaption>Família</figcaption>
-          </figure>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- EXPERIÊNCIAS -->
-    <section class="dark-section" id="experiencias">
-      <div class="container">
-
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">O que te espera</div>
-            <h2>
-              Um dia inteiro
-              <span>para viver.</span>
-            </h2>
-          </div>
-
-          <p>
-            Estamos preparando uma experiência completa para os profissionais,
-            seus filhos e todos que fazem parte dessa história.
-          </p>
-        </div>
-
-        <div class="experience-grid">
-
-          <article class="experience-card">
-            <img src="churrasco.jpg" alt="Churrasco de edição anterior" />
-            <div class="experience-body">
-              <span class="tag">Gastronomia</span>
-              <h3>Comida de verdade</h3>
-              <p>
-                Um dos momentos mais esperados do dia:
-                comida boa e aquele clima perfeito para confraternizar.
-              </p>
-            </div>
-          </article>
-
-          <article class="experience-card">
-            <img src="musica.jpg" alt="Músicos em edição anterior do Conecta" />
-            <div class="experience-body">
-              <span class="tag">Celebração</span>
-              <h3>Música ao vivo</h3>
-              <p>
-                Porque um grande encontro também merece música,
-                diversão e bons momentos.
-              </p>
-            </div>
-          </article>
-
-          <article class="experience-card">
-            <img src="publico.jpg" alt="Profissionais reunidos" />
-            <div class="experience-body">
-              <span class="tag">Profissão</span>
-              <h3>Experiências e fornecedores</h3>
-              <p>
-                Demonstrações, workshops, grandes marcas
-                e muito conteúdo para quem faz acontecer.
-              </p>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- FAMÍLIA -->
-    <section>
-      <div class="container">
-
-        <div class="family">
-
-          <div class="family-image"></div>
-
-          <div class="family-content">
-
-            <div class="eyebrow" style="color:var(--navy)">
-              Esse dia também é deles
-            </div>
-
-            <h2>
-              Pode trazer
-              seus filhos.
-            </h2>
-
-            <p>
-              O Conecta é um dia para compartilhar.
-              Os profissionais podem trazer seus filhos para viver
-              esse momento junto com eles.
-            </p>
-
-            <button
-              class="btn btn-dark"
-              onclick="selectFamily()"
-              style="align-self:flex-start"
-            >
-              Vou levar meu filho
-            </button>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- PONTO PREMIADO -->
-    <section class="points" id="pontos">
-      <div class="container">
-
-        <div class="points-grid">
-
-          <div>
-
-            <img
-              class="points-logo"
-              src="logo-ponto-premiado.png"
-              alt="Programa Ponto Premiado"
-            />
-
-            <div class="eyebrow" style="color:var(--navy)">
-              Ponto Premiado no Conecta
-            </div>
-
-            <h2>
-              Seus pontos
-              também vêm
-              pra festa.
-            </h2>
-
-            <p class="points-copy">
-              A lojinha do Ponto Premiado estará no evento.
-              Você poderá usar seus pontos para resgatar produtos
-              e aproveitar ainda mais o Conecta.
-            </p>
-
-            <button
-              class="btn btn-dark"
-              onclick="sendWhatsApp('Quero saber mais sobre o Ponto Premiado no Conecta 26.')"
-            >
-              Quero saber dos meus pontos
-            </button>
-
-          </div>
-
-
-          <div class="prize-gallery">
-
-            <img
-              src="ponto-premiado.png"
-              alt="Lojinha Ponto Premiado no Conecta"
-            />
-
-            <img
-              src="premio-2.jpg"
-              alt="Produto entregue no Conecta"
-            />
-
-            <img
-              src="premio-3.jpg"
-              alt="Profissional com prêmio"
-            />
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ATRAÇÕES -->
-    <section class="coming" id="atracoes">
-      <div class="container">
-
-        <div class="coming-box">
-
-          <div>
-            <div class="eyebrow">Conecta 26</div>
-
-            <h2>
-              Tem muito mais
-              <span>vindo aí.</span>
-            </h2>
-
-            <p style="
-              margin-top:25px;
-              max-width:540px;
-              line-height:1.6;
-              color:rgba(255,255,255,.75)
-            ">
-              Estamos preparando as atrações do Conecta 26.
-              Em breve, você vai conhecer tudo que fará parte deste dia.
-            </p>
-          </div>
-
-          <a href="#participar" class="btn btn-yellow">
-            Quero receber novidades
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- PARTICIPAÇÃO -->
-    <section class="participate" id="participar">
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <div class="eyebrow">Agora queremos ouvir você</div>
-
-            <h2>
-              Faça parte
-              <span>desde agora.</span>
-            </h2>
-          </div>
-
-          <p>
-            Conta pra gente como você pretende viver o Conecta 26.
-            Sua resposta será enviada diretamente para a equipe Rezende
-            pelo WhatsApp.
-          </p>
-
-        </div>
-
-
-        <div class="polls">
-
-          <div class="poll">
-            <h3>Você já participou de algum Conecta?</h3>
-
-            <div class="poll-options">
-              <button class="poll-btn" data-group="participou" data-value="Sim">
-                🔥 Sim
-              </button>
-
-              <button class="poll-btn" data-group="participou" data-value="Não">
-                👀 Ainda não
-              </button>
-            </div>
-          </div>
-
-
-          <div class="poll">
-            <h3>Vai levar seu filho?</h3>
-
-            <div class="poll-options">
-              <button class="poll-btn" data-group="filho" data-value="Sim">
-                👨‍👧 Sim
-              </button>
-
-              <button class="poll-btn" data-group="filho" data-value="Talvez">
-                🤔 Talvez
-              </button>
-
-              <button class="poll-btn" data-group="filho" data-value="Não">
-                Não
-              </button>
-            </div>
-          </div>
-
-
-          <div class="poll">
-            <h3>O que mais te anima?</h3>
-
-            <div class="poll-options">
-              <button class="poll-btn" data-group="interesse" data-value="Comida">
-                🍖 Comida
-              </button>
-
-              <button class="poll-btn" data-group="interesse" data-value="Música">
-                🎵 Música
-              </button>
-
-              <button class="poll-btn" data-group="interesse" data-value="Ponto Premiado">
-                🎁 Ponto Premiado
-              </button>
-
-              <button class="poll-btn" data-group="interesse" data-value="Workshops">
-                🛠 Workshops
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="form-card">
-
-          <div>
-            <div class="eyebrow" style="color:var(--orange)">
-              Conecta 26
-            </div>
-
-            <h2>
-              Em 2026,
-              queremos você
-              nessa história.
-            </h2>
-
-            <p>
-              Preencha seus dados e clique no botão.
-              Seu WhatsApp abrirá com a mensagem pronta para enviar.
-            </p>
-          </div>
-
-
-          <form class="form" id="confirmationForm">
-
-            <input
-              class="field"
-              id="nome"
-              type="text"
-              placeholder="Seu nome"
-              required
-            />
-
-            <input
-              class="field"
-              id="telefone"
-              type="tel"
-              placeholder="Seu telefone"
-              required
-            />
-
-            <textarea
-              class="field"
-              id="mensagem"
-              placeholder="O que você gostaria de encontrar no Conecta 26?"
-            ></textarea>
-
-            <button class="btn btn-primary" type="submit">
-              Confirmar interesse pelo WhatsApp
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <footer>
-    <div class="container footer-inner">
-
-      <div>
-        <img
-          class="footer-logo"
-          src="logo-conecta26.png"
-          alt="Conecta Profissionais 26"
-        />
-
-        <div class="footer-copy">
-          Conecta Profissionais 26 • Rezende Materiais para Construção
-        </div>
-      </div>
-
-      <a href="#inicio" class="btn btn-primary">
-        Voltar ao topo ↑
+      <a href="#pontos">
+        Ponto Premiado
       </a>
 
-    </div>
-  </footer>
+      <a href="#atracoes">
+        Atrações
+      </a>
 
+      <a href="#desafio">
+        Concorra
+      </a>
 
-  <div id="toast" class="toast">
-    Resposta registrada ✓
+      <a
+        class="mini-cta"
+        href="#participar"
+      >
+        Quero ir
+      </a>
+
+    </nav>
+
   </div>
 
+</header>
 
-  <script>
 
-    const whatsapp = "5522981740330";
+<main>
 
-    const answers = {
-      participou: "",
-      filho: "",
-      interesse: ""
-    };
 
-    document.querySelectorAll(".poll-btn").forEach(button => {
+<!-- =========================
+     HERO
+     ========================= -->
 
-      button.addEventListener("click", () => {
+<section
+  class="hero"
+  id="inicio"
+>
 
-        const group = button.dataset.group;
-        const value = button.dataset.value;
+  <div class="container">
 
-        answers[group] = value;
+    <div class="hero-content">
 
-        document
-          .querySelectorAll(`[data-group="${group}"]`)
-          .forEach(btn => btn.classList.remove("selected"));
+      <img
+        class="hero-logo"
+        src="logo-conecta26.png"
+        alt="Conecta Profissionais 26"
+      />
 
-        button.classList.add("selected");
+      <div class="eyebrow">
+        O grande encontro de quem faz acontecer
+      </div>
 
-        showToast();
+      <h1>
+        A festa de
+        <span>quem faz.</span>
+      </h1>
 
-      });
+      <p class="hero-copy">
+
+        Um dia inteiro de encontros,
+        comida boa, música,
+        fornecedores, experiências,
+        prêmios e muita gente que vive
+        a construção todos os dias.
+
+      </p>
+
+      <div class="hero-info">
+
+        <div class="info-pill">
+          📍 Haras Kaylua
+        </div>
+
+        <div class="info-pill">
+          📅 03/10
+        </div>
+
+        <div class="info-pill">
+          🕘 às 9h
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <a
+          href="#participar"
+          class="btn btn-primary"
+        >
+          Quero participar
+        </a>
+
+        <a
+          href="#conecta"
+          class="btn btn-outline"
+        >
+          Descobrir o evento ↓
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     O CONECTA
+     ========================= -->
+
+<section
+  id="conecta"
+  class="flow-section"
+>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div
+          class="eyebrow"
+          style="color:var(--orange)"
+        >
+          Isso é o Conecta
+        </div>
+
+        <h2>
+          Quem já viveu,
+          <span>sabe.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        O Conecta reúne os profissionais
+        que fazem a obra acontecer.
+
+        Mais que uma programação,
+        é um dia para encontrar gente,
+        trocar experiências,
+        comemorar e viver momentos
+        que ficam na memória.
+
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <figure>
+
+        <img
+          src="publico.jpg"
+          alt="Público de edição anterior do Conecta"
+        />
+
+        <figcaption>
+          Gente de verdade
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <img
+          src="premio-1.jpg"
+          alt="Profissional premiado em edição anterior"
+        />
+
+        <figcaption>
+          Prêmios
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <img
+          src="musica.jpg"
+          alt="Música ao vivo no Conecta"
+        />
+
+        <figcaption>
+          Música ao vivo
+        </figcaption>
+
+      </figure>
+
+
+      <figure>
+
+        <img
+          src="familia.jpg"
+          alt="Famílias no Conecta"
+        />
+
+        <figcaption>
+          Família
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIÊNCIAS
+     ========================= -->
+
+<section
+  class="dark-section"
+  id="experiencias"
+>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="eyebrow">
+          O que te espera
+        </div>
+
+        <h2>
+          Um dia inteiro
+          <span>para viver.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        Estamos preparando uma experiência
+        completa para os profissionais,
+        seus filhos e netos.
+
+        Um encontro feito para celebrar
+        quem constrói todos os dias.
+
+      </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+      <article class="experience-card">
+
+        <img
+          src="churrasco.jpg"
+          alt="Churrasco de edição anterior"
+        />
+
+        <div class="experience-body">
+
+          <span class="tag">
+            Gastronomia
+          </span>
+
+          <h3>
+            Comida de verdade
+          </h3>
+
+          <p>
+
+            Um dos momentos mais esperados
+            do dia: comida boa e aquele
+            clima perfeito para confraternizar.
+
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="experience-card">
+
+        <img
+          src="musica.jpg"
+          alt="Música ao vivo no Conecta"
+        />
+
+        <div class="experience-body">
+
+          <span class="tag">
+            Celebração
+          </span>
+
+          <h3>
+            Música ao vivo
+          </h3>
+
+          <p>
+
+            Porque um grande encontro
+            também merece música,
+            diversão e bons momentos.
+
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="experience-card">
+
+        <img
+          src="publico.jpg"
+          alt="Profissionais reunidos"
+        />
+
+        <div class="experience-body">
+
+          <span class="tag">
+            Profissão
+          </span>
+
+          <h3>
+            Experiências e fornecedores
+          </h3>
+
+          <p>
+
+            Demonstrações,
+            workshops,
+            grandes marcas
+            e muito conteúdo para
+            quem faz acontecer.
+
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VÍDEOS DAS EDIÇÕES
+     ========================= -->
+
+<section class="videos-section">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div
+          class="eyebrow"
+          style="color:var(--orange)"
+        >
+          Aperte o play
+        </div>
+
+        <h2>
+          Quer saber como
+          <span>é o Conecta?</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        Nada melhor do que ver de perto.
+
+        Relembre as últimas edições
+        e sinta um pouco do clima
+        que estamos preparando
+        para 2026.
+
+      </p>
+
+    </div>
+
+
+    <div class="video-grid">
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/-gRIIjdD5RI"
+            title="Conecta Profissionais 2024"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span>
+            Conecta Profissionais
+          </span>
+
+          <h3>
+            Edição 2024
+          </h3>
+
+          <p style="
+            margin-top:10px;
+            color:rgba(255,255,255,.7);
+            line-height:1.5
+          ">
+            Foi aqui que vivemos uma
+            das grandes edições do Conecta.
+            Em 2026, voltamos ao Haras Kaylua.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="video-card">
+
+        <div class="video-frame">
+
+          <iframe
+            src="https://www.youtube.com/embed/qhNBxtJoTIM"
+            title="Conecta Profissionais 2025"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+        <div class="video-info">
+
+          <span>
+            Conecta Profissionais
+          </span>
+
+          <h3>
+            Edição 2025
+          </h3>
+
+          <p style="
+            margin-top:10px;
+            color:rgba(255,255,255,.7);
+            line-height:1.5
+          ">
+            Mais encontros,
+            experiências,
+            parceiros e histórias
+            de quem faz acontecer.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FAMÍLIA
+     ========================= -->
+
+<section class="flow-section">
+
+  <div class="container">
+
+    <div class="family">
+
+      <div class="family-image"></div>
+
+      <div class="family-content">
+
+        <div
+          class="eyebrow"
+          style="color:var(--navy)"
+        >
+          Esse dia também é deles
+        </div>
+
+        <h2>
+          Pode trazer
+          seus filhos
+          e netos.
+        </h2>
+
+        <p>
+
+          O Conecta é um dia para
+          compartilhar.
+
+          Os profissionais podem trazer
+          seus filhos ou netos para viver
+          esse momento junto com eles.
+
+        </p>
+
+        <p class="family-warning">
+
+          <strong>Importante:</strong>
+          o convite é destinado ao(à)
+          profissional e aos seus filhos
+          ou netos.
+
+          Não será permitida a inclusão
+          de outros tipos de acompanhantes.
+
+        </p>
+
+        <button
+          class="btn btn-dark"
+          onclick="selectFamily()"
+          style="align-self:flex-start"
+        >
+          Vou levar filho ou neto
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PONTO PREMIADO
+     ========================= -->
+
+<section
+  class="points"
+  id="pontos"
+>
+
+  <div class="container">
+
+    <div class="points-grid">
+
+      <div>
+
+        <img
+          class="points-logo"
+          src="logo-ponto-premiado.png"
+          alt="Programa Ponto Premiado"
+        />
+
+        <div
+          class="eyebrow"
+          style="color:var(--navy)"
+        >
+          Ponto Premiado no Conecta
+        </div>
+
+        <h2>
+          Seus pontos
+          também vêm
+          pra festa.
+        </h2>
+
+        <p class="points-copy">
+
+          A lojinha do Ponto Premiado
+          estará no evento.
+
+          Você poderá usar seus pontos
+          para resgatar produtos e
+          aproveitar ainda mais o Conecta.
+
+        </p>
+
+        <button
+          class="btn btn-dark"
+          onclick="sendWhatsApp(
+            'Quero saber mais sobre o Ponto Premiado no Conecta 26.'
+          )"
+        >
+          Quero saber dos meus pontos
+        </button>
+
+      </div>
+
+
+      <div class="prize-gallery">
+
+        <img
+          src="ponto-premiado.png"
+          alt="Lojinha Ponto Premiado no Conecta"
+        />
+
+        <img
+          src="premio-2.jpg"
+          alt="Produto entregue no Conecta"
+        />
+
+        <img
+          src="premio-3.jpg"
+          alt="Profissional com prêmio"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ATRAÇÕES
+     ========================= -->
+
+<section
+  class="coming"
+  id="atracoes"
+>
+
+  <div class="container">
+
+    <div class="coming-box">
+
+      <div>
+
+        <div class="eyebrow">
+          Conecta 26
+        </div>
+
+        <h2>
+          Tem muito mais
+          <span>vindo aí.</span>
+        </h2>
+
+        <p style="
+          margin-top:25px;
+          max-width:540px;
+          line-height:1.6;
+          color:rgba(255,255,255,.75)
+        ">
+
+          Estamos preparando as atrações
+          do Conecta 26.
+
+          Em breve, você vai conhecer
+          tudo que fará parte deste dia.
+
+        </p>
+
+      </div>
+
+      <a
+        href="#participar"
+        class="btn btn-yellow"
+      >
+        Quero receber novidades
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DESAFIO INSTAGRAM
+     ========================= -->
+
+<section
+  class="instagram-challenge"
+  id="desafio"
+>
+
+  <div class="container">
+
+    <div class="instagram-challenge-box">
+
+
+      <div class="instagram-video">
+
+        <blockquote
+          class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/reel/DczJ9NgyE8M/?utm_source=ig_embed&amp;utm_campaign=loading"
+          data-instgrm-version="14"
+        >
+        </blockquote>
+
+      </div>
+
+
+      <div class="instagram-content">
+
+        <div
+          class="eyebrow"
+          style="color:var(--orange)"
+        >
+          🔥 O Conecta já começou
+        </div>
+
+        <h2>
+
+          Seu comentário
+          pode valer uma
+
+          <span>
+            surpresa especial.
+          </span>
+
+        </h2>
+
+        <p>
+
+          Assista ao vídeo no nosso
+          Instagram e deixe seu comentário.
+
+          O melhor comentário vai ganhar
+          algo especial no
+
+          <strong>
+            Conecta Profissionais 26.
+          </strong>
+
+        </p>
+
+
+        <div class="challenge-steps">
+
+          <div>
+            <strong>01</strong>
+            Assista ao vídeo
+          </div>
+
+          <div>
+            <strong>02</strong>
+            Deixe seu comentário
+          </div>
+
+          <div>
+            <strong>03</strong>
+            Capriche — queremos criatividade 👀
+          </div>
+
+        </div>
+
+
+        <a
+          href="https://www.instagram.com/reel/DczJ9NgyE8M/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary"
+        >
+          💬 Assistir e comentar no Instagram
+        </a>
+
+
+        <small class="challenge-note">
+
+          🎁 O melhor comentário vai ganhar
+          uma surpresa especial no Conecta 26.
+
+        </small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PARTICIPAÇÃO
+     ========================= -->
+
+<section
+  class="participate"
+  id="participar"
+>
+
+  <div class="container">
+
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="eyebrow">
+          Agora queremos ouvir você
+        </div>
+
+        <h2>
+          Faça parte
+          <span>desde agora.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        Responda às perguntas abaixo
+        e depois preencha seus dados.
+
+        Ao finalizar, seu WhatsApp abrirá
+        com todas as respostas prontas
+        para enviar à equipe Rezende.
+
+      </p>
+
+    </div>
+
+
+    <div class="instruction-box">
+
+      <strong>
+        👇 Antes de confirmar:
+      </strong>
+
+      responda todas as perguntas abaixo.
+
+      Se você for levar filhos ou netos,
+      informe também o nome e a idade
+      de cada criança.
+
+    </div>
+
+
+    <div class="polls">
+
+
+      <div class="poll">
+
+        <h3>
+          Você já participou de algum Conecta?
+          <span class="required-label">*</span>
+        </h3>
+
+        <div class="poll-options">
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="participou"
+            data-value="Sim"
+          >
+            🔥 Sim
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="participou"
+            data-value="Não"
+          >
+            👀 Ainda não
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="poll">
+
+        <h3>
+          Vai levar filho ou neto?
+          <span class="required-label">*</span>
+        </h3>
+
+        <div class="poll-options">
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="filho"
+            data-value="Sim"
+          >
+            👨‍👧 Sim
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="filho"
+            data-value="Talvez"
+          >
+            🤔 Talvez
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="filho"
+            data-value="Não"
+          >
+            Não
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="poll">
+
+        <h3>
+          O que mais te anima?
+          <span class="required-label">*</span>
+        </h3>
+
+        <div class="poll-options">
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="interesse"
+            data-value="Comida"
+          >
+            🍖 Comida
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="interesse"
+            data-value="Música"
+          >
+            🎵 Música
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="interesse"
+            data-value="Ponto Premiado"
+          >
+            🎁 Ponto Premiado
+          </button>
+
+          <button
+            type="button"
+            class="poll-btn"
+            data-group="interesse"
+            data-value="Workshops"
+          >
+            🛠 Workshops
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FILHOS / NETOS -->
+
+    <div
+      class="children-box"
+      id="childrenBox"
+    >
+
+      <h3>
+        👧 Quem vai com você?
+      </h3>
+
+      <p>
+
+        Informe o nome e a idade
+        de cada filho ou neto.
+
+        Se for levar mais de um,
+        clique em “Adicionar outra criança”.
+
+      </p>
+
+
+      <div id="childrenList">
+
+        <div class="child-row">
+
+          <input
+            class="child-field child-name"
+            type="text"
+            placeholder="Nome do filho ou neto"
+          />
+
+          <input
+            class="child-field child-age"
+            type="number"
+            min="0"
+            max="17"
+            placeholder="Idade"
+          />
+
+          <button
+            type="button"
+            class="remove-child"
+            onclick="removeChild(this)"
+          >
+            Remover
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="btn btn-yellow add-child"
+        onclick="addChild()"
+      >
+        + Adicionar outra criança
+      </button>
+
+
+      <div class="guest-warning">
+
+        ℹ️ O convite é limitado ao(à)
+        profissional e seus filhos ou netos.
+
+        Não é permitida a inclusão
+        de outros acompanhantes.
+
+      </div>
+
+    </div>
+
+
+    <!-- FORMULÁRIO -->
+
+    <div class="form-card">
+
+      <div>
+
+        <div
+          class="eyebrow"
+          style="color:var(--orange)"
+        >
+          Último passo
+        </div>
+
+        <h2>
+          Em 2026,
+          queremos você
+          nessa história.
+        </h2>
+
+        <p>
+
+          Depois de responder tudo,
+          preencha seus dados e clique
+          em confirmar.
+
+          Seu WhatsApp abrirá com
+          a mensagem pronta.
+
+        </p>
+
+      </div>
+
+
+      <form
+        class="form"
+        id="confirmationForm"
+      >
+
+        <input
+          class="field"
+          id="nome"
+          type="text"
+          placeholder="Seu nome"
+          required
+        />
+
+        <input
+          class="field"
+          id="telefone"
+          type="tel"
+          placeholder="Seu telefone"
+          required
+        />
+
+        <textarea
+          class="field"
+          id="mensagem"
+          placeholder="O que você gostaria de encontrar no Conecta 26?"
+        ></textarea>
+
+
+        <div
+          class="form-alert"
+          id="formAlert"
+        >
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Confirmar interesse pelo WhatsApp
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+
+      <img
+        class="footer-logo"
+        src="logo-conecta26.png"
+        alt="Conecta Profissionais 26"
+      />
+
+      <div class="footer-copy">
+
+        Conecta Profissionais 26
+        • Rezende Materiais para Construção
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#inicio"
+      class="btn btn-primary"
+    >
+      Voltar ao topo ↑
+    </a>
+
+  </div>
+
+</footer>
+
+
+<div
+  id="toast"
+  class="toast"
+>
+  Resposta registrada ✓
+</div>
+
+
+<!-- SCRIPT OFICIAL DO INSTAGRAM -->
+
+<script
+  async
+  src="https://www.instagram.com/embed.js"
+></script>
+
+
+<script>
+
+  /* =========================
+     CONFIGURAÇÃO
+     ========================= */
+
+  const whatsapp = "5522981740330";
+
+  const answers = {
+    participou: "",
+    filho: "",
+    interesse: ""
+  };
+
+
+  /* =========================
+     PERGUNTAS
+     ========================= */
+
+  document
+    .querySelectorAll(".poll-btn")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const group =
+            button.dataset.group;
+
+          const value =
+            button.dataset.value;
+
+          answers[group] = value;
+
+
+          document
+            .querySelectorAll(
+              `[data-group="${group}"]`
+            )
+            .forEach(btn =>
+              btn.classList.remove("selected")
+            );
+
+
+          button.classList.add("selected");
+
+
+          if (group === "filho") {
+
+            updateChildrenBox();
+
+          }
+
+
+          showToast();
+
+        }
+      );
 
     });
 
-    function showToast() {
 
-      const toast = document.getElementById("toast");
+  /* =========================
+     TOAST
+     ========================= */
 
-      toast.classList.add("show");
+  function showToast() {
 
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 1700);
+    const toast =
+      document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    },1700);
+
+  }
+
+
+  /* =========================
+     FILHOS / NETOS
+     ========================= */
+
+  function updateChildrenBox() {
+
+    const box =
+      document.getElementById(
+        "childrenBox"
+      );
+
+    if (
+      answers.filho === "Sim" ||
+      answers.filho === "Talvez"
+    ) {
+
+      box.classList.add("visible");
+
+    } else {
+
+      box.classList.remove("visible");
 
     }
 
-    function selectFamily() {
+  }
 
-      answers.filho = "Sim";
 
-      document
-        .querySelectorAll('[data-group="filho"]')
-        .forEach(btn => btn.classList.remove("selected"));
+  function selectFamily() {
 
-      const sim = document.querySelector(
+    answers.filho = "Sim";
+
+
+    document
+      .querySelectorAll(
+        '[data-group="filho"]'
+      )
+      .forEach(btn =>
+        btn.classList.remove("selected")
+      );
+
+
+    const sim =
+      document.querySelector(
         '[data-group="filho"][data-value="Sim"]'
       );
 
-      if (sim) sim.classList.add("selected");
 
-      document
-        .getElementById("participar")
-        .scrollIntoView({ behavior: "smooth" });
+    if (sim) {
 
-    }
-
-    function sendWhatsApp(message) {
-
-      const url =
-        `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
-
-      window.open(url, "_blank");
+      sim.classList.add("selected");
 
     }
+
+
+    updateChildrenBox();
+
 
     document
-      .getElementById("confirmationForm")
-      .addEventListener("submit", function(event) {
+      .getElementById("participar")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  }
+
+
+  function addChild() {
+
+    const list =
+      document.getElementById(
+        "childrenList"
+      );
+
+
+    const row =
+      document.createElement("div");
+
+
+    row.className =
+      "child-row";
+
+
+    row.innerHTML = `
+
+      <input
+        class="child-field child-name"
+        type="text"
+        placeholder="Nome do filho ou neto"
+      />
+
+      <input
+        class="child-field child-age"
+        type="number"
+        min="0"
+        max="17"
+        placeholder="Idade"
+      />
+
+      <button
+        type="button"
+        class="remove-child"
+        onclick="removeChild(this)"
+      >
+        Remover
+      </button>
+
+    `;
+
+
+    list.appendChild(row);
+
+  }
+
+
+  function removeChild(button) {
+
+    const rows =
+      document.querySelectorAll(
+        ".child-row"
+      );
+
+
+    if (rows.length === 1) {
+
+      rows[0]
+        .querySelector(".child-name")
+        .value = "";
+
+      rows[0]
+        .querySelector(".child-age")
+        .value = "";
+
+      return;
+
+    }
+
+
+    button
+      .closest(".child-row")
+      .remove();
+
+  }
+
+
+  function getChildren() {
+
+    const rows =
+      document.querySelectorAll(
+        ".child-row"
+      );
+
+
+    const children = [];
+
+
+    rows.forEach(
+      (row,index) => {
+
+        const name =
+          row
+            .querySelector(".child-name")
+            .value
+            .trim();
+
+
+        const age =
+          row
+            .querySelector(".child-age")
+            .value
+            .trim();
+
+
+        if (name || age) {
+
+          children.push({
+
+            number:index + 1,
+
+            name:name,
+
+            age:age
+
+          });
+
+        }
+
+      }
+    );
+
+
+    return children;
+
+  }
+
+
+  /* =========================
+     WHATSAPP
+     ========================= */
+
+  function sendWhatsApp(message) {
+
+    const url =
+      `https://wa.me/${whatsapp}?text=${
+        encodeURIComponent(message)
+      }`;
+
+
+    window.open(
+      url,
+      "_blank"
+    );
+
+  }
+
+
+  /* =========================
+     FORMULÁRIO
+     ========================= */
+
+  document
+    .getElementById(
+      "confirmationForm"
+    )
+    .addEventListener(
+      "submit",
+      function(event) {
 
         event.preventDefault();
 
+
         const nome =
-          document.getElementById("nome").value.trim();
+          document
+            .getElementById("nome")
+            .value
+            .trim();
+
 
         const telefone =
-          document.getElementById("telefone").value.trim();
+          document
+            .getElementById("telefone")
+            .value
+            .trim();
+
 
         const mensagem =
-          document.getElementById("mensagem").value.trim();
+          document
+            .getElementById("mensagem")
+            .value
+            .trim();
+
+
+        const alertBox =
+          document.getElementById(
+            "formAlert"
+          );
+
+
+        alertBox.classList.remove(
+          "visible"
+        );
+
+
+        /* VALIDA AS PERGUNTAS */
+
+        if (
+          !answers.participou ||
+          !answers.filho ||
+          !answers.interesse
+        ) {
+
+          alertBox.innerHTML =
+            "⚠️ Responda todas as perguntas acima antes de confirmar.";
+
+          alertBox.classList.add(
+            "visible"
+          );
+
+
+          document
+            .getElementById("participar")
+            .scrollIntoView({
+              behavior:"smooth"
+            });
+
+          return;
+
+        }
+
+
+        /* VALIDA FILHOS / NETOS */
+
+        let childrenText =
+          "Não levará filhos ou netos";
+
+
+        if (
+          answers.filho === "Sim" ||
+          answers.filho === "Talvez"
+        ) {
+
+          const children =
+            getChildren();
+
+
+          if (
+            answers.filho === "Sim" &&
+            children.length === 0
+          ) {
+
+            alertBox.innerHTML =
+              "⚠️ Como você informou que levará filho ou neto, preencha o nome e a idade da criança.";
+
+            alertBox.classList.add(
+              "visible"
+            );
+
+            document
+              .getElementById(
+                "childrenBox"
+              )
+              .scrollIntoView({
+                behavior:"smooth"
+              });
+
+            return;
+
+          }
+
+
+          for (
+            const child of children
+          ) {
+
+            if (
+              !child.name ||
+              child.age === ""
+            ) {
+
+              alertBox.innerHTML =
+                "⚠️ Preencha o nome e a idade de cada filho ou neto informado.";
+
+              alertBox.classList.add(
+                "visible"
+              );
+
+              document
+                .getElementById(
+                  "childrenBox"
+                )
+                .scrollIntoView({
+                  behavior:"smooth"
+                });
+
+              return;
+
+            }
+
+          }
+
+
+          if (children.length > 0) {
+
+            childrenText =
+              children
+                .map(
+                  (child,index) =>
+                    `${index + 1}. ${child.name} — ${child.age} anos`
+                )
+                .join("\n");
+
+          } else {
+
+            childrenText =
+              "Ainda não informou as crianças.";
+
+          }
+
+        }
+
+
+        /* MENSAGEM FINAL */
 
         const text =
-`Olá! Quero participar do Conecta Profissionais 26.
+`Olá! Quero participar do Conecta Profissionais 26. 🎉
 
-Nome: ${nome}
-Telefone: ${telefone}
+👤 Nome:
+${nome}
 
-Já participou do Conecta?
-${answers.participou || "Não informado"}
+📱 Telefone:
+${telefone}
 
-Vai levar filho?
-${answers.filho || "Não informado"}
+🔥 Já participou de algum Conecta?
+${answers.participou}
 
-Maior interesse:
-${answers.interesse || "Não informado"}
+👧 Vai levar filho ou neto?
+${answers.filho}
 
-Mensagem:
+👨‍👩‍👧 Filhos/netos:
+${childrenText}
+
+⭐ O que mais me anima:
+${answers.interesse}
+
+💬 O que gostaria de encontrar no Conecta 26:
 ${mensagem || "Sem mensagem adicional"}
 
-Local: Haras Kaylua
-Data: 03/10
-Horário: 9h`;
+📍 Haras Kaylua
+📅 03/10
+🕘 A partir das 9h
+
+Conecta Profissionais 26 — A festa de quem faz!`;
+
 
         sendWhatsApp(text);
 
-      });
+      }
+    );
 
-  </script>
+</script>
+
 
 </body>
 </html>
