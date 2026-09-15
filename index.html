@@ -175,7 +175,6 @@ section{
   display:flex;
   align-items:flex-end;
   padding:130px 0 75px;
-
   background:
     linear-gradient(
       90deg,
@@ -235,8 +234,6 @@ section{
   margin:24px 0 28px;
   color:rgba(255,255,255,.9);
 }
-
-/* LOCAL */
 
 .event-details{
   display:flex;
@@ -1463,8 +1460,6 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 
 <div class="experience-grid">
 
-<!-- COMIDA -->
-
 <article class="experience-card">
 
 <div class="card-carousel" data-carousel>
@@ -1489,8 +1484,6 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 </div>
 
 </article>
-
-<!-- MÚSICA -->
 
 <article class="experience-card">
 
@@ -1517,8 +1510,6 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 
 </article>
 
-<!-- EXPERIÊNCIAS -->
-
 <article class="experience-card">
 
 <div class="card-carousel" data-carousel>
@@ -1543,8 +1534,6 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 </div>
 
 </article>
-
-<!-- RECREAÇÃO -->
 
 <article class="experience-card">
 
@@ -2053,7 +2042,7 @@ data-value="Recreação">
 </div>
 </div>
 
-<!-- 04 UNIDADE -->
+<!-- 04 -->
 
 <div class="form-step">
 
@@ -2118,7 +2107,7 @@ Loja Leblon - RJ
 </div>
 </div>
 
-<!-- 05 DADOS -->
+<!-- 05 -->
 
 <div class="form-step">
 
@@ -2144,7 +2133,9 @@ id="telefone"
 name="telefone"
 type="tel"
 autocomplete="tel"
-placeholder="Seu telefone *">
+inputmode="numeric"
+maxlength="15"
+placeholder="Telefone com DDD * — (22) 99868-1248">
 
 <textarea
 class="form-field full"
@@ -2181,11 +2172,7 @@ Confirmar meu interesse →
 
 </form>
 
-<!-- SUCESSO -->
-
-<div
-class="success-box"
-id="successBox">
+<div class="success-box" id="successBox">
 
 <div class="success-icon">✓</div>
 
@@ -2255,6 +2242,46 @@ const answers = {
 const interests = new Set();
 
 let enviando = false;
+
+/* =========================================================
+   MÁSCARA DO TELEFONE
+========================================================= */
+
+const telefoneInput =
+  document.getElementById("telefone");
+
+function formatarTelefone(valor){
+
+  const numeros =
+    valor
+      .replace(/\D/g,"")
+      .slice(0,11);
+
+  if(numeros.length === 0){
+    return "";
+  }
+
+  if(numeros.length <= 2){
+    return `(${numeros}`;
+  }
+
+  if(numeros.length <= 7){
+    return `(${numeros.slice(0,2)}) ${numeros.slice(2)}`;
+  }
+
+  return `(${numeros.slice(0,2)}) ${numeros.slice(2,7)}-${numeros.slice(7,11)}`;
+
+}
+
+telefoneInput.addEventListener(
+  "input",
+  function(){
+
+    this.value =
+      formatarTelefone(this.value);
+
+  }
+);
 
 /* =========================================================
    CARROSSÉIS
@@ -2695,6 +2722,9 @@ document
         .value
         .trim();
 
+    const telefoneNumeros =
+      telefone.replace(/\D/g,"");
+
     const mensagem =
       document
         .getElementById("mensagem")
@@ -2814,11 +2844,41 @@ document
     if(!telefone){
 
       showError(
-        "⚠️ Preencha seu telefone."
+        "⚠️ Preencha seu telefone com DDD."
       );
 
       return;
     }
+
+    /*
+      TELEFONE BRASILEIRO:
+      2 dígitos de DDD + 9 dígitos do celular.
+      Exemplo: 22998681248
+    */
+
+    if(
+      telefoneNumeros.length !== 11 ||
+      telefoneNumeros.charAt(2) !== "9"
+    ){
+
+      showError(
+        "⚠️ Digite um celular válido com DDD. Exemplo: (22) 99868-1248."
+      );
+
+      telefoneInput.focus();
+
+      return;
+    }
+
+    /*
+      Garante que o valor enviado à planilha
+      esteja no formato (22) 99868-1248.
+    */
+
+    const telefoneFormatado =
+      formatarTelefone(
+        telefoneNumeros
+      );
 
     /* DADOS DA PLANILHA */
 
@@ -2826,7 +2886,7 @@ document
 
       nome:nome,
 
-      telefone:telefone,
+      telefone:telefoneFormatado,
 
       unidade:answers.unidade,
 
@@ -2862,18 +2922,6 @@ document
 
     try{
 
-      /*
-        O Apps Script recebe JSON.
-
-        mode:no-cors é usado porque o site está
-        hospedado em domínio diferente do Google
-        Apps Script.
-
-        O navegador não disponibiliza a resposta
-        para leitura, mas o POST é enviado ao
-        Apps Script.
-      */
-
       await fetch(
         SCRIPT_URL,
         {
@@ -2890,11 +2938,6 @@ document
             JSON.stringify(dados)
         }
       );
-
-      /*
-        O fetch resolveu sem erro de rede.
-        Exibimos a confirmação para o usuário.
-      */
 
       document
         .getElementById(
