@@ -74,7 +74,9 @@ section{
   padding:95px 0;
 }
 
-/* TOPO */
+/* =========================================================
+   TOPO
+========================================================= */
 
 .topbar{
   position:fixed;
@@ -119,7 +121,9 @@ section{
   border-radius:999px;
 }
 
-/* BOTÕES */
+/* =========================================================
+   BOTÕES
+========================================================= */
 
 .btn{
   border:0;
@@ -159,7 +163,9 @@ section{
   background:transparent;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
   min-height:100vh;
@@ -228,6 +234,10 @@ section{
   margin:24px 0 28px;
   color:rgba(255,255,255,.9);
 }
+
+/* =========================================================
+   LOCAL / DATA / HORA
+========================================================= */
 
 .event-details{
   display:flex;
@@ -316,7 +326,9 @@ section{
   gap:12px;
 }
 
-/* CABEÇALHOS */
+/* =========================================================
+   CABEÇALHOS
+========================================================= */
 
 .section-head{
   display:grid;
@@ -343,7 +355,9 @@ section{
   color:var(--muted);
 }
 
-/* GALERIA */
+/* =========================================================
+   QUEM JÁ VIVEU
+========================================================= */
 
 .gallery{
   display:grid;
@@ -387,7 +401,9 @@ section{
   font-weight:900;
 }
 
-/* EXPERIÊNCIAS */
+/* =========================================================
+   EXPERIÊNCIAS / CARROSSÉIS
+========================================================= */
 
 .dark-section{
   background:var(--navy2);
@@ -427,11 +443,13 @@ section{
   position:absolute;
   inset:0;
   opacity:0;
-  transition:opacity .5s ease;
+  pointer-events:none;
+  transition:opacity .45s ease;
 }
 
 .carousel-slide.active{
   opacity:1;
+  pointer-events:auto;
 }
 
 .carousel-slide img{
@@ -455,10 +473,16 @@ section{
   display:flex;
   align-items:center;
   justify-content:center;
+  backdrop-filter:blur(6px);
 }
 
-.carousel-arrow.prev{left:12px;}
-.carousel-arrow.next{right:12px;}
+.carousel-arrow.prev{
+  left:12px;
+}
+
+.carousel-arrow.next{
+  right:12px;
+}
 
 .carousel-dots{
   position:absolute;
@@ -511,7 +535,9 @@ section{
   color:rgba(255,255,255,.7);
 }
 
-/* VÍDEOS */
+/* =========================================================
+   VÍDEOS
+========================================================= */
 
 .videos-section{
   background:white;
@@ -566,7 +592,9 @@ section{
   line-height:1.5;
 }
 
-/* FAMÍLIA */
+/* =========================================================
+   FAMÍLIA
+========================================================= */
 
 .family{
   display:grid;
@@ -600,12 +628,14 @@ section{
 .family-content p{
   line-height:1.65;
   font-size:18px;
+  max-width:480px;
   margin-bottom:18px;
 }
 
 .family-age{
   display:inline-flex;
   align-items:center;
+  gap:10px;
   align-self:flex-start;
   margin-bottom:18px;
   background:var(--navy);
@@ -620,9 +650,12 @@ section{
   background:rgba(255,255,255,.55);
   padding:14px 16px;
   border-radius:15px;
+  margin-bottom:25px!important;
 }
 
-/* PONTO PREMIADO */
+/* =========================================================
+   PONTO PREMIADO
+========================================================= */
 
 .points{
   background:
@@ -655,6 +688,7 @@ section{
   font-size:18px;
   line-height:1.6;
   margin-bottom:25px;
+  max-width:560px;
 }
 
 .prize-showcase{
@@ -670,6 +704,7 @@ section{
   height:545px;
   border-radius:27px;
   overflow:hidden;
+  box-shadow:0 20px 45px rgba(55,38,0,.18);
 }
 
 .prize-main img{
@@ -695,6 +730,7 @@ section{
   overflow:hidden;
   padding:0;
   background:none;
+  position:relative;
 }
 
 .prize-thumb img{
@@ -717,19 +753,25 @@ section{
 .extra-prizes .extra-prize{
   width:100%;
   aspect-ratio:3/4;
+  height:auto;
+  padding:0;
   border:0;
   border-radius:22px;
   overflow:hidden;
-  padding:0;
+  background:var(--navy);
+  box-shadow:0 14px 30px rgba(55,38,0,.14);
 }
 
 .extra-prizes .extra-prize img{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center;
 }
 
-/* INSTAGRAM */
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
 .instagram-challenge{
   background:var(--cream);
@@ -771,6 +813,7 @@ section{
 }
 
 .instagram-content>p{
+  max-width:560px;
   font-size:18px;
   line-height:1.65;
   color:var(--muted);
@@ -790,7 +833,9 @@ section{
   font-weight:700;
 }
 
-/* FORMULÁRIO */
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
 
 .participate{
   background:var(--navy2);
@@ -808,6 +853,7 @@ section{
   border-radius:32px;
   background:#171d3b;
   border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 28px 70px rgba(0,0,0,.22);
 }
 
 .journey-intro{
@@ -816,12 +862,13 @@ section{
 }
 
 .journey-intro h3{
-  font-size:32px;
+  font-size:clamp(28px,4vw,43px);
   text-transform:uppercase;
+  letter-spacing:-.04em;
+  margin-bottom:12px;
 }
 
 .journey-intro p{
-  margin-top:12px;
   color:rgba(255,255,255,.7);
   line-height:1.6;
 }
@@ -883,6 +930,7 @@ section{
   padding:23px;
   border-radius:20px;
   background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.11);
 }
 
 .children-box.visible{
@@ -890,11 +938,13 @@ section{
 }
 
 .age-rule{
-  padding:15px 17px;
   margin-bottom:20px;
+  padding:15px 17px;
   border-radius:15px;
   background:rgba(255,210,31,.12);
   border:1px solid rgba(255,210,31,.32);
+  color:rgba(255,255,255,.85);
+  line-height:1.5;
 }
 
 .age-rule strong{
@@ -911,11 +961,19 @@ section{
 .child-field,
 .form-field{
   width:100%;
+  min-width:0;
   padding:13px;
   border-radius:13px;
   border:1px solid #dfe3ed;
   background:white;
   color:var(--text);
+  outline:none;
+}
+
+.child-field:focus,
+.form-field:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(245,130,32,.12);
 }
 
 .remove-child{
@@ -926,11 +984,16 @@ section{
   padding:0 14px;
 }
 
+.add-child{
+  margin-top:8px;
+}
+
 .guest-warning{
   margin-top:19px;
   padding:14px 16px;
-  background:rgba(255,255,255,.06);
   border-radius:14px;
+  background:rgba(255,255,255,.06);
+  color:rgba(255,255,255,.72);
   font-size:13px;
   line-height:1.55;
 }
@@ -941,12 +1004,17 @@ section{
   gap:11px;
 }
 
+.form-field{
+  padding:14px 16px;
+}
+
 .form-field.full{
   grid-column:1/-1;
 }
 
 textarea.form-field{
   min-height:115px;
+  resize:vertical;
 }
 
 .submit-area{
@@ -956,16 +1024,18 @@ textarea.form-field{
 .confirmation-note{
   color:rgba(255,255,255,.62);
   font-size:13px;
+  line-height:1.55;
   margin-bottom:16px;
 }
 
 .form-alert{
   display:none;
-  padding:14px;
+  padding:14px 16px;
   margin-bottom:15px;
   border-radius:14px;
   background:#fff1e6;
   color:#a54700;
+  font-size:14px;
 }
 
 .form-alert.visible{
@@ -974,9 +1044,12 @@ textarea.form-field{
 
 .submit-btn{
   width:100%;
+  min-height:58px;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
   background:#080b1c;
@@ -988,6 +1061,7 @@ footer{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:30px;
 }
 
 .footer-logo{
@@ -1000,7 +1074,9 @@ footer{
   font-size:13px;
 }
 
-/* RESPONSIVO */
+/* =========================================================
+   RESPONSIVO
+========================================================= */
 
 @media(max-width:850px){
 
@@ -1008,10 +1084,23 @@ footer{
     display:none;
   }
 
+  .top-logo{
+    width:145px;
+  }
+
+  .hero{
+    min-height:850px;
+    background-position:61% center;
+  }
+
   .section-head,
   .points-grid,
   .family{
     grid-template-columns:1fr;
+  }
+
+  .section-head{
+    gap:20px;
   }
 
   .gallery{
@@ -1037,6 +1126,10 @@ footer{
     padding:40px 28px;
   }
 
+  .points-logo{
+    width:340px;
+  }
+
   .instagram-challenge-box{
     grid-template-columns:1fr;
     padding:35px 25px;
@@ -1048,6 +1141,19 @@ footer{
 
   .child-relation{
     grid-column:1/-1;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+@media(max-width:700px){
+
+  .extra-prizes{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
   }
 }
 
@@ -1061,11 +1167,23 @@ footer{
     width:min(100% - 24px,1160px);
   }
 
+  .hero{
+    padding-top:115px;
+  }
+
   .hero h1{
     font-size:53px;
   }
 
+  .hero-copy{
+    font-size:16px;
+  }
+
   .map-button{
+    width:100%;
+  }
+
+  .event-date{
     width:100%;
   }
 
@@ -1076,6 +1194,10 @@ footer{
 
   .gallery figure:first-child{
     grid-column:auto;
+  }
+
+  .card-carousel{
+    height:270px;
   }
 
   .prize-showcase{
@@ -1100,14 +1222,24 @@ footer{
 
   .form-step{
     grid-template-columns:1fr;
+    gap:11px;
   }
 
   .personal-grid{
     grid-template-columns:1fr;
   }
 
-  .extra-prizes{
-    grid-template-columns:repeat(2,1fr);
+  .form-field.full{
+    grid-column:auto;
+  }
+
+  .child-row{
+    grid-template-columns:1fr 95px;
+  }
+
+  .remove-child{
+    grid-column:span 2;
+    min-height:42px;
   }
 }
 
@@ -1117,885 +1249,1335 @@ footer{
 <body>
 
 <header class="topbar">
-<div class="container topbar-inner">
+  <div class="container topbar-inner">
 
-<a href="#inicio">
-<img class="top-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
-</a>
+    <a href="#inicio">
+      <img class="top-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
+    </a>
 
-<nav class="nav">
-<a href="#conecta">O Conecta</a>
-<a href="#experiencias">Experiências</a>
-<a href="#pontos">Ponto Premiado</a>
-<a href="#participar" class="mini-cta">Quero ir</a>
-</nav>
+    <nav class="nav">
+      <a href="#conecta">O Conecta</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#pontos">Ponto Premiado</a>
+      <a href="#participar" class="mini-cta">Quero ir</a>
+    </nav>
 
-</div>
+  </div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero" id="inicio">
-<div class="container">
-<div class="hero-content">
+  <div class="container">
+    <div class="hero-content">
 
-<img class="hero-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
+      <img class="hero-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
 
-<div class="eyebrow">
-O grande encontro de quem faz acontecer
-</div>
+      <div class="eyebrow">
+        O grande encontro de quem faz acontecer
+      </div>
 
-<h1>A festa de <span>quem faz.</span></h1>
+      <h1>
+        A festa de <span>quem faz.</span>
+      </h1>
 
-<p class="hero-copy">
-Um dia inteiro de encontros, comida boa, música, fornecedores,
-experiências, prêmios e muita gente que vive a construção todos os dias.
-</p>
+      <p class="hero-copy">
+        Um dia inteiro de encontros, comida boa, música, fornecedores,
+        experiências, prêmios e muita gente que vive a construção todos os dias.
+      </p>
 
-<div class="event-details">
+      <div class="event-details">
 
-<a
-class="map-button"
-href="https://maps.app.goo.gl/5tG6iwiyA3tktYLr9"
-target="_blank"
-rel="noopener">
-<span class="map-icon">●</span>
-Haras Kaylua ↗
-</a>
+        <a
+          class="map-button"
+          href="https://maps.app.goo.gl/5tG6iwiyA3tktYLr9"
+          target="_blank"
+          rel="noopener">
+          <span class="map-icon">●</span>
+          Haras Kaylua
+          <span>↗</span>
+        </a>
 
-<div class="event-date">
-<div class="date-block">
-<span class="date-main">03/10</span>
-<span class="date-label">Data do evento</span>
-</div>
+        <div class="event-date">
 
-<div class="time-block">
-<span class="time-main">9h</span>
-<span class="time-label">A partir das</span>
-</div>
-</div>
+          <div class="date-block">
+            <span class="date-main">03/10</span>
+            <span class="date-label">Data do evento</span>
+          </div>
 
-</div>
+          <div class="time-block">
+            <span class="time-main">9h</span>
+            <span class="time-label">A partir das</span>
+          </div>
 
-<div class="actions">
-<a href="#participar" class="btn btn-primary">Quero participar</a>
-<a href="#conecta" class="btn btn-outline">Descobrir o evento ↓</a>
-</div>
+        </div>
 
-</div>
-</div>
+      </div>
+
+      <div class="actions">
+        <a href="#participar" class="btn btn-primary">Quero participar</a>
+        <a href="#conecta" class="btn btn-outline">Descobrir o evento ↓</a>
+      </div>
+
+    </div>
+  </div>
 </section>
-
 
 <!-- QUEM JÁ VIVEU -->
 
 <section id="conecta">
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
-<div>
-<div class="eyebrow" style="color:var(--orange)">Isso é o Conecta</div>
-<h2>Quem já viveu, <span>sabe.</span></h2>
-</div>
+    <div class="section-head">
 
-<p>
-O Conecta reúne os profissionais que fazem a obra acontecer.
-Mais que uma programação, é um dia para encontrar gente,
-trocar experiências, comemorar e viver momentos que ficam na memória.
-</p>
-</div>
+      <div>
+        <div class="eyebrow" style="color:var(--orange)">
+          Isso é o Conecta
+        </div>
 
-<div class="gallery">
+        <h2>
+          Quem já viveu, <span>sabe.</span>
+        </h2>
+      </div>
 
-<figure>
-<img src="publico.jpg" alt="Público do Conecta">
-<figcaption>Gente de verdade</figcaption>
-</figure>
+      <p>
+        O Conecta reúne os profissionais que fazem a obra acontecer.
+        Mais que uma programação, é um dia para encontrar gente,
+        trocar experiências, comemorar e viver momentos que ficam na memória.
+      </p>
 
-<figure>
-<img src="premio-1.jpg" alt="Premiação no Conecta">
-<figcaption>Prêmios</figcaption>
-</figure>
+    </div>
 
-<figure>
-<img src="musica.jpg" alt="Música ao vivo">
-<figcaption>Música ao vivo</figcaption>
-</figure>
+    <div class="gallery">
 
-<figure>
-<img src="familia.jpg" alt="Famílias no Conecta">
-<figcaption>Família</figcaption>
-</figure>
+      <figure>
+        <img src="publico.jpg" alt="Público do Conecta">
+        <figcaption>Gente de verdade</figcaption>
+      </figure>
 
-<!-- FOTO CORRIGIDA -->
-<figure>
-<img src="recreacao.jpg" alt="Recreação no Conecta">
-<figcaption>Recreação</figcaption>
-</figure>
+      <figure>
+        <img src="premio-1.jpg" alt="Premiação no Conecta">
+        <figcaption>Prêmios</figcaption>
+      </figure>
 
-</div>
+      <figure>
+        <img src="musica.jpg" alt="Música ao vivo">
+        <figcaption>Música ao vivo</figcaption>
+      </figure>
 
-</div>
+      <figure>
+        <img src="familia.jpg" alt="Famílias no Conecta">
+        <figcaption>Família</figcaption>
+      </figure>
+
+      <figure>
+        <img src="recreacao.jpg" alt="Recreação no Conecta">
+        <figcaption>Recreação</figcaption>
+      </figure>
+
+    </div>
+
+  </div>
 </section>
-
 
 <!-- EXPERIÊNCIAS -->
 
 <section class="dark-section" id="experiencias">
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
-<div>
-<div class="eyebrow">O que te espera</div>
-<h2>Um dia inteiro <span>para viver.</span></h2>
-</div>
+    <div class="section-head">
 
-<p>
-Estamos preparando uma experiência completa para os profissionais,
-seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dias.
-</p>
-</div>
+      <div>
+        <div class="eyebrow">
+          O que te espera
+        </div>
 
-<div class="experience-grid">
+        <h2>
+          Um dia inteiro <span>para viver.</span>
+        </h2>
+      </div>
 
-<article class="experience-card">
-<div class="card-carousel" data-carousel>
-<div class="carousel-track">
-<div class="carousel-slide active"><img src="churrasco.jpg" alt="Gastronomia"></div>
-<div class="carousel-slide"><img src="churrasco-2.jpg" alt="Churrasco"></div>
-<div class="carousel-slide"><img src="churrasco-3.jpg" alt="Comida"></div>
-</div>
-<button class="carousel-arrow prev" type="button">‹</button>
-<button class="carousel-arrow next" type="button">›</button>
-<div class="carousel-dots"></div>
-</div>
+      <p>
+        Estamos preparando uma experiência completa para os profissionais,
+        seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dias.
+      </p>
 
-<div class="experience-body">
-<span class="tag">Gastronomia</span>
-<h3>Comida de verdade</h3>
-<p>Comida boa e aquele clima perfeito para confraternizar.</p>
-</div>
-</article>
+    </div>
 
+    <div class="experience-grid">
 
-<article class="experience-card">
-<div class="card-carousel" data-carousel>
-<div class="carousel-track">
-<div class="carousel-slide active"><img src="musica.jpg" alt="Música"></div>
-<div class="carousel-slide"><img src="musica-2.jpg" alt="Música"></div>
-<div class="carousel-slide"><img src="musica-3.jpg" alt="Música"></div>
-</div>
-<button class="carousel-arrow prev" type="button">‹</button>
-<button class="carousel-arrow next" type="button">›</button>
-<div class="carousel-dots"></div>
-</div>
+      <!-- GASTRONOMIA -->
 
-<div class="experience-body">
-<span class="tag">Celebração</span>
-<h3>Música ao vivo</h3>
-<p>Música, diversão e bons momentos.</p>
-</div>
-</article>
+      <article class="experience-card">
 
+        <div class="card-carousel" data-carousel>
 
-<article class="experience-card">
-<div class="card-carousel" data-carousel>
-<div class="carousel-track">
-<div class="carousel-slide active"><img src="publico.jpg" alt="Experiências"></div>
-<div class="carousel-slide"><img src="experiencia-2.jpg" alt="Experiências"></div>
-<div class="carousel-slide"><img src="experiencia-3.jpg" alt="Experiências"></div>
-</div>
-<button class="carousel-arrow prev" type="button">‹</button>
-<button class="carousel-arrow next" type="button">›</button>
-<div class="carousel-dots"></div>
-</div>
+          <div class="carousel-track">
 
-<div class="experience-body">
-<span class="tag">Profissão</span>
-<h3>Experiências e fornecedores</h3>
-<p>Demonstrações, workshops, grandes marcas e muito conteúdo.</p>
-</div>
-</article>
+            <div class="carousel-slide active">
+              <img src="churrasco.jpg" alt="Gastronomia no Conecta">
+            </div>
 
+            <div class="carousel-slide">
+              <img src="churrasco-2.jpg" alt="Churrasco no Conecta">
+            </div>
 
-<article class="experience-card">
-<div class="card-carousel" data-carousel>
-<div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="churrasco-3.jpg" alt="Comida no Conecta">
+            </div>
 
-<div class="carousel-slide active">
-<img src="recreacao-1.jpg" alt="Recreação">
-</div>
+          </div>
 
-<div class="carousel-slide">
-<img src="recreacao-2.jpg" alt="Recreação">
-</div>
+          <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+          <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
 
-<div class="carousel-slide">
-<img src="recreacao-3.jpg" alt="Recreação">
-</div>
+          <div class="carousel-dots"></div>
 
-</div>
+        </div>
 
-<button class="carousel-arrow prev" type="button">‹</button>
-<button class="carousel-arrow next" type="button">›</button>
-<div class="carousel-dots"></div>
-</div>
+        <div class="experience-body">
+          <span class="tag">Gastronomia</span>
+          <h3>Comida de verdade</h3>
+          <p>
+            Um dos momentos mais esperados do dia:
+            comida boa e aquele clima perfeito para confraternizar.
+          </p>
+        </div>
 
-<div class="experience-body">
-<span class="tag">Para os pequenos</span>
-<h3>Recreação</h3>
-<p>
-Um espaço pensado para que os filhos e netos dos profissionais
-também aproveitem esse dia especial.
-</p>
-</div>
-</article>
+      </article>
 
-</div>
-</div>
+      <!-- MÚSICA -->
+
+      <article class="experience-card">
+
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="musica.jpg" alt="Música ao vivo">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="musica-2.jpg" alt="Músicos no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="musica-3.jpg" alt="Apresentação musical no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+          <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
+
+        <div class="experience-body">
+          <span class="tag">Celebração</span>
+          <h3>Música ao vivo</h3>
+          <p>
+            Porque um grande encontro também merece
+            música, diversão e bons momentos.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- EXPERIÊNCIAS -->
+
+      <article class="experience-card">
+
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="publico.jpg" alt="Experiências no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="experiencia-2.jpg" alt="Fornecedor no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="experiencia-3.jpg" alt="Workshop no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+          <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
+
+        <div class="experience-body">
+          <span class="tag">Profissão</span>
+          <h3>Experiências e fornecedores</h3>
+          <p>
+            Demonstrações, workshops, grandes marcas
+            e muito conteúdo para quem faz acontecer.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- RECREAÇÃO - 3 IMAGENS CORRETAS -->
+
+      <article class="experience-card">
+
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="recreacao.jpg" alt="Recreação no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="recreacao-1.jpg" alt="Recreação para crianças no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="recreacao-2.jpg" alt="Atividades de recreação no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+          <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
+
+        <div class="experience-body">
+          <span class="tag">Para os pequenos</span>
+          <h3>Recreação</h3>
+
+          <p>
+            Um espaço pensado para que os filhos e netos
+            dos profissionais também aproveitem esse dia especial.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
 </section>
-
 
 <!-- VÍDEOS -->
 
 <section class="videos-section">
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
-<div>
-<div class="eyebrow" style="color:var(--orange)">Aperte o play</div>
-<h2>Quer saber como <span>é o Conecta?</span></h2>
-</div>
+    <div class="section-head">
 
-<p>
-Relembre as últimas edições e sinta um pouco do clima
-que estamos preparando para 2026.
-</p>
-</div>
+      <div>
+        <div class="eyebrow" style="color:var(--orange)">
+          Aperte o play
+        </div>
 
-<div class="video-grid">
+        <h2>
+          Quer saber como <span>é o Conecta?</span>
+        </h2>
+      </div>
 
-<article class="video-card">
-<div class="video-frame">
-<iframe
-src="https://www.youtube.com/embed/-gRIIjdD5RI"
-title="Conecta 2024"
-loading="lazy"
-allowfullscreen>
-</iframe>
-</div>
+      <p>
+        Relembre as últimas edições e sinta um pouco do clima
+        que estamos preparando para 2026.
+      </p>
 
-<div class="video-info">
-<span>Conecta Profissionais</span>
-<h3>Edição 2024</h3>
-<p>Em 2026, voltamos ao Haras Kaylua.</p>
-</div>
-</article>
+    </div>
 
-<article class="video-card">
-<div class="video-frame">
-<iframe
-src="https://www.youtube.com/embed/qhNBxtJoTIM"
-title="Conecta 2025"
-loading="lazy"
-allowfullscreen>
-</iframe>
-</div>
+    <div class="video-grid">
 
-<div class="video-info">
-<span>Conecta Profissionais</span>
-<h3>Edição 2025</h3>
-<p>Encontros, experiências, parceiros e histórias.</p>
-</div>
-</article>
+      <article class="video-card">
 
-</div>
-</div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/-gRIIjdD5RI"
+            title="Conecta Profissionais 2024"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-info">
+          <span>Conecta Profissionais</span>
+          <h3>Edição 2024</h3>
+          <p>
+            Foi aqui que vivemos uma das grandes edições do Conecta.
+            Em 2026, voltamos ao Haras Kaylua.
+          </p>
+        </div>
+
+      </article>
+
+      <article class="video-card">
+
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/qhNBxtJoTIM"
+            title="Conecta Profissionais 2025"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-info">
+          <span>Conecta Profissionais</span>
+          <h3>Edição 2025</h3>
+          <p>
+            Mais encontros, experiências, parceiros
+            e histórias de quem faz acontecer.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
 </section>
-
 
 <!-- FAMÍLIA -->
 
 <section>
-<div class="container">
+  <div class="container">
 
-<div class="family">
+    <div class="family">
 
-<div class="family-image"></div>
+      <div class="family-image"></div>
 
-<div class="family-content">
+      <div class="family-content">
 
-<div class="eyebrow" style="color:var(--navy)">
-Esse dia também é deles
-</div>
+        <div class="eyebrow" style="color:var(--navy)">
+          Esse dia também é deles
+        </div>
 
-<h2>Pode trazer seus filhos e netos.</h2>
+        <h2>
+          Pode trazer seus filhos e netos.
+        </h2>
 
-<div class="family-age">
-👧 Crianças de 6 a 13 anos
-</div>
+        <div class="family-age">
+          👧 Crianças de 6 a 13 anos
+        </div>
 
-<p>
-Os profissionais podem trazer seus filhos ou netos
-dentro da faixa etária indicada.
-</p>
+        <p>
+          O Conecta é um dia para compartilhar.
+          Os profissionais podem trazer seus filhos ou netos
+          dentro da faixa etária indicada para viver esse momento junto com eles.
+        </p>
 
-<p class="family-warning">
-<strong>Importante:</strong>
-o convite é destinado ao profissional e aos seus filhos
-ou netos de 6 a 13 anos. Não será permitida a inclusão
-de outros acompanhantes.
-</p>
+        <p class="family-warning">
+          <strong>Importante:</strong>
+          o convite é destinado ao(à) profissional e aos seus
+          filhos ou netos de 6 a 13 anos.
+          Não será permitida a inclusão de outros acompanhantes.
+        </p>
 
-<a href="#participar" class="btn btn-dark">
-Vou levar filho ou neto
-</a>
+        <a href="#participar" class="btn btn-dark">
+          Vou levar filho ou neto
+        </a>
 
-</div>
-</div>
+      </div>
 
-</div>
+    </div>
+
+  </div>
 </section>
-
 
 <!-- PONTO PREMIADO -->
 
 <section class="points" id="pontos">
-<div class="container">
+  <div class="container">
 
-<div class="points-grid">
+    <div class="points-grid">
 
-<div>
+      <div>
 
-<img
-class="points-logo"
-src="logo-ponto-premiado.png"
-alt="Programa Ponto Premiado">
+        <img
+          class="points-logo"
+          src="logo-ponto-premiado.png"
+          alt="Programa Ponto Premiado">
 
-<div class="eyebrow" style="color:var(--navy)">
-Ponto Premiado no Conecta
-</div>
+        <div class="eyebrow" style="color:var(--navy)">
+          Ponto Premiado no Conecta
+        </div>
 
-<h2>Seus pontos também vêm pra festa.</h2>
+        <h2>
+          Seus pontos também vêm pra festa.
+        </h2>
 
-<p class="points-copy">
-A lojinha do Ponto Premiado estará no evento.
-Você poderá usar seus pontos para resgatar produtos.
-</p>
+        <p class="points-copy">
+          A lojinha do Ponto Premiado estará no evento.
+          Você poderá usar seus pontos para resgatar produtos
+          e aproveitar ainda mais o Conecta.
+        </p>
 
-</div>
+      </div>
 
-<div class="prize-showcase">
+      <div class="prize-showcase">
 
-<div class="prize-main">
-<img
-id="mainPrizeImage"
-src="ponto-premiado.png"
-alt="Ponto Premiado">
-</div>
+        <div class="prize-main">
+          <img
+            id="mainPrizeImage"
+            src="ponto-premiado.png"
+            alt="Lojinha Ponto Premiado no Conecta">
+        </div>
 
-<div class="prize-thumbs">
+        <div class="prize-thumbs">
 
-<button class="prize-thumb" data-image="ponto-premiado-2.jpg">
-<img src="ponto-premiado-2.jpg" alt="Ponto Premiado">
-</button>
+          <button
+            type="button"
+            class="prize-thumb"
+            data-image="ponto-premiado-2.jpg">
+            <img
+              src="ponto-premiado-2.jpg"
+              alt="Ponto Premiado no Conecta">
+          </button>
 
-<button class="prize-thumb" data-image="premio-1.jpg">
-<img src="premio-1.jpg" alt="Prêmio">
-</button>
+          <button
+            type="button"
+            class="prize-thumb"
+            data-image="premio-1.jpg">
+            <img
+              src="premio-1.jpg"
+              alt="Profissional com prêmio resgatado">
+          </button>
 
-<button class="prize-thumb" data-image="premio-2.jpg">
-<img src="premio-2.jpg" alt="Prêmio">
-</button>
+          <button
+            type="button"
+            class="prize-thumb"
+            data-image="premio-2.jpg">
+            <img
+              src="premio-2.jpg"
+              alt="Profissional com prêmio resgatado">
+          </button>
 
-</div>
-</div>
+        </div>
 
-</div>
+      </div>
 
-<div class="extra-prizes">
+    </div>
 
-<button class="prize-thumb extra-prize" data-image="premio-3.jpg">
-<img src="premio-3.jpg" alt="Prêmio resgatado">
-</button>
+    <div class="extra-prizes">
 
-<button class="prize-thumb extra-prize" data-image="premio-4.jpg">
-<img src="premio-4.jpg" alt="Prêmio resgatado">
-</button>
+      <button
+        type="button"
+        class="prize-thumb extra-prize"
+        data-image="premio-3.jpg">
+        <img src="premio-3.jpg" alt="Profissional com prêmio resgatado">
+      </button>
 
-<button class="prize-thumb extra-prize" data-image="premio-5.jpg">
-<img src="premio-5.jpg" alt="Prêmio resgatado">
-</button>
+      <button
+        type="button"
+        class="prize-thumb extra-prize"
+        data-image="premio-4.jpg">
+        <img src="premio-4.jpg" alt="Profissional com prêmio resgatado">
+      </button>
 
-<button class="prize-thumb extra-prize" data-image="premio-6.jpg">
-<img src="premio-6.jpg" alt="Prêmio resgatado">
-</button>
+      <button
+        type="button"
+        class="prize-thumb extra-prize"
+        data-image="premio-5.jpg">
+        <img src="premio-5.jpg" alt="Profissional com prêmio resgatado">
+      </button>
 
-</div>
+      <button
+        type="button"
+        class="prize-thumb extra-prize"
+        data-image="premio-6.jpg">
+        <img src="premio-6.jpg" alt="Profissional com prêmio resgatado">
+      </button>
 
-</div>
+    </div>
+
+  </div>
 </section>
-
 
 <!-- INSTAGRAM -->
 
-<section class="instagram-challenge">
-<div class="container">
+<section class="instagram-challenge" id="desafio">
+  <div class="container">
 
-<div class="instagram-challenge-box">
+    <div class="instagram-challenge-box">
 
-<div class="instagram-video">
-<blockquote
-class="instagram-media"
-data-instgrm-captioned
-data-instgrm-permalink="https://www.instagram.com/reel/DczJ9NgyE8M/?utm_source=ig_embed&amp;utm_campaign=loading"
-data-instgrm-version="14">
-</blockquote>
-</div>
+      <div class="instagram-video">
 
-<div class="instagram-content">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/reel/DczJ9NgyE8M/?utm_source=ig_embed&amp;utm_campaign=loading"
+          data-instgrm-version="14">
+        </blockquote>
 
-<div class="eyebrow" style="color:var(--orange)">
-🔥 O Conecta já começou
-</div>
+      </div>
 
-<h2>
-Seu comentário pode valer uma
-<span>surpresa especial.</span>
-</h2>
+      <div class="instagram-content">
 
-<p>
-Acompanhe nosso Instagram. O vídeo oficial da ação será
-publicado por lá e o melhor comentário vai ganhar algo
-especial no Conecta Profissionais 26.
-</p>
+        <div class="eyebrow" style="color:var(--orange)">
+          🔥 O Conecta já começou
+        </div>
 
-<div class="challenge-steps">
-<div>01 — Assista ao vídeo</div>
-<div>02 — Deixe seu comentário</div>
-<div>03 — Capriche na criatividade 👀</div>
-</div>
+        <h2>
+          Seu comentário pode valer uma
+          <span>surpresa especial.</span>
+        </h2>
 
-<a
-href="https://www.instagram.com/reel/DczJ9NgyE8M/"
-target="_blank"
-class="btn btn-primary">
-Ir para o Instagram
-</a>
+        <p>
+          Acompanhe nosso Instagram.
+          O vídeo oficial da ação será publicado por lá e o melhor
+          comentário vai ganhar algo especial no
+          <strong>Conecta Profissionais 26.</strong>
+        </p>
 
-</div>
-</div>
+        <div class="challenge-steps">
+          <div>01 — Assista ao vídeo</div>
+          <div>02 — Deixe seu comentário</div>
+          <div>03 — Capriche na criatividade 👀</div>
+        </div>
 
-</div>
+        <a
+          href="https://www.instagram.com/reel/DczJ9NgyE8M/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary">
+          💬 Ir para o Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
-
-<!-- PARTICIPAÇÃO -->
+<!-- FORMULÁRIO -->
 
 <section class="participate" id="participar">
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
-<div>
-<div class="eyebrow">Sua presença começa aqui</div>
-<h2>Faça parte <span>desde agora.</span></h2>
-</div>
+    <div class="section-head">
 
-<p>
-Responda todas as etapas e finalize seu interesse pelo WhatsApp.
-</p>
-</div>
+      <div>
+        <div class="eyebrow">
+          Sua presença começa aqui
+        </div>
 
-<form class="form-journey" id="confirmationForm">
+        <h2>
+          Faça parte <span>desde agora.</span>
+        </h2>
+      </div>
 
-<div class="journey-intro">
-<h3>Confirme seu interesse no Conecta 26</h3>
-<p>Responda todas as perguntas marcadas com *.</p>
-<div class="required-note">* Campos obrigatórios</div>
-</div>
+      <p>
+        Responda às etapas abaixo, informe seus dados
+        e finalize pelo WhatsApp.
+      </p>
 
+    </div>
 
-<div class="form-step">
-<div class="step-number">01</div>
-<div>
+    <form class="form-journey" id="confirmationForm">
 
-<h3>Você já participou de algum Conecta? *</h3>
+      <div class="journey-intro">
 
-<div class="poll-options">
-<button type="button" class="poll-btn" data-group="participou" data-value="Sim">🔥 Sim</button>
-<button type="button" class="poll-btn" data-group="participou" data-value="Não">👀 Ainda não</button>
-</div>
+        <h3>
+          Confirme seu interesse no Conecta 26
+        </h3>
 
-</div>
-</div>
+        <p>
+          Responda todas as perguntas marcadas com <strong>*</strong>.
+          Se for levar filhos ou netos, informe também
+          o parentesco, nome e idade de cada criança.
+        </p>
 
+        <div class="required-note">
+          * Campos obrigatórios
+        </div>
 
-<div class="form-step">
-<div class="step-number">02</div>
-<div>
+      </div>
 
-<h3>Vai levar filho ou neto de 6 a 13 anos? *</h3>
+      <!-- ETAPA 1 -->
 
-<div class="poll-options">
-<button type="button" class="poll-btn" data-group="filho" data-value="Sim">👧 Sim</button>
-<button type="button" class="poll-btn" data-group="filho" data-value="Talvez">🤔 Talvez</button>
-<button type="button" class="poll-btn" data-group="filho" data-value="Não">Não</button>
-</div>
+      <div class="form-step">
 
-<div class="children-box" id="childrenBox">
+        <div class="step-number">01</div>
 
-<div class="age-rule">
-<strong>⚠️ Faixa etária permitida: 6 a 13 anos</strong>
-</div>
+        <div>
 
-<div id="childrenList">
+          <h3>
+            Você já participou de algum Conecta? *
+          </h3>
 
-<div class="child-row">
+          <div class="poll-options">
 
-<select class="child-field child-relation">
-<option value="">Parentesco</option>
-<option value="Filho(a)">Filho(a)</option>
-<option value="Neto(a)">Neto(a)</option>
-</select>
+            <button
+              type="button"
+              class="poll-btn"
+              data-group="participou"
+              data-value="Sim">
+              🔥 Sim
+            </button>
 
-<input class="child-field child-name" type="text" placeholder="Nome">
+            <button
+              type="button"
+              class="poll-btn"
+              data-group="participou"
+              data-value="Não">
+              👀 Ainda não
+            </button>
 
-<input class="child-field child-age" type="number" min="6" max="13" placeholder="Idade">
+          </div>
 
-<button type="button" class="remove-child" onclick="removeChild(this)">
-Remover
-</button>
+        </div>
 
-</div>
-</div>
+      </div>
 
-<button type="button" class="btn btn-yellow" onclick="addChild()">
-+ Adicionar filho ou neto
-</button>
+      <!-- ETAPA 2 -->
 
-<div class="guest-warning">
-O convite é destinado ao profissional e aos seus filhos
-ou netos de 6 a 13 anos. Não é permitida a inclusão
-de outros acompanhantes.
-</div>
+      <div class="form-step">
 
-</div>
-</div>
-</div>
+        <div class="step-number">02</div>
 
+        <div>
 
-<div class="form-step">
-<div class="step-number">03</div>
-<div>
+          <h3>
+            Vai levar filho ou neto de 6 a 13 anos? *
+          </h3>
 
-<h3>O que mais te anima? *</h3>
+          <div class="poll-options">
 
-<div class="poll-options">
-<button type="button" class="poll-btn interest-btn" data-value="Comida">🍖 Comida</button>
-<button type="button" class="poll-btn interest-btn" data-value="Música">🎵 Música</button>
-<button type="button" class="poll-btn interest-btn" data-value="Ponto Premiado">🎁 Ponto Premiado</button>
-<button type="button" class="poll-btn interest-btn" data-value="Workshops">🛠 Workshops</button>
-<button type="button" class="poll-btn interest-btn" data-value="Recreação">👧 Recreação</button>
-</div>
+            <button
+              type="button"
+              class="poll-btn"
+              data-group="filho"
+              data-value="Sim">
+              👧 Sim
+            </button>
 
-</div>
-</div>
+            <button
+              type="button"
+              class="poll-btn"
+              data-group="filho"
+              data-value="Talvez">
+              🤔 Talvez
+            </button>
 
+            <button
+              type="button"
+              class="poll-btn"
+              data-group="filho"
+              data-value="Não">
+              Não
+            </button>
 
-<div class="form-step">
-<div class="step-number">04</div>
-<div>
+          </div>
 
-<h3>Agora, seus dados *</h3>
+          <div class="children-box" id="childrenBox">
 
-<div class="personal-grid">
+            <div class="age-rule">
+              <strong>⚠️ Faixa etária permitida: 6 a 13 anos</strong><br>
+              Informe somente filhos ou netos que tenham entre 6 e 13 anos.
+            </div>
 
-<input class="form-field" id="nome" type="text" placeholder="Seu nome *">
+            <div id="childrenList">
 
-<input class="form-field" id="telefone" type="tel" placeholder="Seu telefone *">
+              <div class="child-row">
 
-<textarea
-class="form-field full"
-id="mensagem"
-placeholder="O que você gostaria de encontrar no Conecta 26?"></textarea>
+                <select class="child-field child-relation">
+                  <option value="">Parentesco</option>
+                  <option value="Filho(a)">Filho(a)</option>
+                  <option value="Neto(a)">Neto(a)</option>
+                </select>
 
-</div>
+                <input
+                  class="child-field child-name"
+                  type="text"
+                  placeholder="Nome da criança">
 
-<div class="submit-area">
+                <input
+                  class="child-field child-age"
+                  type="number"
+                  min="6"
+                  max="13"
+                  inputmode="numeric"
+                  placeholder="Idade">
 
-<div id="formAlert" class="form-alert"></div>
+                <button
+                  type="button"
+                  class="remove-child"
+                  onclick="removeChild(this)">
+                  Remover
+                </button>
 
-<p class="confirmation-note">
-Seu WhatsApp será aberto com suas respostas prontas.
-</p>
+              </div>
 
-<button type="submit" class="btn btn-primary submit-btn">
-Confirmar interesse pelo WhatsApp →
-</button>
+            </div>
 
-</div>
+            <button
+              type="button"
+              class="btn btn-yellow add-child"
+              onclick="addChild()">
+              + Adicionar filho ou neto
+            </button>
 
-</div>
-</div>
+            <div class="guest-warning">
+              ℹ️ O convite é destinado ao(à) profissional e,
+              quando aplicável, aos seus filhos e/ou netos
+              <strong>de 6 a 13 anos</strong>.
+              Não é permitida a inclusão de outros acompanhantes.
+            </div>
 
-</form>
+          </div>
 
-</div>
+        </div>
+
+      </div>
+
+      <!-- ETAPA 3 -->
+
+      <div class="form-step">
+
+        <div class="step-number">03</div>
+
+        <div>
+
+          <h3>
+            O que mais te anima no Conecta? *
+          </h3>
+
+          <div class="poll-options">
+
+            <button type="button" class="poll-btn interest-btn" data-value="Comida">
+              🍖 Comida
+            </button>
+
+            <button type="button" class="poll-btn interest-btn" data-value="Música">
+              🎵 Música
+            </button>
+
+            <button type="button" class="poll-btn interest-btn" data-value="Ponto Premiado">
+              🎁 Ponto Premiado
+            </button>
+
+            <button type="button" class="poll-btn interest-btn" data-value="Workshops">
+              🛠 Workshops
+            </button>
+
+            <button type="button" class="poll-btn interest-btn" data-value="Recreação">
+              👧 Recreação
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ETAPA 4 -->
+
+      <div class="form-step" style="border-bottom:0">
+
+        <div class="step-number">04</div>
+
+        <div>
+
+          <h3>
+            Agora, seus dados *
+          </h3>
+
+          <div class="personal-grid">
+
+            <input
+              class="form-field"
+              id="nome"
+              type="text"
+              placeholder="Seu nome *"
+              required>
+
+            <input
+              class="form-field"
+              id="telefone"
+              type="tel"
+              placeholder="Seu telefone *"
+              required>
+
+            <textarea
+              class="form-field full"
+              id="mensagem"
+              placeholder="O que você gostaria de encontrar no Conecta 26?"></textarea>
+
+          </div>
+
+          <div class="submit-area">
+
+            <div id="formAlert" class="form-alert"></div>
+
+            <p class="confirmation-note">
+              Ao clicar abaixo, seu WhatsApp será aberto
+              com todas as respostas organizadas.
+              A mensagem só será enviada quando você confirmar no WhatsApp.
+            </p>
+
+            <button
+              type="submit"
+              class="btn btn-primary submit-btn">
+              Confirmar interesse pelo WhatsApp →
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
 </section>
 
 </main>
 
-
 <footer>
-<div class="container footer-inner">
 
-<div>
-<img class="footer-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
-<div class="footer-copy">
-Conecta Profissionais 26 • Rezende Materiais para Construção
-</div>
-</div>
+  <div class="container footer-inner">
 
-<a href="#inicio" class="btn btn-primary">Voltar ao topo ↑</a>
+    <div>
 
-</div>
+      <img
+        class="footer-logo"
+        src="logo-conecta26.png"
+        alt="Conecta Profissionais 26">
+
+      <div class="footer-copy">
+        Conecta Profissionais 26 • Rezende Materiais para Construção
+      </div>
+
+    </div>
+
+    <a href="#inicio" class="btn btn-primary">
+      Voltar ao topo ↑
+    </a>
+
+  </div>
+
 </footer>
-
 
 <script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
 
-const whatsapp="5522981740330";
+/* =========================================================
+   CONFIGURAÇÃO
+========================================================= */
 
-const answers={
-participou:"",
-filho:""
+const whatsapp = "5522981740330";
+
+const answers = {
+  participou:"",
+  filho:""
 };
 
-const interests=new Set();
+const interests = new Set();
 
+/* =========================================================
+   CARROSSÉIS
+========================================================= */
 
-/* CARROSSÉIS */
+document.querySelectorAll("[data-carousel]").forEach(carousel => {
 
-document.querySelectorAll("[data-carousel]").forEach(carousel=>{
+  const slides = Array.from(
+    carousel.querySelectorAll(".carousel-slide")
+  );
 
-const slides=[...carousel.querySelectorAll(".carousel-slide")];
-const dotsBox=carousel.querySelector(".carousel-dots");
+  const dotsBox = carousel.querySelector(".carousel-dots");
 
-let current=0;
+  let current = 0;
+  let timer;
 
-slides.forEach((slide,index)=>{
+  slides.forEach((slide,index) => {
 
-const dot=document.createElement("button");
+    const dot = document.createElement("button");
 
-dot.type="button";
-dot.className="carousel-dot"+(index===0?" active":"");
+    dot.type = "button";
+    dot.className = "carousel-dot" + (index === 0 ? " active" : "");
 
-dot.onclick=()=>goTo(index);
+    dot.setAttribute(
+      "aria-label",
+      `Ir para foto ${index + 1}`
+    );
 
-dotsBox.appendChild(dot);
+    dot.addEventListener("click",() => {
+      goTo(index);
+      restart();
+    });
+
+    dotsBox.appendChild(dot);
+
+  });
+
+  const dots = Array.from(
+    dotsBox.querySelectorAll(".carousel-dot")
+  );
+
+  function goTo(index){
+
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach(slide => {
+      slide.classList.remove("active");
+    });
+
+    dots.forEach(dot => {
+      dot.classList.remove("active");
+    });
+
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
+
+  }
+
+  function restart(){
+
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+      goTo(current + 1);
+    },4500);
+
+  }
+
+  carousel.querySelector(".prev").addEventListener("click",() => {
+    goTo(current - 1);
+    restart();
+  });
+
+  carousel.querySelector(".next").addEventListener("click",() => {
+    goTo(current + 1);
+    restart();
+  });
+
+  restart();
 
 });
 
-const dots=[...dotsBox.querySelectorAll(".carousel-dot")];
+/* =========================================================
+   PONTO PREMIADO
+========================================================= */
 
-function goTo(index){
+document.querySelectorAll(".prize-thumb").forEach(button => {
 
-current=(index+slides.length)%slides.length;
+  button.addEventListener("click",() => {
 
-slides.forEach(s=>s.classList.remove("active"));
-dots.forEach(d=>d.classList.remove("active"));
+    const image = button.dataset.image;
 
-slides[current].classList.add("active");
-dots[current].classList.add("active");
+    if(!image){
+      return;
+    }
+
+    const mainImage = document.getElementById("mainPrizeImage");
+
+    mainImage.src = image;
+
+    document.querySelectorAll(".prize-thumb").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+  });
+
+});
+
+/* =========================================================
+   PERGUNTAS
+========================================================= */
+
+document.querySelectorAll(".poll-btn[data-group]").forEach(button => {
+
+  button.addEventListener("click",() => {
+
+    const group = button.dataset.group;
+
+    answers[group] = button.dataset.value;
+
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(btn => {
+      btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    if(group === "filho"){
+      updateChildrenBox();
+    }
+
+  });
+
+});
+
+/* =========================================================
+   INTERESSES
+========================================================= */
+
+document.querySelectorAll(".interest-btn").forEach(button => {
+
+  button.addEventListener("click",() => {
+
+    const value = button.dataset.value;
+
+    if(interests.has(value)){
+
+      interests.delete(value);
+      button.classList.remove("selected");
+
+    }else{
+
+      interests.add(value);
+      button.classList.add("selected");
+
+    }
+
+  });
+
+});
+
+/* =========================================================
+   FILHOS / NETOS
+========================================================= */
+
+function updateChildrenBox(){
+
+  const box = document.getElementById("childrenBox");
+
+  if(
+    answers.filho === "Sim" ||
+    answers.filho === "Talvez"
+  ){
+    box.classList.add("visible");
+  }else{
+    box.classList.remove("visible");
+  }
 
 }
-
-carousel.querySelector(".prev").onclick=()=>goTo(current-1);
-carousel.querySelector(".next").onclick=()=>goTo(current+1);
-
-});
-
-
-/* PONTO PREMIADO */
-
-document.querySelectorAll(".prize-thumb").forEach(button=>{
-
-button.onclick=()=>{
-
-if(!button.dataset.image)return;
-
-document.getElementById("mainPrizeImage").src=button.dataset.image;
-
-};
-
-});
-
-
-/* PERGUNTAS */
-
-document.querySelectorAll(".poll-btn[data-group]").forEach(button=>{
-
-button.onclick=()=>{
-
-const group=button.dataset.group;
-
-answers[group]=button.dataset.value;
-
-document.querySelectorAll(`[data-group="${group}"]`).forEach(btn=>{
-btn.classList.remove("selected");
-});
-
-button.classList.add("selected");
-
-if(group==="filho"){
-
-document.getElementById("childrenBox").classList.toggle(
-"visible",
-answers.filho==="Sim"||answers.filho==="Talvez"
-);
-
-}
-
-};
-
-});
-
-
-/* INTERESSES */
-
-document.querySelectorAll(".interest-btn").forEach(button=>{
-
-button.onclick=()=>{
-
-const value=button.dataset.value;
-
-if(interests.has(value)){
-interests.delete(value);
-button.classList.remove("selected");
-}else{
-interests.add(value);
-button.classList.add("selected");
-}
-
-};
-
-});
-
-
-/* FILHOS */
 
 function addChild(){
 
-const row=document.createElement("div");
+  const list = document.getElementById("childrenList");
 
-row.className="child-row";
+  const row = document.createElement("div");
 
-row.innerHTML=`
-<select class="child-field child-relation">
-<option value="">Parentesco</option>
-<option value="Filho(a)">Filho(a)</option>
-<option value="Neto(a)">Neto(a)</option>
-</select>
+  row.className = "child-row";
 
-<input class="child-field child-name" type="text" placeholder="Nome">
+  row.innerHTML = `
+    <select class="child-field child-relation">
+      <option value="">Parentesco</option>
+      <option value="Filho(a)">Filho(a)</option>
+      <option value="Neto(a)">Neto(a)</option>
+    </select>
 
-<input class="child-field child-age" type="number" min="6" max="13" placeholder="Idade">
+    <input
+      class="child-field child-name"
+      type="text"
+      placeholder="Nome da criança">
 
-<button type="button" class="remove-child" onclick="removeChild(this)">
-Remover
-</button>
-`;
+    <input
+      class="child-field child-age"
+      type="number"
+      min="6"
+      max="13"
+      inputmode="numeric"
+      placeholder="Idade">
 
-document.getElementById("childrenList").appendChild(row);
+    <button
+      type="button"
+      class="remove-child"
+      onclick="removeChild(this)">
+      Remover
+    </button>
+  `;
+
+  list.appendChild(row);
 
 }
-
 
 function removeChild(button){
 
-const rows=document.querySelectorAll(".child-row");
+  const rows = document.querySelectorAll(".child-row");
 
-if(rows.length>1){
-button.closest(".child-row").remove();
-}
+  if(rows.length === 1){
 
-}
+    const row = rows[0];
 
+    row.querySelector(".child-relation").value = "";
+    row.querySelector(".child-name").value = "";
+    row.querySelector(".child-age").value = "";
 
-/* FORMULÁRIO */
+    return;
+  }
 
-document.getElementById("confirmationForm").addEventListener("submit",event=>{
-
-event.preventDefault();
-
-const nome=document.getElementById("nome").value.trim();
-const telefone=document.getElementById("telefone").value.trim();
-const mensagem=document.getElementById("mensagem").value.trim();
-
-const alertBox=document.getElementById("formAlert");
-
-function error(text){
-alertBox.textContent=text;
-alertBox.classList.add("visible");
-}
-
-alertBox.classList.remove("visible");
-
-if(!answers.participou||!answers.filho){
-error("Responda as etapas 01 e 02.");
-return;
-}
-
-if(interests.size===0){
-error("Escolha pelo menos uma opção na etapa 03.");
-return;
-}
-
-if(!nome||!telefone){
-error("Preencha seu nome e telefone.");
-return;
-}
-
-let childrenText="Não levará filhos ou netos.";
-
-if(answers.filho==="Sim"||answers.filho==="Talvez"){
-
-const children=[];
-
-document.querySelectorAll(".child-row").forEach(row=>{
-
-const relation=row.querySelector(".child-relation").value;
-const name=row.querySelector(".child-name").value.trim();
-const age=Number(row.querySelector(".child-age").value);
-
-if(relation||name||age){
-
-if(!relation||!name||age<6||age>13){
-
-error("Informe parentesco, nome e idade entre 6 e 13 anos para cada criança.");
-
-throw new Error("invalid-child");
+  button.closest(".child-row").remove();
 
 }
 
-children.push(`${name} — ${relation} — ${age} anos`);
+function getChildren(){
+
+  const children = [];
+
+  document.querySelectorAll(".child-row").forEach(row => {
+
+    const relation = row.querySelector(".child-relation").value;
+    const name = row.querySelector(".child-name").value.trim();
+    const age = row.querySelector(".child-age").value.trim();
+
+    if(relation || name || age){
+
+      children.push({
+        relation,
+        name,
+        age
+      });
+
+    }
+
+  });
+
+  return children;
 
 }
 
-});
+/* =========================================================
+   ERRO
+========================================================= */
 
-if(children.length===0){
-error("Informe pelo menos um filho ou neto.");
-return;
+function showError(message){
+
+  const alertBox = document.getElementById("formAlert");
+
+  alertBox.textContent = message;
+  alertBox.classList.add("visible");
+
+  alertBox.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
 }
 
-childrenText=children.join("\n");
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
 
-}
+document.getElementById("confirmationForm").addEventListener(
+  "submit",
+  function(event){
 
-const text=`Olá! Quero participar do Conecta Profissionais 26. 🎉
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    document.getElementById("formAlert").classList.remove("visible");
+
+    if(!answers.participou || !answers.filho){
+
+      showError(
+        "⚠️ Responda as etapas 01 e 02 antes de confirmar."
+      );
+
+      return;
+    }
+
+    if(interests.size === 0){
+
+      showError(
+        "⚠️ Escolha pelo menos uma opção na etapa 03."
+      );
+
+      return;
+    }
+
+    if(!nome || !telefone){
+
+      showError(
+        "⚠️ Preencha seu nome e telefone na etapa 04."
+      );
+
+      return;
+    }
+
+    let childrenText = "Não levará filhos ou netos.";
+
+    if(
+      answers.filho === "Sim" ||
+      answers.filho === "Talvez"
+    ){
+
+      const children = getChildren();
+
+      if(children.length === 0){
+
+        showError(
+          "⚠️ Informe pelo menos um filho ou neto de 6 a 13 anos."
+        );
+
+        return;
+      }
+
+      for(const child of children){
+
+        if(
+          !child.relation ||
+          !child.name ||
+          child.age === ""
+        ){
+
+          showError(
+            "⚠️ Preencha parentesco, nome e idade de cada criança."
+          );
+
+          return;
+        }
+
+        const age = Number(child.age);
+
+        if(
+          !Number.isInteger(age) ||
+          age < 6 ||
+          age > 13
+        ){
+
+          showError(
+            "⚠️ Para o Conecta 26, informe apenas filhos ou netos com idade entre 6 e 13 anos."
+          );
+
+          return;
+        }
+
+      }
+
+      childrenText = children
+        .map(
+          (child,index) =>
+          `${index + 1}. ${child.name} — ${child.relation} — ${child.age} anos`
+        )
+        .join("\n");
+
+    }
+
+    const interestText = Array.from(interests).join(", ");
+
+    const text =
+`Olá! Quero participar do Conecta Profissionais 26. 🎉
 
 👤 Nome:
 ${nome}
@@ -2003,31 +2585,38 @@ ${nome}
 📱 Telefone:
 ${telefone}
 
-🔥 Já participou:
+🔥 Já participou de algum Conecta?
 ${answers.participou}
 
-👧 Vai levar filho ou neto de 6 a 13 anos:
+👧 Vai levar filho ou neto de 6 a 13 anos?
 ${answers.filho}
 
 👨‍👩‍👧 Filhos/netos:
 ${childrenText}
 
 ⭐ O que mais me anima:
-${[...interests].join(", ")}
+${interestText}
 
-💬 Gostaria de encontrar:
-${mensagem||"Sem mensagem adicional"}
+💬 O que gostaria de encontrar no Conecta 26:
+${mensagem || "Sem mensagem adicional"}
 
 📍 Haras Kaylua
 📅 03/10
-🕘 A partir das 9h`;
+🕘 A partir das 9h
 
-window.open(
-`https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`,
-"_blank"
+Conecta Profissionais 26 — A festa de quem faz!`;
+
+    const url =
+      `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
+
+    window.open(
+      url,
+      "_blank",
+      "noopener"
+    );
+
+  }
 );
-
-});
 
 </script>
 
