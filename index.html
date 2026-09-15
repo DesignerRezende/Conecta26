@@ -1,1795 +1,1317 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Conecta Profissionais 26</title>
-
-  <meta
-    name="description"
-    content="Conecta Profissionais 26 — o grande encontro dos profissionais da construção."
-  >
-
-  <meta name="theme-color" content="#0d1231">
-
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-
-  <style>
-    :root {
-      --navy: #171d48;
-      --navy-2: #0d1231;
-      --navy-3: #222957;
-      --orange: #f58220;
-      --yellow: #ffd21f;
-      --cream: #faf5e8;
-      --blue: #61bfdc;
-      --white: #ffffff;
-      --text: #1c2343;
-      --muted: #68708a;
-      --radius: 28px;
-      --shadow: 0 18px 50px rgba(13,18,49,.17);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(1160px, calc(100% - 36px));
-      margin: auto;
-    }
-
-    section {
-      padding: 95px 0;
-    }
-
-    /* =========================
-       LINHAS VISUAIS
-       ========================= */
-
-    .flow-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .flow-section::before,
-    .flow-section::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      border-radius: 50%;
-      border: 2px solid var(--blue);
-      opacity: .22;
-      width: 520px;
-      height: 170px;
-      transform: rotate(-8deg);
-    }
-
-    .flow-section::before {
-      top: 35px;
-      right: -210px;
-    }
-
-    .flow-section::after {
-      bottom: 20px;
-      left: -270px;
-      border-color: var(--orange);
-    }
-
-    /* =========================
-       TOPO
-       ========================= */
-
-    .topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-
-      background: rgba(13,18,49,.92);
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-    .topbar-inner {
-      min-height: 74px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 24px;
-    }
-
-    .top-logo {
-      width: 175px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .nav a:hover {
-      color: var(--yellow);
-    }
-
-    .mini-cta {
-      background: var(--orange);
-      color: white;
-
-      padding: 13px 18px;
-      border-radius: 999px;
-    }
-
-    /* =========================
-       HERO
-       ========================= */
-
-    .hero {
-      min-height: 100vh;
-
-      position: relative;
-
-      color: white;
-
-      display: flex;
-      align-items: flex-end;
-
-      padding: 130px 0 70px;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(8,13,40,.95) 0%,
-          rgba(8,13,40,.80) 40%,
-          rgba(8,13,40,.25) 72%,
-          rgba(8,13,40,.55) 100%
-        ),
-        url("hero.jpg") center / cover no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-
-      height: 130px;
-
-      background:
-        linear-gradient(
-          transparent,
-          var(--cream)
-        );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-
-      max-width: 720px;
-    }
-
-    .hero-logo {
-      width: min(500px,88vw);
-      margin-bottom: 28px;
-    }
-
-    .eyebrow {
-      color: var(--yellow);
-
-      text-transform: uppercase;
-      letter-spacing: .16em;
-
-      font-size: 13px;
-      font-weight: 900;
-
-      margin-bottom: 13px;
-    }
-
-    h1 {
-      font-size: clamp(48px,7vw,94px);
-
-      line-height: .9;
-      letter-spacing: -.055em;
-
-      text-transform: uppercase;
-
-      max-width: 760px;
-    }
-
-    h1 span {
-      color: var(--orange);
-    }
-
-    .hero-copy {
-      max-width: 580px;
-
-      font-size: 18px;
-      line-height: 1.55;
-
-      margin: 24px 0 30px;
-
-      color: rgba(255,255,255,.9);
-    }
-
-    .hero-info {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 12px;
-
-      margin-bottom: 27px;
-    }
-
-    .info-pill {
-      border: 1px solid rgba(255,255,255,.25);
-
-      background: rgba(255,255,255,.1);
-
-      padding: 13px 16px;
-
-      border-radius: 999px;
-
-      backdrop-filter: blur(8px);
-
-      font-weight: 700;
-    }
-
-    /* =========================
-       BOTÕES
-       ========================= */
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      border: 0;
-      cursor: pointer;
-
-      min-height: 52px;
-
-      padding: 0 22px;
-
-      border-radius: 999px;
-
-      font-weight: 900;
-
-      transition: .2s ease;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 9px;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--orange);
-      color: white;
-    }
-
-    .btn-yellow {
-      background: var(--yellow);
-      color: var(--navy);
-    }
-
-    .btn-dark {
-      background: var(--navy);
-      color: white;
-    }
-
-    .btn-outline {
-      color: white;
-
-      border: 1px solid rgba(255,255,255,.55);
-
-      background: transparent;
-    }
-
-    /* =========================
-       CABEÇALHOS
-       ========================= */
-
-    .section-head {
-      display: grid;
-
-      grid-template-columns: 1fr 1.15fr;
-
-      gap: 60px;
-
-      align-items: end;
-
-      margin-bottom: 42px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(38px,5vw,65px);
-
-      line-height: .94;
-
-      letter-spacing: -.045em;
-
-      text-transform: uppercase;
-    }
-
-    .section-head h2 span {
-      color: var(--orange);
-    }
-
-    .section-head p {
-      font-size: 18px;
-
-      line-height: 1.65;
-
-      color: var(--muted);
-    }
-
-    /* =========================
-       GALERIA
-       ========================= */
-
-    .gallery {
-      display: grid;
-
-      grid-template-columns: 1.4fr 1fr 1fr;
-
-      grid-template-rows: 280px 280px;
-
-      gap: 14px;
-    }
-
-    .gallery figure {
-      position: relative;
-
-      overflow: hidden;
-
-      border-radius: 24px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .gallery figure:first-child {
-      grid-row: span 2;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      transition: .4s;
-    }
-
-    .gallery figure:hover img {
-      transform: scale(1.04);
-    }
-
-    .gallery figcaption {
-      position: absolute;
-
-      left: 16px;
-      bottom: 16px;
-
-      color: white;
-
-      background: rgba(13,18,49,.84);
-
-      padding: 9px 13px;
-
-      border-radius: 999px;
-
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    /* =========================
-       EXPERIÊNCIAS
-       ========================= */
-
-    .dark-section {
-      background: var(--navy-2);
-      color: white;
-
-      position: relative;
-
-      overflow: hidden;
-    }
-
-    .dark-section .section-head p {
-      color: rgba(255,255,255,.72);
-    }
-
-    .experience-grid {
-      display: grid;
-
-      grid-template-columns: repeat(3,1fr);
-
-      gap: 18px;
-    }
-
-    .experience-card {
-      background: #171d3b;
-
-      border-radius: 25px;
-
-      overflow: hidden;
-
-      border: 1px solid rgba(255,255,255,.09);
-
-      transition: .25s;
-    }
-
-    .experience-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .experience-card img {
-      height: 250px;
-      width: 100%;
-
-      object-fit: cover;
-    }
-
-    .experience-body {
-      padding: 23px;
-    }
-
-    .experience-card h3 {
-      font-size: 25px;
-
-      line-height: 1;
-
-      text-transform: uppercase;
-
-      margin-bottom: 10px;
-    }
-
-    .experience-card p {
-      line-height: 1.55;
-
-      color: rgba(255,255,255,.7);
-    }
-
-    .tag {
-      display: inline-block;
-
-      color: var(--orange);
-
-      font-size: 12px;
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      letter-spacing: .12em;
-
-      margin-bottom: 10px;
-    }
-
-    /* =========================
-       VÍDEOS
-       ========================= */
-
-    .videos-section {
-      background: white;
-    }
-
-    .video-grid {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 24px;
-    }
-
-    .video-card {
-      background: var(--navy);
-
-      border-radius: 28px;
-
-      overflow: hidden;
-
-      box-shadow: var(--shadow);
-    }
-
-    .video-frame {
-      position: relative;
-
-      width: 100%;
-
-      aspect-ratio: 16 / 9;
-    }
-
-    .video-frame iframe {
-      position: absolute;
-
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      border: 0;
-    }
-
-    .video-info {
-      padding: 24px;
-
-      color: white;
-    }
-
-    .video-info span {
-      color: var(--orange);
-
-      text-transform: uppercase;
-
-      font-size: 12px;
-      font-weight: 900;
-
-      letter-spacing: .13em;
-    }
-
-    .video-info h3 {
-      margin-top: 7px;
-
-      font-size: 27px;
-
-      text-transform: uppercase;
-    }
-
-    .video-info p {
-      margin-top: 10px;
-
-      color: rgba(255,255,255,.7);
-
-      line-height: 1.5;
-    }
-
-    /* =========================
-       FAMÍLIA
-       ========================= */
-
-    .family {
-      display: grid;
-
-      grid-template-columns: 1.05fr .95fr;
-
-      border-radius: 35px;
-
-      overflow: hidden;
-
-      background: var(--yellow);
-
-      box-shadow: var(--shadow);
-    }
-
-    .family-image {
-      min-height: 520px;
-
-      background:
-        url("familia.jpg")
-        center / cover;
-    }
-
-    .family-content {
-      padding: 65px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-    }
-
-    .family-content h2 {
-      font-size: clamp(43px,5vw,72px);
-
-      line-height: .92;
-
-      text-transform: uppercase;
-
-      letter-spacing: -.05em;
-
-      margin-bottom: 22px;
-    }
-
-    .family-content p {
-      line-height: 1.65;
-
-      font-size: 18px;
-
-      max-width: 480px;
-
-      margin-bottom: 18px;
-    }
-
-    .family-warning {
-      font-size: 14px !important;
-
-      background: rgba(255,255,255,.55);
-
-      padding: 14px 16px;
-
-      border-radius: 15px;
-
-      margin-bottom: 25px !important;
-    }
-
-    /* =========================
-       PONTO PREMIADO
-       ========================= */
-
-    .points {
-      background:
-        radial-gradient(
-          circle at 80% 10%,
-          #ffed53 0,
-          transparent 28%
-        ),
-        var(--yellow);
-    }
-
-    .points-grid {
-      display: grid;
-
-      grid-template-columns: .9fr 1.1fr;
-
-      align-items: center;
-
-      gap: 50px;
-    }
-
-    .points-logo {
-      width: 250px;
-
-      max-width: 70%;
-
-      margin-bottom: 25px;
-    }
-
-    .points h2 {
-      font-size: clamp(40px,5vw,68px);
-
-      line-height: .94;
-
-      text-transform: uppercase;
-
-      letter-spacing: -.05em;
-
-      margin-bottom: 18px;
-    }
-
-    .points-copy {
-      font-size: 18px;
-
-      line-height: 1.6;
-
-      margin-bottom: 25px;
-
-      max-width: 560px;
-    }
-
-    .prize-gallery {
-      display: grid;
-
-      grid-template-columns: 1.3fr .7fr;
-
-      grid-template-rows: 250px 250px;
-
-      gap: 12px;
-    }
-
-    .prize-gallery img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      border-radius: 22px;
-
-      box-shadow:
-        0 14px 35px rgba(55,38,0,.15);
-    }
-
-    .prize-gallery img:first-child {
-      grid-row: span 2;
-    }
-
-    /* =========================
-       ATRAÇÕES
-       ========================= */
-
-    .coming {
-      background: white;
-    }
-
-    .coming-box {
-      background:
-        linear-gradient(
-          120deg,
-          var(--navy),
-          #28377a
-        );
-
-      min-height: 430px;
-
-      color: white;
-
-      border-radius: 38px;
-
-      padding: 70px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 50px;
-
-      overflow: hidden;
-
-      position: relative;
-    }
-
-    .coming-box::after {
-      content: "EM BREVE";
-
-      position: absolute;
-
-      right: -25px;
-      bottom: -22px;
-
-      font-size: 115px;
-
-      font-weight: 900;
-
-      opacity: .06;
-
-      white-space: nowrap;
-    }
-
-    .coming-box h2 {
-      font-size: clamp(44px,6vw,78px);
-
-      text-transform: uppercase;
-
-      letter-spacing: -.05em;
-
-      line-height: .9;
-
-      max-width: 680px;
-    }
-
-    .coming-box h2 span {
-      color: var(--orange);
-    }
-
-    .coming-box p {
-      margin-top: 25px;
-
-      max-width: 540px;
-
-      line-height: 1.6;
-
-      color: rgba(255,255,255,.75);
-    }
-
-    /* =========================
-       INSTAGRAM
-       ========================= */
-
-    .instagram-challenge {
-      background: var(--cream);
-
-      position: relative;
-
-      overflow: hidden;
-    }
-
-    .instagram-challenge-box {
-      display: grid;
-
-      grid-template-columns: .85fr 1.15fr;
-
-      gap: 65px;
-
-      align-items: center;
-
-      background: white;
-
-      border-radius: 38px;
-
-      padding: 55px;
-
-      box-shadow: var(--shadow);
-
-      position: relative;
-    }
-
-    .instagram-challenge-box::before {
-      content: "";
-
-      position: absolute;
-
-      width: 280px;
-      height: 280px;
-
-      border-radius: 50%;
-
-      background: var(--yellow);
-
-      right: -120px;
-      top: -140px;
-
-      opacity: .8;
-    }
-
-    .instagram-challenge-box::after {
-      content: "";
-
-      position: absolute;
-
-      width: 430px;
-      height: 140px;
-
-      border: 3px solid var(--blue);
-
-      border-radius: 50%;
-
-      right: -160px;
-      bottom: -50px;
-
-      transform: rotate(-10deg);
-
-      opacity: .25;
-    }
-
-    .instagram-video {
-      display: flex;
-
-      justify-content: center;
-
-      position: relative;
-
-      z-index: 2;
-    }
-
-    .instagram-video .instagram-media {
-      width: 100% !important;
-
-      min-width: 0 !important;
-
-      max-width: 470px !important;
-
-      margin: 0 !important;
-    }
-
-    .instagram-content {
-      position: relative;
-
-      z-index: 2;
-    }
-
-    .instagram-content h2 {
-      font-size: clamp(39px,5vw,66px);
-
-      line-height: .92;
-
-      letter-spacing: -.05em;
-
-      text-transform: uppercase;
-
-      margin-bottom: 24px;
-    }
-
-    .instagram-content h2 span {
-      color: var(--orange);
-    }
-
-    .instagram-content > p {
-      max-width: 560px;
-
-      font-size: 18px;
-
-      line-height: 1.65;
-
-      color: var(--muted);
-
-      margin-bottom: 28px;
-    }
-
-    .challenge-steps {
-      display: grid;
-
-      gap: 10px;
-
-      margin-bottom: 28px;
-    }
-
-    .challenge-steps div {
-      display: flex;
-
-      align-items: center;
-
-      gap: 13px;
-
-      background: var(--cream);
-
-      padding: 13px 17px;
-
-      border-radius: 15px;
-
-      font-weight: 700;
-    }
-
-    .challenge-steps strong {
-      color: var(--orange);
-
-      font-size: 13px;
-
-      letter-spacing: .08em;
-    }
-
-    .challenge-note {
-      display: block;
-
-      margin-top: 17px;
-
-      color: var(--muted);
-
-      line-height: 1.45;
-
-      max-width: 480px;
-    }
-
-    /* =========================
-       PARTICIPAÇÃO
-       BACKUP — IDENTIDADE ANTIGA
-       MAS FLUXO NOVO
-       ========================= */
-
-    .participate {
-      background: var(--navy-2);
-
-      color: white;
-
-      position: relative;
-
-      overflow: hidden;
-    }
-
-    .participate::before {
-      content: "";
-
-      position: absolute;
-
-      width: 700px;
-      height: 240px;
-
-      right: -340px;
-      top: 150px;
-
-      border: 2px solid rgba(97,191,220,.15);
-
-      border-radius: 50%;
-
-      transform: rotate(-10deg);
-    }
-
-    .participate .section-head {
-      position: relative;
-
-      z-index: 2;
-    }
-
-    .participate .section-head p {
-      color: rgba(255,255,255,.72);
-    }
-
-    .form-journey {
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 980px;
-
-      margin: 0 auto;
-
-      padding: 42px;
-
-      border-radius: 32px;
-
-      background: #171d3b;
-
-      border: 1px solid rgba(255,255,255,.1);
-
-      box-shadow:
-        0 28px 70px rgba(0,0,0,.22);
-    }
-
-    .journey-intro {
-      padding-bottom: 30px;
-
-      margin-bottom: 8px;
-
-      border-bottom:
-        1px solid rgba(255,255,255,.1);
-    }
-
-    .journey-intro h3 {
-      font-size: clamp(28px,4vw,43px);
-
-      line-height: .98;
-
-      text-transform: uppercase;
-
-      letter-spacing: -.04em;
-
-      margin-bottom: 12px;
-    }
-
-    .journey-intro p {
-      color: rgba(255,255,255,.7);
-
-      line-height: 1.6;
-
-      max-width: 720px;
-    }
-
-    .required-note {
-      display: inline-block;
-
-      margin-top: 15px;
-
-      color: var(--yellow);
-
-      font-size: 13px;
-
-      font-weight: 800;
-    }
-
-    .form-step {
-      display: grid;
-
-      grid-template-columns: 68px 1fr;
-
-      gap: 22px;
-
-      padding: 32px 0;
-
-      border-bottom:
-        1px solid rgba(255,255,255,.1);
-    }
-
-    .form-step:last-of-type {
-      border-bottom: 0;
-    }
-
-    .step-number {
-      width: 54px;
-      height: 54px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--orange);
-
-      color: white;
-
-      font-size: 17px;
-
-      font-weight: 900;
-    }
-
-    .form-step h3 {
-      font-size: 22px;
-
-      line-height: 1.2;
-
-      margin: 3px 0 16px;
-    }
-
-    .form-step h3 span {
-      color: var(--orange);
-    }
-
-    .poll-options {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 8px;
-    }
-
-    .poll-btn {
-      border:
-        1px solid rgba(255,255,255,.18);
-
-      background:
-        rgba(255,255,255,.06);
-
-      color: white;
-
-      border-radius: 999px;
-
-      padding: 11px 14px;
-
-      cursor: pointer;
-
-      transition: .2s;
-    }
-
-    .poll-btn:hover {
-      border-color: var(--orange);
-    }
-
-    .poll-btn.selected {
-      background: var(--orange);
-
-      border-color: var(--orange);
-
-      font-weight: 800;
-    }
-
-    .multi-note {
-      margin-top: 12px;
-
-      color: rgba(255,255,255,.55);
-
-      font-size: 13px;
-    }
-
-    /* FILHOS E NETOS */
-
-    .children-box {
-      display: none;
-
-      margin-top: 20px;
-
-      padding: 23px;
-
-      border-radius: 20px;
-
-      background:
-        rgba(255,255,255,.055);
-
-      border:
-        1px solid rgba(255,255,255,.11);
-    }
-
-    .children-box.visible {
-      display: block;
-    }
-
-    .children-box > p {
-      margin-bottom: 18px;
-
-      color: rgba(255,255,255,.7);
-
-      line-height: 1.55;
-
-      font-size: 14px;
-    }
-
-    .child-row {
-      display: grid;
-
-      grid-template-columns:
-        150px 1fr 110px auto;
-
-      gap: 9px;
-
-      margin-bottom: 10px;
-    }
-
-    .child-field {
-      width: 100%;
-
-      min-width: 0;
-
-      padding: 13px;
-
-      border-radius: 13px;
-
-      border: 1px solid #dfe3ed;
-
-      background: white;
-
-      color: var(--text);
-
-      outline: none;
-    }
-
-    .child-field:focus {
-      border-color: var(--orange);
-
-      box-shadow:
-        0 0 0 3px rgba(245,130,32,.12);
-    }
-
-    .remove-child {
-      min-height: 46px;
-
-      border: 0;
-
-      background:
-        rgba(255,255,255,.1);
-
-      color: white;
-
-      border-radius: 13px;
-
-      padding: 0 14px;
-    }
-
-    .remove-child:hover {
-      background:
-        rgba(255,255,255,.16);
-    }
-
-    .add-child {
-      margin-top: 8px;
-    }
-
-    .guest-warning {
-      margin-top: 19px;
-
-      padding: 14px 16px;
-
-      border-radius: 14px;
-
-      background:
-        rgba(255,210,31,.09);
-
-      border:
-        1px solid rgba(255,210,31,.2);
-
-      color: rgba(255,255,255,.72);
-
-      font-size: 13px;
-
-      line-height: 1.55;
-    }
-
-    /* DADOS */
-
-    .personal-grid {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 11px;
-    }
-
-    .form-field {
-      width: 100%;
-
-      padding: 14px 16px;
-
-      border-radius: 14px;
-
-      border: 1px solid #dfe3ed;
-
-      background: white;
-
-      color: var(--text);
-
-      outline: none;
-    }
-
-    .form-field:focus {
-      border-color: var(--orange);
-
-      box-shadow:
-        0 0 0 3px rgba(245,130,32,.12);
-    }
-
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-    textarea.form-field {
-      min-height: 115px;
-
-      resize: vertical;
-    }
-
-    .submit-area {
-      padding-top: 28px;
-    }
-
-    .confirmation-note {
-      color: rgba(255,255,255,.62);
-
-      font-size: 13px;
-
-      line-height: 1.55;
-
-      margin-bottom: 16px;
-    }
-
-    .form-alert {
-      display: none;
-
-      padding: 14px 16px;
-
-      margin-bottom: 15px;
-
-      border-radius: 14px;
-
-      background: #fff1e6;
-
-      color: #a54700;
-
-      font-size: 14px;
-
-      line-height: 1.45;
-    }
-
-    .form-alert.visible {
-      display: block;
-    }
-
-    .submit-btn {
-      width: 100%;
-
-      min-height: 58px;
-
-      font-size: 16px;
-    }
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    footer {
-      background: #080b1c;
-
-      color: white;
-
-      padding: 46px 0;
-    }
-
-    .footer-inner {
-      display: grid;
-
-      grid-template-columns: 1fr auto;
-
-      gap: 30px;
-
-      align-items: center;
-    }
-
-    .footer-logo {
-      width: 210px;
-
-      margin-bottom: 15px;
-    }
-
-    .footer-copy {
-      color: rgba(255,255,255,.55);
-
-      font-size: 13px;
-    }
-
-    /* =========================
-       TOAST
-       ========================= */
-
-    .toast {
-      position: fixed;
-
-      left: 50%;
-      bottom: 24px;
-
-      transform:
-        translate(-50%,120px);
-
-      opacity: 0;
-
-      background: white;
-
-      color: var(--navy);
-
-      z-index: 100;
-
-      padding: 15px 19px;
-
-      border-radius: 999px;
-
-      box-shadow: var(--shadow);
-
-      font-weight: 800;
-
-      transition: .3s;
-    }
-
-    .toast.show {
-      transform:
-        translate(-50%,0);
-
-      opacity: 1;
-    }
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media(max-width: 850px) {
-
-      .nav a:not(.mini-cta) {
-        display: none;
-      }
-
-      .top-logo {
-        width: 145px;
-      }
-
-      .hero {
-        min-height: 860px;
-
-        padding-bottom: 90px;
-
-        background-position: 61% center;
-      }
-
-      .hero-logo {
-        width: 360px;
-      }
-
-      h1 {
-        font-size: 53px;
-      }
-
-      .section-head,
-      .points-grid,
-      .family {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        gap: 20px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-
-        grid-template-rows:
-          360px 220px 220px;
-      }
-
-      .gallery figure:first-child {
-        grid-column: span 2;
-
-        grid-row: auto;
-      }
-
-      .experience-grid,
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .family-image {
-        min-height: 390px;
-      }
-
-      .family-content {
-        padding: 40px 28px;
-      }
-
-      .coming-box {
-        padding: 45px 28px;
-      }
-
-      .instagram-challenge-box {
-        grid-template-columns: 1fr;
-
-        padding: 35px 25px;
-
-        gap: 40px;
-      }
-
-      .instagram-video {
-        order: 2;
-      }
-
-      .instagram-content {
-        order: 1;
-      }
-
-      .form-journey {
-        padding: 30px 24px;
-      }
-
-      .child-row {
-        grid-template-columns: 1fr 100px;
-      }
-
-      .child-row .child-relation {
-        grid-column: 1 / -1;
-      }
-
-      .remove-child {
-        min-height: 42px;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media(max-width: 520px) {
-
-      section {
-        padding: 70px 0;
-      }
-
-      .container {
-        width: min(100% - 24px,1160px);
-      }
-
-      .hero {
-        padding-top: 115px;
-      }
-
-      .hero-copy {
-        font-size: 16px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-
-        grid-template-rows:
-          repeat(4,300px);
-      }
-
-      .gallery figure:first-child {
-        grid-column: auto;
-      }
-
-      .prize-gallery {
-        grid-template-columns: 1fr 1fr;
-
-        grid-template-rows:
-          300px 180px;
-      }
-
-      .prize-gallery img:first-child {
-        grid-column: span 2;
-
-        grid-row: auto;
-      }
-
-      .coming-box {
-        display: block;
-      }
-
-      .coming-box .btn {
-        margin-top: 25px;
-      }
-
-      .instagram-challenge-box {
-        border-radius: 26px;
-
-        padding: 30px 18px;
-      }
-
-      .instagram-content h2 {
-        font-size: 39px;
-      }
-
-      .form-step {
-        grid-template-columns: 1fr;
-
-        gap: 11px;
-
-        padding: 27px 0;
-      }
-
-      .step-number {
-        width: 44px;
-        height: 44px;
-      }
-
-      .personal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-field.full {
-        grid-column: auto;
-      }
-
-      .child-row {
-        grid-template-columns: 1fr 90px;
-      }
-
-      .child-row .child-relation {
-        grid-column: 1 / -1;
-      }
-
-      .remove-child {
-        grid-column: span 2;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conecta Profissionais 26</title>
+
+<meta name="description" content="Conecta Profissionais 26 — o grande encontro dos profissionais da construção.">
+<meta name="theme-color" content="#0d1231">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<style>
+:root{
+  --navy:#171d48;
+  --navy2:#0d1231;
+  --navy3:#222957;
+  --orange:#f58220;
+  --yellow:#ffd21f;
+  --cream:#faf5e8;
+  --blue:#61bfdc;
+  --white:#fff;
+  --text:#1c2343;
+  --muted:#68708a;
+  --shadow:0 18px 50px rgba(13,18,49,.17);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+
+.container{
+  width:min(1160px,calc(100% - 36px));
+  margin:auto;
+}
+
+section{padding:95px 0}
+
+/* =========================
+   TOPO
+========================= */
+
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  background:rgba(13,18,49,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.topbar-inner{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.top-logo{width:175px}
+
+.nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  color:white;
+  font-size:14px;
+  font-weight:700;
+}
+
+.nav a:hover{color:var(--yellow)}
+
+.nav .mini-cta{
+  background:var(--orange);
+  color:white;
+  padding:13px 18px;
+  border-radius:999px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn{
+  border:0;
+  min-height:52px;
+  padding:0 22px;
+  border-radius:999px;
+  font-weight:900;
+  transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.btn-primary{
+  background:var(--orange);
+  color:white;
+}
+
+.btn-yellow{
+  background:var(--yellow);
+  color:var(--navy);
+}
+
+.btn-dark{
+  background:var(--navy);
+  color:white;
+}
+
+.btn-outline{
+  color:white;
+  border:1px solid rgba(255,255,255,.55);
+  background:transparent;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  color:white;
+  display:flex;
+  align-items:flex-end;
+  padding:130px 0 75px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,13,40,.95) 0%,
+      rgba(8,13,40,.80) 40%,
+      rgba(8,13,40,.25) 72%,
+      rgba(8,13,40,.55) 100%
+    ),
+    url("hero.jpg") center/cover no-repeat;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:100px;
+  background:linear-gradient(transparent,var(--cream));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.hero-logo{
+  width:min(500px,88vw);
+  margin-bottom:28px;
+}
+
+.eyebrow{
+  color:var(--yellow);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:13px;
+}
+
+.hero h1{
+  font-size:clamp(48px,7vw,94px);
+  line-height:.9;
+  letter-spacing:-.055em;
+  text-transform:uppercase;
+}
+
+.hero h1 span{color:var(--orange)}
+
+.hero-copy{
+  max-width:620px;
+  font-size:18px;
+  line-height:1.55;
+  margin:24px 0 28px;
+  color:rgba(255,255,255,.9);
+}
+
+/* NOVO BLOCO DATA / LOCAL */
+
+.event-details{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin:0 0 28px;
+}
+
+.map-button{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  min-height:50px;
+  padding:0 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.32);
+  color:white;
+  font-weight:900;
+  transition:.2s;
+  backdrop-filter:blur(8px);
+}
+
+.map-button:hover{
+  background:white;
+  color:var(--navy);
+  transform:translateY(-2px);
+}
+
+.map-icon{
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--orange);
+  color:white;
+  flex:none;
+}
+
+.event-date{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.date-block{
+  display:flex;
+  flex-direction:column;
+  padding-right:20px;
+  border-right:1px solid rgba(255,255,255,.3);
+}
+
+.date-main{
+  font-size:27px;
+  line-height:1;
+  font-weight:900;
+}
+
+.date-label{
+  margin-top:5px;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  color:rgba(255,255,255,.62);
+  font-weight:900;
+}
+
+.time-block{
+  display:flex;
+  flex-direction:column;
+}
+
+.time-main{
+  font-size:22px;
+  line-height:1;
+  font-weight:900;
+}
+
+.time-label{
+  margin-top:5px;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  color:rgba(255,255,255,.62);
+  font-weight:900;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* =========================
+   CABEÇALHO DE SEÇÕES
+========================= */
+
+.section-head{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:42px;
+}
+
+.section-head h2{
+  font-size:clamp(38px,5vw,65px);
+  line-height:.94;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+}
+
+.section-head h2 span{color:var(--orange)}
+
+.section-head p{
+  font-size:18px;
+  line-height:1.65;
+  color:var(--muted);
+}
+
+/* =========================
+   GALERIA - QUEM JÁ VIVEU
+========================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  grid-template-rows:280px 280px;
+  gap:14px;
+}
+
+.gallery figure{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.gallery figure:first-child{
+  grid-row:span 2;
+}
+
+.gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.gallery figure:hover img{transform:scale(1.04)}
+
+.gallery figcaption{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  color:white;
+  background:rgba(13,18,49,.88);
+  padding:9px 13px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+
+/* =========================
+   EXPERIÊNCIAS
+========================= */
+
+.dark-section{
+  background:var(--navy2);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.dark-section .section-head p{
+  color:rgba(255,255,255,.72);
+}
+
+.experience-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.experience-card{
+  background:#171d3b;
+  border-radius:25px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);
+}
+
+/* CARROSSEL */
+
+.card-carousel{
+  height:250px;
+  position:relative;
+  overflow:hidden;
+  background:#090d27;
+}
+
+.carousel-track{
+  height:100%;
+  position:relative;
+}
+
+.carousel-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.carousel-slide.active{opacity:1}
+
+.carousel-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.carousel-arrow{
+  position:absolute;
+  z-index:4;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(13,18,49,.65);
+  color:white;
+  font-size:24px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(6px);
+  opacity:0;
+  transition:.2s;
+}
+
+.card-carousel:hover .carousel-arrow{opacity:1}
+
+.carousel-arrow.prev{left:12px}
+.carousel-arrow.next{right:12px}
+
+.carousel-dots{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+}
+
+.carousel-dot{
+  width:7px;
+  height:7px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.45);
+  padding:0;
+}
+
+.carousel-dot.active{
+  width:21px;
+  border-radius:999px;
+  background:var(--orange);
+}
+
+.experience-body{padding:23px}
+
+.tag{
+  display:inline-block;
+  color:var(--orange);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:10px;
+}
+
+.experience-card h3{
+  font-size:25px;
+  line-height:1;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.experience-card p{
+  line-height:1.55;
+  color:rgba(255,255,255,.7);
+}
+
+/* =========================
+   VÍDEOS
+========================= */
+
+.videos-section{background:white}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.video-card{
+  background:var(--navy);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.video-frame{
+  width:100%;
+  aspect-ratio:16/9;
+}
+
+.video-frame iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.video-info{
+  padding:24px;
+  color:white;
+}
+
+.video-info span{
+  color:var(--orange);
+  text-transform:uppercase;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.13em;
+}
+
+.video-info h3{
+  margin-top:7px;
+  font-size:27px;
+  text-transform:uppercase;
+}
+
+.video-info p{
+  margin-top:10px;
+  color:rgba(255,255,255,.7);
+  line-height:1.5;
+}
+
+/* =========================
+   FAMÍLIA
+========================= */
+
+.family{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  border-radius:35px;
+  overflow:hidden;
+  background:var(--yellow);
+  box-shadow:var(--shadow);
+}
+
+.family-image{
+  min-height:520px;
+  background:url("familia.jpg") center/cover;
+}
+
+.family-content{
+  padding:65px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.family-content h2{
+  font-size:clamp(43px,5vw,72px);
+  line-height:.92;
+  text-transform:uppercase;
+  letter-spacing:-.05em;
+  margin-bottom:22px;
+}
+
+.family-content p{
+  line-height:1.65;
+  font-size:18px;
+  max-width:480px;
+  margin-bottom:18px;
+}
+
+.family-age{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  align-self:flex-start;
+  margin-bottom:18px;
+  background:var(--navy);
+  color:white;
+  padding:12px 17px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+.family-warning{
+  font-size:14px!important;
+  background:rgba(255,255,255,.55);
+  padding:14px 16px;
+  border-radius:15px;
+  margin-bottom:25px!important;
+}
+
+/* =========================
+   PONTO PREMIADO
+========================= */
+
+.points{
+  background:
+    radial-gradient(circle at 80% 10%,#ffed53 0,transparent 28%),
+    var(--yellow);
+}
+
+.points-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  align-items:center;
+  gap:50px;
+}
+
+.points-logo{
+  width:390px;
+  max-width:92%;
+  margin-bottom:28px;
+}
+
+.points h2{
+  font-size:clamp(40px,5vw,68px);
+  line-height:.94;
+  text-transform:uppercase;
+  letter-spacing:-.05em;
+  margin-bottom:18px;
+}
+
+.points-copy{
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:25px;
+  max-width:560px;
+}
+
+/* NOVA GALERIA DE PRÊMIOS */
+
+.prize-showcase{
+  position:relative;
+  min-height:545px;
+}
+
+.prize-main{
+  position:absolute;
+  left:0;
+  top:0;
+  width:65%;
+  height:545px;
+  border-radius:27px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(55,38,0,.18);
+}
+
+.prize-main img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.prize-thumbs{
+  position:absolute;
+  right:0;
+  top:0;
+  width:32%;
+  height:545px;
+  display:grid;
+  grid-template-rows:repeat(3,1fr);
+  gap:10px;
+}
+
+.prize-thumb{
+  border:3px solid transparent;
+  border-radius:22px;
+  overflow:hidden;
+  padding:0;
+  background:none;
+  position:relative;
+}
+
+.prize-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.prize-thumb.active{
+  border-color:var(--navy);
+}
+
+.prize-more{
+  position:absolute;
+  right:14px;
+  bottom:13px;
+  background:var(--navy);
+  color:white;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* =========================
+   ATRAÇÕES
+========================= */
+
+.coming{background:white}
+
+.coming-box{
+  background:linear-gradient(120deg,var(--navy),#28377a);
+  min-height:430px;
+  color:white;
+  border-radius:38px;
+  padding:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+}
+
+.coming-box h2{
+  font-size:clamp(44px,6vw,78px);
+  text-transform:uppercase;
+  letter-spacing:-.05em;
+  line-height:.9;
+}
+
+.coming-box h2 span{color:var(--orange)}
+
+.coming-box p{
+  margin-top:25px;
+  max-width:540px;
+  line-height:1.6;
+  color:rgba(255,255,255,.75);
+}
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram-challenge{background:var(--cream)}
+
+.instagram-challenge-box{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:65px;
+  align-items:center;
+  background:white;
+  border-radius:38px;
+  padding:55px;
+  box-shadow:var(--shadow);
+}
+
+.instagram-video{
+  display:flex;
+  justify-content:center;
+}
+
+.instagram-video .instagram-media{
+  width:100%!important;
+  min-width:0!important;
+  max-width:470px!important;
+  margin:0!important;
+}
+
+.instagram-content h2{
+  font-size:clamp(39px,5vw,66px);
+  line-height:.92;
+  letter-spacing:-.05em;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.instagram-content h2 span{color:var(--orange)}
+
+.instagram-content>p{
+  max-width:560px;
+  font-size:18px;
+  line-height:1.65;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.challenge-steps{
+  display:grid;
+  gap:10px;
+  margin-bottom:28px;
+}
+
+.challenge-steps div{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  background:var(--cream);
+  padding:13px 17px;
+  border-radius:15px;
+  font-weight:700;
+}
+
+.challenge-steps strong{color:var(--orange)}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.participate{
+  background:var(--navy2);
+  color:white;
+}
+
+.participate .section-head p{
+  color:rgba(255,255,255,.72);
+}
+
+.form-journey{
+  max-width:980px;
+  margin:auto;
+  padding:42px;
+  border-radius:32px;
+  background:#171d3b;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 28px 70px rgba(0,0,0,.22);
+}
+
+.journey-intro{
+  padding-bottom:30px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.journey-intro h3{
+  font-size:clamp(28px,4vw,43px);
+  text-transform:uppercase;
+  letter-spacing:-.04em;
+  margin-bottom:12px;
+}
+
+.journey-intro p{
+  color:rgba(255,255,255,.7);
+  line-height:1.6;
+}
+
+.required-note{
+  margin-top:15px;
+  color:var(--yellow);
+  font-size:13px;
+  font-weight:800;
+}
+
+.form-step{
+  display:grid;
+  grid-template-columns:68px 1fr;
+  gap:22px;
+  padding:32px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.step-number{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--orange);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.form-step h3{
+  font-size:22px;
+  margin:3px 0 16px;
+}
+
+.form-step h3 span{color:var(--orange)}
+
+.poll-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.poll-btn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:white;
+  border-radius:999px;
+  padding:11px 14px;
+}
+
+.poll-btn.selected{
+  background:var(--orange);
+  border-color:var(--orange);
+  font-weight:800;
+}
+
+.children-box{
+  display:none;
+  margin-top:20px;
+  padding:23px;
+  border-radius:20px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.11);
+}
+
+.children-box.visible{display:block}
+
+.age-rule{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:20px;
+  padding:15px 17px;
+  border-radius:15px;
+  background:rgba(255,210,31,.12);
+  border:1px solid rgba(255,210,31,.32);
+}
+
+.age-rule-icon{
+  font-size:23px;
+  line-height:1;
+}
+
+.age-rule strong{
+  display:block;
+  color:var(--yellow);
+  margin-bottom:4px;
+}
+
+.age-rule p{
+  font-size:13px;
+  line-height:1.5;
+  color:rgba(255,255,255,.75);
+}
+
+.child-row{
+  display:grid;
+  grid-template-columns:150px 1fr 120px auto;
+  gap:9px;
+  margin-bottom:10px;
+}
+
+.child-field,.form-field{
+  width:100%;
+  min-width:0;
+  padding:13px;
+  border-radius:13px;
+  border:1px solid #dfe3ed;
+  background:white;
+  color:var(--text);
+  outline:none;
+}
+
+.child-field:focus,.form-field:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(245,130,32,.12);
+}
+
+.remove-child{
+  border:0;
+  background:rgba(255,255,255,.1);
+  color:white;
+  border-radius:13px;
+  padding:0 14px;
+}
+
+.add-child{margin-top:8px}
+
+.guest-warning{
+  margin-top:19px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:rgba(255,255,255,.06);
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.personal-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+
+.form-field{padding:14px 16px}
+.form-field.full{grid-column:1/-1}
+
+textarea.form-field{
+  min-height:115px;
+  resize:vertical;
+}
+
+.submit-area{padding-top:28px}
+
+.confirmation-note{
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:1.55;
+  margin-bottom:16px;
+}
+
+.form-alert{
+  display:none;
+  padding:14px 16px;
+  margin-bottom:15px;
+  border-radius:14px;
+  background:#fff1e6;
+  color:#a54700;
+  font-size:14px;
+}
+
+.form-alert.visible{display:block}
+
+.submit-btn{
+  width:100%;
+  min-height:58px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#080b1c;
+  color:white;
+  padding:46px 0;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.footer-logo{
+  width:210px;
+  margin-bottom:15px;
+}
+
+.footer-copy{
+  color:rgba(255,255,255,.55);
+  font-size:13px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translate(-50%,120px);
+  opacity:0;
+  background:white;
+  color:var(--navy);
+  z-index:200;
+  padding:15px 19px;
+  border-radius:999px;
+  box-shadow:var(--shadow);
+  font-weight:800;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+  opacity:1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+  .nav a:not(.mini-cta){display:none}
+  .top-logo{width:145px}
+
+  .hero{
+    min-height:850px;
+    background-position:61% center;
+  }
+
+  .section-head,
+  .points-grid,
+  .family{
+    grid-template-columns:1fr;
+  }
+
+  .section-head{gap:20px}
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:350px 220px 220px;
+  }
+
+  .gallery figure:first-child{
+    grid-column:span 2;
+    grid-row:auto;
+  }
+
+  .experience-grid,
+  .video-grid{
+    grid-template-columns:1fr;
+  }
+
+  .family-image{min-height:390px}
+  .family-content{padding:40px 28px}
+
+  .points-logo{width:340px}
+
+  .prize-showcase{min-height:520px}
+  .prize-main{height:520px}
+  .prize-thumbs{height:520px}
+
+  .instagram-challenge-box{
+    grid-template-columns:1fr;
+    padding:35px 25px;
+  }
+
+  .instagram-video{order:2}
+
+  .form-journey{padding:30px 24px}
+
+  .child-row{
+    grid-template-columns:1fr 110px;
+  }
+
+  .child-relation{
+    grid-column:1/-1;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+@media(max-width:520px){
+
+  section{padding:70px 0}
+
+  .container{
+    width:min(100% - 24px,1160px);
+  }
+
+  .hero{padding-top:115px}
+  .hero h1{font-size:53px}
+  .hero-copy{font-size:16px}
+
+  .event-details{
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .map-button{width:100%}
+
+  .event-date{
+    width:100%;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(5,280px);
+  }
+
+  .gallery figure:first-child{
+    grid-column:auto;
+  }
+
+  .carousel-arrow{opacity:1}
+
+  .prize-showcase{
+    min-height:auto;
+    display:grid;
+    gap:10px;
+  }
+
+  .prize-main{
+    position:relative;
+    width:100%;
+    height:390px;
+  }
+
+  .prize-thumbs{
+    position:relative;
+    width:100%;
+    height:125px;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:1fr;
+  }
+
+  .form-step{
+    grid-template-columns:1fr;
+    gap:11px;
+  }
+
+  .step-number{
+    width:44px;
+    height:44px;
+  }
+
+  .personal-grid{grid-template-columns:1fr}
+  .form-field.full{grid-column:auto}
+
+  .child-row{
+    grid-template-columns:1fr 95px;
+  }
+
+  .remove-child{
+    grid-column:span 2;
+    min-height:42px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
 <header class="topbar">
-
   <div class="container topbar-inner">
 
     <a href="#inicio">
-
-      <img
-        class="top-logo"
-        src="logo-conecta26.png"
-        alt="Conecta Profissionais 26"
-      >
-
+      <img class="top-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
     </a>
 
     <nav class="nav">
-
       <a href="#conecta">O Conecta</a>
-
-      <a href="#experiencias">
-        Experiências
-      </a>
-
-      <a href="#pontos">
-        Ponto Premiado
-      </a>
-
-      <a href="#atracoes">
-        Atrações
-      </a>
-
-      <a href="#desafio">
-        Concorra
-      </a>
-
-      <a
-        class="mini-cta"
-        href="#participar"
-      >
-        Quero ir
-      </a>
-
+      <a href="#experiencias">Experiências</a>
+      <a href="#pontos">Ponto Premiado</a>
+      <a href="#atracoes">Atrações</a>
+      <a href="#desafio">Concorra</a>
+      <a href="#participar" class="mini-cta">Quero ir</a>
     </nav>
 
   </div>
-
 </header>
-
 
 <main>
 
+<!-- HERO -->
 
-<!-- =========================
-     HERO
-     ========================= -->
-
-<section
-  class="hero"
-  id="inicio"
->
-
+<section class="hero" id="inicio">
   <div class="container">
 
     <div class="hero-content">
 
-      <img
-        class="hero-logo"
-        src="logo-conecta26.png"
-        alt="Conecta Profissionais 26"
-      >
+      <img class="hero-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
 
       <div class="eyebrow">
         O grande encontro de quem faz acontecer
       </div>
 
       <h1>
-        A festa de
-        <span>quem faz.</span>
+        A festa de <span>quem faz.</span>
       </h1>
 
       <p class="hero-copy">
-
-        Um dia inteiro de encontros,
-        comida boa, música,
-        fornecedores, experiências,
-        prêmios e muita gente que vive
-        a construção todos os dias.
-
+        Um dia inteiro de encontros, comida boa, música, fornecedores,
+        experiências, prêmios e muita gente que vive a construção todos os dias.
       </p>
 
-      <div class="hero-info">
+      <div class="event-details">
 
-        <div class="info-pill">
-          📍 Haras Kaylua
-        </div>
+        <a
+          class="map-button"
+          href="https://maps.app.goo.gl/5tG6iwiyA3tktYLr9"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="map-icon">●</span>
+          Haras Kaylua
+          <span>↗</span>
+        </a>
 
-        <div class="info-pill">
-          📅 03/10
-        </div>
+        <div class="event-date">
 
-        <div class="info-pill">
-          🕘 às 9h
+          <div class="date-block">
+            <span class="date-main">03/10</span>
+            <span class="date-label">Data do evento</span>
+          </div>
+
+          <div class="time-block">
+            <span class="time-main">9h</span>
+            <span class="time-label">A partir das</span>
+          </div>
+
         </div>
 
       </div>
 
       <div class="actions">
 
-        <a
-          href="#participar"
-          class="btn btn-primary"
-        >
+        <a href="#participar" class="btn btn-primary">
           Quero participar
         </a>
 
-        <a
-          href="#conecta"
-          class="btn btn-outline"
-        >
+        <a href="#conecta" class="btn btn-outline">
           Descobrir o evento ↓
         </a>
 
@@ -1798,248 +1320,208 @@
     </div>
 
   </div>
-
 </section>
 
+<!-- QUEM JÁ VIVEU -->
 
-<!-- =========================
-     O CONECTA
-     ========================= -->
-
-<section
-  id="conecta"
-  class="flow-section"
->
-
+<section id="conecta">
   <div class="container">
 
     <div class="section-head">
 
       <div>
-
-        <div
-          class="eyebrow"
-          style="color:var(--orange)"
-        >
+        <div class="eyebrow" style="color:var(--orange)">
           Isso é o Conecta
         </div>
 
         <h2>
-          Quem já viveu,
-          <span>sabe.</span>
+          Quem já viveu, <span>sabe.</span>
         </h2>
-
       </div>
 
       <p>
-
-        O Conecta reúne os profissionais
-        que fazem a obra acontecer.
-
-        Mais que uma programação,
-        é um dia para encontrar gente,
-        trocar experiências,
-        comemorar e viver momentos
-        que ficam na memória.
-
+        O Conecta reúne os profissionais que fazem a obra acontecer.
+        Mais que uma programação, é um dia para encontrar gente,
+        trocar experiências, comemorar e viver momentos que ficam na memória.
       </p>
 
     </div>
-
 
     <div class="gallery">
 
       <figure>
-
-        <img
-          src="publico.jpg"
-          alt="Público de edição anterior do Conecta"
-        >
-
-        <figcaption>
-          Gente de verdade
-        </figcaption>
-
+        <img src="publico.jpg" alt="Público do Conecta">
+        <figcaption>Gente de verdade</figcaption>
       </figure>
 
-
       <figure>
-
-        <img
-          src="premio-1.jpg"
-          alt="Profissional premiado em edição anterior"
-        >
-
-        <figcaption>
-          Prêmios
-        </figcaption>
-
+        <img src="premio-1.jpg" alt="Premiação no Conecta">
+        <figcaption>Prêmios</figcaption>
       </figure>
 
-
       <figure>
-
-        <img
-          src="musica.jpg"
-          alt="Música ao vivo no Conecta"
-        >
-
-        <figcaption>
-          Música ao vivo
-        </figcaption>
-
+        <img src="musica.jpg" alt="Música ao vivo">
+        <figcaption>Música ao vivo</figcaption>
       </figure>
 
+      <figure>
+        <img src="familia.jpg" alt="Famílias no Conecta">
+        <figcaption>Família</figcaption>
+      </figure>
 
       <figure>
-
-        <img
-          src="familia.jpg"
-          alt="Famílias no Conecta"
-        >
-
-        <figcaption>
-          Família
-        </figcaption>
-
+        <img src="recreacao.jpg" alt="Recreação no Conecta">
+        <figcaption>Recreação</figcaption>
       </figure>
 
     </div>
 
   </div>
-
 </section>
 
+<!-- EXPERIÊNCIAS -->
 
-<!-- =========================
-     EXPERIÊNCIAS
-     ========================= -->
-
-<section
-  class="dark-section"
-  id="experiencias"
->
-
+<section class="dark-section" id="experiencias">
   <div class="container">
 
     <div class="section-head">
 
       <div>
-
-        <div class="eyebrow">
-          O que te espera
-        </div>
+        <div class="eyebrow">O que te espera</div>
 
         <h2>
-          Um dia inteiro
-          <span>para viver.</span>
+          Um dia inteiro <span>para viver.</span>
         </h2>
-
       </div>
 
       <p>
-
-        Estamos preparando uma experiência
-        completa para os profissionais,
-        seus filhos e netos.
-
-        Um encontro feito para celebrar
-        quem constrói todos os dias.
-
+        Estamos preparando uma experiência completa para os profissionais,
+        seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dias.
       </p>
 
     </div>
 
-
     <div class="experience-grid">
 
+      <!-- GASTRONOMIA -->
+
       <article class="experience-card">
 
-        <img
-          src="churrasco.jpg"
-          alt="Churrasco de edição anterior"
-        >
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="churrasco.jpg" alt="Gastronomia no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="churrasco-2.jpg" alt="Churrasco no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="churrasco-3.jpg" alt="Comida no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button">‹</button>
+          <button class="carousel-arrow next" type="button">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
 
         <div class="experience-body">
-
-          <span class="tag">
-            Gastronomia
-          </span>
-
-          <h3>
-            Comida de verdade
-          </h3>
+          <span class="tag">Gastronomia</span>
+          <h3>Comida de verdade</h3>
 
           <p>
-
-            Um dos momentos mais esperados
-            do dia: comida boa e aquele
-            clima perfeito para confraternizar.
-
+            Um dos momentos mais esperados do dia:
+            comida boa e aquele clima perfeito para confraternizar.
           </p>
-
         </div>
 
       </article>
 
+      <!-- MÚSICA -->
 
       <article class="experience-card">
 
-        <img
-          src="musica.jpg"
-          alt="Música ao vivo no Conecta"
-        >
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="musica.jpg" alt="Música ao vivo">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="musica-2.jpg" alt="Músicos no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="musica-3.jpg" alt="Apresentação musical no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button">‹</button>
+          <button class="carousel-arrow next" type="button">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
 
         <div class="experience-body">
-
-          <span class="tag">
-            Celebração
-          </span>
-
-          <h3>
-            Música ao vivo
-          </h3>
+          <span class="tag">Celebração</span>
+          <h3>Música ao vivo</h3>
 
           <p>
-
-            Porque um grande encontro
-            também merece música,
-            diversão e bons momentos.
-
+            Porque um grande encontro também merece
+            música, diversão e bons momentos.
           </p>
-
         </div>
 
       </article>
 
+      <!-- EXPERIÊNCIAS -->
 
       <article class="experience-card">
 
-        <img
-          src="publico.jpg"
-          alt="Profissionais reunidos"
-        >
+        <div class="card-carousel" data-carousel>
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide active">
+              <img src="publico.jpg" alt="Experiências no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="experiencia-2.jpg" alt="Fornecedor no Conecta">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="experiencia-3.jpg" alt="Workshop no Conecta">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow prev" type="button">‹</button>
+          <button class="carousel-arrow next" type="button">›</button>
+
+          <div class="carousel-dots"></div>
+
+        </div>
 
         <div class="experience-body">
-
-          <span class="tag">
-            Profissão
-          </span>
-
-          <h3>
-            Experiências e fornecedores
-          </h3>
+          <span class="tag">Profissão</span>
+          <h3>Experiências e fornecedores</h3>
 
           <p>
-
-            Demonstrações,
-            workshops,
-            grandes marcas
-            e muito conteúdo para
-            quem faz acontecer.
-
+            Demonstrações, workshops, grandes marcas
+            e muito conteúdo para quem faz acontecer.
           </p>
-
         </div>
 
       </article>
@@ -2047,114 +1529,74 @@
     </div>
 
   </div>
-
 </section>
 
-
-<!-- =========================
-     VÍDEOS
-     ========================= -->
+<!-- VÍDEOS -->
 
 <section class="videos-section">
-
   <div class="container">
 
     <div class="section-head">
 
       <div>
-
-        <div
-          class="eyebrow"
-          style="color:var(--orange)"
-        >
+        <div class="eyebrow" style="color:var(--orange)">
           Aperte o play
         </div>
 
         <h2>
-          Quer saber como
-          <span>é o Conecta?</span>
+          Quer saber como <span>é o Conecta?</span>
         </h2>
-
       </div>
 
       <p>
-
-        Nada melhor do que ver de perto.
-
-        Relembre as últimas edições
-        e sinta um pouco do clima
-        que estamos preparando
-        para 2026.
-
+        Relembre as últimas edições e sinta um pouco do clima
+        que estamos preparando para 2026.
       </p>
 
     </div>
-
 
     <div class="video-grid">
 
       <article class="video-card">
 
         <div class="video-frame">
-
           <iframe
             src="https://www.youtube.com/embed/-gRIIjdD5RI"
             title="Conecta Profissionais 2024"
-            allowfullscreen
-          ></iframe>
-
+            allowfullscreen>
+          </iframe>
         </div>
 
         <div class="video-info">
-
-          <span>
-            Conecta Profissionais
-          </span>
-
-          <h3>
-            Edição 2024
-          </h3>
+          <span>Conecta Profissionais</span>
+          <h3>Edição 2024</h3>
 
           <p>
-            Foi aqui que vivemos uma
-            das grandes edições do Conecta.
+            Foi aqui que vivemos uma das grandes edições do Conecta.
             Em 2026, voltamos ao Haras Kaylua.
           </p>
-
         </div>
 
       </article>
 
-
       <article class="video-card">
 
         <div class="video-frame">
-
           <iframe
             src="https://www.youtube.com/embed/qhNBxtJoTIM"
             title="Conecta Profissionais 2025"
-            allowfullscreen
-          ></iframe>
-
+            allowfullscreen>
+          </iframe>
         </div>
 
         <div class="video-info">
-
-          <span>
-            Conecta Profissionais
-          </span>
-
-          <h3>
-            Edição 2025
-          </h3>
+          <span>Conecta Profissionais</span>
+          <h3>Edição 2025</h3>
 
           <p>
-            Mais encontros,
-            experiências,
-            parceiros e histórias
-            de quem faz acontecer.
+            Mais encontros, experiências, parceiros
+            e histórias de quem faz acontecer.
           </p>
-
         </div>
 
       </article>
@@ -2162,16 +1604,11 @@
     </div>
 
   </div>
-
 </section>
 
+<!-- FAMÍLIA -->
 
-<!-- =========================
-     FAMÍLIA
-     ========================= -->
-
-<section class="flow-section">
-
+<section>
   <div class="container">
 
     <div class="family">
@@ -2180,47 +1617,36 @@
 
       <div class="family-content">
 
-        <div
-          class="eyebrow"
-          style="color:var(--navy)"
-        >
+        <div class="eyebrow" style="color:var(--navy)">
           Esse dia também é deles
         </div>
 
         <h2>
-          Pode trazer
-          seus filhos
-          e netos.
+          Pode trazer seus filhos e netos.
         </h2>
 
+        <div class="family-age">
+          👧 Crianças de 6 a 13 anos
+        </div>
+
         <p>
-
-          O Conecta é um dia para
-          compartilhar.
-
-          Os profissionais podem trazer
-          seus filhos ou netos para viver
-          esse momento junto com eles.
-
+          O Conecta é um dia para compartilhar.
+          Os profissionais podem trazer seus filhos ou netos
+          dentro da faixa etária indicada para viver esse momento junto com eles.
         </p>
 
         <p class="family-warning">
-
           <strong>Importante:</strong>
-          o convite é destinado ao(à)
-          profissional e aos seus filhos
-          ou netos.
-
-          Não será permitida a inclusão
-          de outros tipos de acompanhantes.
-
+          o convite é destinado ao(à) profissional e aos seus
+          filhos ou netos de 6 a 13 anos.
+          Não será permitida a inclusão de outros acompanhantes.
         </p>
 
         <button
+          type="button"
           class="btn btn-dark"
           onclick="selectFamily()"
-          style="align-self:flex-start"
-        >
+          style="align-self:flex-start">
           Vou levar filho ou neto
         </button>
 
@@ -2229,19 +1655,11 @@
     </div>
 
   </div>
-
 </section>
 
+<!-- PONTO PREMIADO -->
 
-<!-- =========================
-     PONTO PREMIADO
-     ========================= -->
-
-<section
-  class="points"
-  id="pontos"
->
-
+<section class="points" id="pontos">
   <div class="container">
 
     <div class="points-grid">
@@ -2251,132 +1669,157 @@
         <img
           class="points-logo"
           src="logo-ponto-premiado.png"
-          alt="Programa Ponto Premiado"
-        >
+          alt="Programa Ponto Premiado">
 
-        <div
-          class="eyebrow"
-          style="color:var(--navy)"
-        >
+        <div class="eyebrow" style="color:var(--navy)">
           Ponto Premiado no Conecta
         </div>
 
         <h2>
-          Seus pontos
-          também vêm
-          pra festa.
+          Seus pontos também vêm pra festa.
         </h2>
 
         <p class="points-copy">
-
-          A lojinha do Ponto Premiado
-          estará no evento.
-
-          Você poderá usar seus pontos
-          para resgatar produtos e
-          aproveitar ainda mais o Conecta.
-
+          A lojinha do Ponto Premiado estará no evento.
+          Você poderá usar seus pontos para resgatar produtos
+          e aproveitar ainda mais o Conecta.
         </p>
 
         <button
           class="btn btn-dark"
-          onclick="sendWhatsApp('Quero saber mais sobre o Ponto Premiado no Conecta 26.')"
-        >
+          type="button"
+          onclick="sendWhatsApp('Quero saber mais sobre o Ponto Premiado no Conecta 26.')">
           Quero saber dos meus pontos
         </button>
 
       </div>
 
+      <div class="prize-showcase">
 
-      <div class="prize-gallery">
+        <div class="prize-main">
+          <img
+            id="mainPrizeImage"
+            src="ponto-premiado.png"
+            alt="Ponto Premiado no Conecta">
+        </div>
 
-        <img
-          src="ponto-premiado.png"
-          alt="Lojinha Ponto Premiado no Conecta"
-        >
+        <div class="prize-thumbs">
 
-        <img
-          src="premio-2.jpg"
-          alt="Produto entregue no Conecta"
-        >
+          <button
+            type="button"
+            class="prize-thumb active"
+            data-image="ponto-premiado.png">
+            <img src="ponto-premiado.png" alt="Lojinha Ponto Premiado">
+          </button>
 
-        <img
-          src="premio-3.jpg"
-          alt="Profissional com prêmio"
-        >
+          <button
+            type="button"
+            class="prize-thumb"
+            data-image="premio-1.jpg">
+            <img src="premio-1.jpg" alt="Prêmio resgatado">
+          </button>
+
+          <button
+            type="button"
+            class="prize-thumb"
+            data-image="premio-2.jpg">
+            <img src="premio-2.jpg" alt="Prêmio resgatado">
+          </button>
+
+        </div>
+
+        <div class="prize-more">
+          + mais resgates
+        </div>
 
       </div>
 
     </div>
 
-  </div>
+    <!-- IMAGENS EXTRAS DO PONTO PREMIADO -->
 
+    <div
+      style="
+        margin-top:28px;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:12px;
+      "
+      class="extra-prizes"
+    >
+
+      <button
+        type="button"
+        class="prize-thumb"
+        data-image="premio-3.jpg"
+        style="height:210px">
+        <img src="premio-3.jpg" alt="Profissional com prêmio">
+      </button>
+
+      <button
+        type="button"
+        class="prize-thumb"
+        data-image="premio-4.jpg"
+        style="height:210px">
+        <img src="premio-4.jpg" alt="Prêmio resgatado">
+      </button>
+
+      <button
+        type="button"
+        class="prize-thumb"
+        data-image="premio-5.jpg"
+        style="height:210px">
+        <img src="premio-5.jpg" alt="Prêmio resgatado">
+      </button>
+
+      <button
+        type="button"
+        class="prize-thumb"
+        data-image="premio-6.jpg"
+        style="height:210px">
+        <img src="premio-6.jpg" alt="Prêmio resgatado">
+      </button>
+
+    </div>
+
+  </div>
 </section>
 
+<!-- ATRAÇÕES -->
 
-<!-- =========================
-     ATRAÇÕES
-     ========================= -->
-
-<section
-  class="coming"
-  id="atracoes"
->
-
+<section class="coming" id="atracoes">
   <div class="container">
 
     <div class="coming-box">
 
       <div>
-
-        <div class="eyebrow">
-          Conecta 26
-        </div>
+        <div class="eyebrow">Conecta 26</div>
 
         <h2>
-          Tem muito mais
-          <span>vindo aí.</span>
+          Tem muito mais <span>vindo aí.</span>
         </h2>
 
         <p>
-
-          Estamos preparando as atrações
-          do Conecta 26.
-
-          Em breve, você vai conhecer
-          tudo que fará parte deste dia.
-
+          Estamos preparando as atrações do Conecta 26.
+          Em breve, você vai conhecer tudo que fará parte deste dia.
         </p>
-
       </div>
 
-      <a
-        href="#participar"
-        class="btn btn-yellow"
-      >
+      <a href="#participar" class="btn btn-yellow">
         Quero receber novidades
       </a>
 
     </div>
 
   </div>
-
 </section>
 
+<!-- INSTAGRAM -->
 
-<!-- =========================
-     INSTAGRAM
-     ========================= -->
-
-<section
-  class="instagram-challenge"
-  id="desafio"
->
-
+<section class="instagram-challenge" id="desafio">
   <div class="container">
 
     <div class="instagram-challenge-box">
-
 
       <div class="instagram-video">
 
@@ -2384,140 +1827,75 @@
           class="instagram-media"
           data-instgrm-captioned
           data-instgrm-permalink="https://www.instagram.com/reel/DczJ9NgyE8M/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14"
-        >
+          data-instgrm-version="14">
         </blockquote>
 
       </div>
 
-
       <div class="instagram-content">
 
-        <div
-          class="eyebrow"
-          style="color:var(--orange)"
-        >
+        <div class="eyebrow" style="color:var(--orange)">
           🔥 O Conecta já começou
         </div>
 
         <h2>
-
-          Seu comentário
-          pode valer uma
-
-          <span>
-            surpresa especial.
-          </span>
-
+          Seu comentário pode valer uma
+          <span>surpresa especial.</span>
         </h2>
 
         <p>
-
           Acompanhe nosso Instagram.
-
-          O vídeo oficial da ação será
-          publicado por lá e o melhor
-          comentário vai ganhar algo
-          especial no
-
-          <strong>
-            Conecta Profissionais 26.
-          </strong>
-
+          O vídeo oficial da ação será publicado por lá e o melhor
+          comentário vai ganhar algo especial no
+          <strong>Conecta Profissionais 26.</strong>
         </p>
 
-
         <div class="challenge-steps">
-
-          <div>
-            <strong>01</strong>
-            Assista ao vídeo
-          </div>
-
-          <div>
-            <strong>02</strong>
-            Deixe seu comentário
-          </div>
-
-          <div>
-            <strong>03</strong>
-            Capriche na criatividade 👀
-          </div>
-
+          <div><strong>01</strong> Assista ao vídeo</div>
+          <div><strong>02</strong> Deixe seu comentário</div>
+          <div><strong>03</strong> Capriche na criatividade 👀</div>
         </div>
-
 
         <a
           href="https://www.instagram.com/reel/DczJ9NgyE8M/"
           target="_blank"
           rel="noopener"
-          class="btn btn-primary"
-        >
+          class="btn btn-primary">
           💬 Ir para o Instagram
         </a>
-
-
-        <small class="challenge-note">
-
-          🎁 O melhor comentário vai ganhar
-          uma surpresa especial no Conecta 26.
-
-        </small>
 
       </div>
 
     </div>
 
   </div>
-
 </section>
 
+<!-- FORMULÁRIO -->
 
-<!-- =========================
-     PARTICIPAÇÃO
-     ========================= -->
-
-<section
-  class="participate"
-  id="participar"
->
-
+<section class="participate" id="participar">
   <div class="container">
-
 
     <div class="section-head">
 
       <div>
-
         <div class="eyebrow">
           Sua presença começa aqui
         </div>
 
         <h2>
-          Faça parte
-          <span>desde agora.</span>
+          Faça parte <span>desde agora.</span>
         </h2>
-
       </div>
 
       <p>
-
-        É uma única confirmação.
-
-        Responda às etapas abaixo,
-        informe seus dados e finalize
-        pelo WhatsApp.
-
+        Responda às etapas abaixo, informe seus dados
+        e finalize pelo WhatsApp.
       </p>
 
     </div>
 
-
-    <form
-      class="form-journey"
-      id="confirmationForm"
-    >
-
+    <form class="form-journey" id="confirmationForm">
 
       <div class="journey-intro">
 
@@ -2526,14 +1904,9 @@
         </h3>
 
         <p>
-
-          Responda todas as perguntas
-          marcadas com <strong>*</strong>.
-
-          Se você for levar filhos ou netos,
-          informe também o parentesco,
-          nome e idade de cada um.
-
+          Responda todas as perguntas marcadas com <strong>*</strong>.
+          Se for levar filhos ou netos, informe também
+          o parentesco, nome e idade de cada criança.
         </p>
 
         <div class="required-note">
@@ -2542,14 +1915,11 @@
 
       </div>
 
-
       <!-- ETAPA 01 -->
 
       <div class="form-step">
 
-        <div class="step-number">
-          01
-        </div>
+        <div class="step-number">01</div>
 
         <div>
 
@@ -2564,8 +1934,7 @@
               type="button"
               class="poll-btn"
               data-group="participou"
-              data-value="Sim"
-            >
+              data-value="Sim">
               🔥 Sim
             </button>
 
@@ -2573,30 +1942,25 @@
               type="button"
               class="poll-btn"
               data-group="participou"
-              data-value="Não"
-            >
+              data-value="Não">
               👀 Ainda não
             </button>
 
           </div>
 
         </div>
-
       </div>
-
 
       <!-- ETAPA 02 -->
 
       <div class="form-step">
 
-        <div class="step-number">
-          02
-        </div>
+        <div class="step-number">02</div>
 
         <div>
 
           <h3>
-            Vai levar filho ou neto?
+            Vai levar filho ou neto de 6 a 13 anos?
             <span>*</span>
           </h3>
 
@@ -2606,17 +1970,15 @@
               type="button"
               class="poll-btn"
               data-group="filho"
-              data-value="Sim"
-            >
-              👨‍👧 Sim
+              data-value="Sim">
+              👧 Sim
             </button>
 
             <button
               type="button"
               class="poll-btn"
               data-group="filho"
-              data-value="Talvez"
-            >
+              data-value="Talvez">
               🤔 Talvez
             </button>
 
@@ -2624,72 +1986,60 @@
               type="button"
               class="poll-btn"
               data-group="filho"
-              data-value="Não"
-            >
+              data-value="Não">
               Não
             </button>
 
           </div>
 
+          <div class="children-box" id="childrenBox">
 
-          <div
-            class="children-box"
-            id="childrenBox"
-          >
+            <div class="age-rule">
 
-            <p>
+              <div class="age-rule-icon">
+                👧
+              </div>
 
-              Informe quem poderá ir com você.
+              <div>
+                <strong>
+                  Faixa etária: 6 a 13 anos
+                </strong>
 
-              Se forem vários,
-              adicione quantos filhos
-              ou netos precisar.
+                <p>
+                  Para participar como filho ou neto do profissional,
+                  a criança deverá ter entre 6 e 13 anos.
+                </p>
+              </div>
 
-            </p>
-
+            </div>
 
             <div id="childrenList">
 
               <div class="child-row">
 
-                <select
-                  class="child-field child-relation"
-                >
-                  <option value="">
-                    Parentesco
-                  </option>
-
-                  <option value="Filho(a)">
-                    Filho(a)
-                  </option>
-
-                  <option value="Neto(a)">
-                    Neto(a)
-                  </option>
+                <select class="child-field child-relation">
+                  <option value="">Parentesco</option>
+                  <option value="Filho(a)">Filho(a)</option>
+                  <option value="Neto(a)">Neto(a)</option>
                 </select>
-
 
                 <input
                   class="child-field child-name"
                   type="text"
-                  placeholder="Nome"
-                >
-
+                  placeholder="Nome da criança">
 
                 <input
                   class="child-field child-age"
                   type="number"
-                  min="0"
-                  max="99"
-                  placeholder="Idade"
-                >
-
+                  min="6"
+                  max="13"
+                  inputmode="numeric"
+                  placeholder="Idade">
 
                 <button
                   type="button"
                   class="remove-child"
-                  onclick="removeChild(this)"
-                >
+                  onclick="removeChild(this)">
                   Remover
                 </button>
 
@@ -2697,41 +2047,30 @@
 
             </div>
 
-
             <button
               type="button"
               class="btn btn-yellow add-child"
-              onclick="addChild()"
-            >
+              onclick="addChild()">
               + Adicionar filho ou neto
             </button>
 
-
             <div class="guest-warning">
-
-              ℹ️ O convite é destinado ao(à)
-              profissional e, quando aplicável,
-              aos seus filhos e/ou netos.
-
-              Não é permitida a inclusão
-              de outros acompanhantes.
-
+              ℹ️ O convite é destinado ao(à) profissional e,
+              quando aplicável, aos seus filhos e/ou netos
+              <strong>de 6 a 13 anos</strong>.
+              Não é permitida a inclusão de outros acompanhantes.
             </div>
 
           </div>
 
         </div>
-
       </div>
-
 
       <!-- ETAPA 03 -->
 
       <div class="form-step">
 
-        <div class="step-number">
-          03
-        </div>
+        <div class="step-number">03</div>
 
         <div>
 
@@ -2745,53 +2084,45 @@
             <button
               type="button"
               class="poll-btn interest-btn"
-              data-value="Comida"
-            >
+              data-value="Comida">
               🍖 Comida
             </button>
 
             <button
               type="button"
               class="poll-btn interest-btn"
-              data-value="Música"
-            >
+              data-value="Música">
               🎵 Música
             </button>
 
             <button
               type="button"
               class="poll-btn interest-btn"
-              data-value="Ponto Premiado"
-            >
+              data-value="Ponto Premiado">
               🎁 Ponto Premiado
             </button>
 
             <button
               type="button"
               class="poll-btn interest-btn"
-              data-value="Workshops"
-            >
+              data-value="Workshops">
               🛠 Workshops
             </button>
 
           </div>
 
-          <div class="multi-note">
+          <p style="margin-top:12px;color:rgba(255,255,255,.55);font-size:13px">
             Você pode escolher mais de uma opção.
-          </div>
+          </p>
 
         </div>
-
       </div>
-
 
       <!-- ETAPA 04 -->
 
-      <div class="form-step">
+      <div class="form-step" style="border-bottom:0">
 
-        <div class="step-number">
-          04
-        </div>
+        <div class="step-number">04</div>
 
         <div>
 
@@ -2800,7 +2131,6 @@
             <span>*</span>
           </h3>
 
-
           <div class="personal-grid">
 
             <input
@@ -2808,80 +2138,51 @@
               id="nome"
               type="text"
               placeholder="Seu nome *"
-              required
-            >
-
+              required>
 
             <input
               class="form-field"
               id="telefone"
               type="tel"
               placeholder="Seu telefone *"
-              required
-            >
-
+              required>
 
             <textarea
               class="form-field full"
               id="mensagem"
-              placeholder="O que você gostaria de encontrar no Conecta 26?"
-            ></textarea>
+              placeholder="O que você gostaria de encontrar no Conecta 26?"></textarea>
 
           </div>
 
-
           <div class="submit-area">
 
-
-            <div
-              class="form-alert"
-              id="formAlert"
-            >
-            </div>
-
+            <div id="formAlert" class="form-alert"></div>
 
             <p class="confirmation-note">
-
-              Ao clicar abaixo,
-              seu WhatsApp será aberto
+              Ao clicar abaixo, seu WhatsApp será aberto
               com todas as respostas organizadas.
-
-              A mensagem só será enviada
-              quando você confirmar
-              o envio no WhatsApp.
-
+              A mensagem só será enviada quando você confirmar no WhatsApp.
             </p>
 
-
             <button
-              class="btn btn-primary submit-btn"
               type="submit"
-            >
+              class="btn btn-primary submit-btn">
               Confirmar interesse pelo WhatsApp →
             </button>
 
           </div>
 
         </div>
-
       </div>
 
     </form>
 
   </div>
-
 </section>
-
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-     ========================= -->
-
 <footer>
-
   <div class="container footer-inner">
 
     <div>
@@ -2889,740 +2190,569 @@
       <img
         class="footer-logo"
         src="logo-conecta26.png"
-        alt="Conecta Profissionais 26"
-      >
+        alt="Conecta Profissionais 26">
 
       <div class="footer-copy">
-
-        Conecta Profissionais 26
-        • Rezende Materiais para Construção
-
+        Conecta Profissionais 26 • Rezende Materiais para Construção
       </div>
 
     </div>
 
-
-    <a
-      href="#inicio"
-      class="btn btn-primary"
-    >
+    <a href="#inicio" class="btn btn-primary">
       Voltar ao topo ↑
     </a>
 
   </div>
-
 </footer>
 
-
-<div
-  id="toast"
-  class="toast"
->
+<div id="toast" class="toast">
   Resposta registrada ✓
 </div>
 
-
-<script
-  async
-  src="https://www.instagram.com/embed.js"
-></script>
-
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
 
-  /* =========================
-     CONFIGURAÇÃO
-     ========================= */
+/* =========================
+   CONFIGURAÇÃO
+========================= */
 
-  const whatsapp = "5522981740330";
+const whatsapp = "5522981740330";
 
+const answers = {
+  participou:"",
+  filho:""
+};
 
-  const answers = {
-    participou: "",
-    filho: ""
-  };
+const interests = new Set();
 
+/* =========================
+   CARROSSEL EXPERIÊNCIAS
+========================= */
 
-  const interests =
-    new Set();
+document.querySelectorAll("[data-carousel]").forEach(carousel => {
 
+  const slides = Array.from(
+    carousel.querySelectorAll(".carousel-slide")
+  );
 
-  /* =========================
-     PERGUNTAS SIMPLES
-     ========================= */
+  const dotsBox =
+    carousel.querySelector(".carousel-dots");
 
-  document
-    .querySelectorAll(
-      ".poll-btn[data-group]"
-    )
-    .forEach(button => {
+  let current = 0;
+  let timer;
 
-      button.addEventListener(
-        "click",
-        () => {
+  slides.forEach((slide,index) => {
 
-          const group =
-            button.dataset.group;
+    const dot =
+      document.createElement("button");
 
+    dot.type = "button";
+    dot.className =
+      "carousel-dot" +
+      (index === 0 ? " active" : "");
 
-          const value =
-            button.dataset.value;
+    dot.addEventListener("click",() => {
+      goTo(index);
+      restart();
+    });
 
+    dotsBox.appendChild(dot);
 
-          answers[group] =
-            value;
+  });
 
+  const dots =
+    Array.from(
+      dotsBox.querySelectorAll(".carousel-dot")
+    );
 
-          document
-            .querySelectorAll(
-              `[data-group="${group}"]`
-            )
-            .forEach(btn => {
+  function goTo(index){
 
-              btn.classList.remove(
-                "selected"
-              );
+    current =
+      (index + slides.length) %
+      slides.length;
 
-            });
+    slides.forEach(
+      slide =>
+        slide.classList.remove("active")
+    );
 
+    dots.forEach(
+      dot =>
+        dot.classList.remove("active")
+    );
 
-          button.classList.add(
-            "selected"
-          );
+    slides[current]
+      .classList.add("active");
 
+    dots[current]
+      .classList.add("active");
+  }
 
-          if (
-            group === "filho"
-          ) {
+  function restart(){
 
-            updateChildrenBox();
+    clearInterval(timer);
 
-          }
+    timer = setInterval(() => {
+      goTo(current + 1);
+    },4500);
+  }
 
+  carousel
+    .querySelector(".prev")
+    .addEventListener("click",() => {
+      goTo(current - 1);
+      restart();
+    });
 
-          showToast();
+  carousel
+    .querySelector(".next")
+    .addEventListener("click",() => {
+      goTo(current + 1);
+      restart();
+    });
 
-        }
-      );
+  restart();
+
+});
+
+/* =========================
+   PONTO PREMIADO
+========================= */
+
+document
+  .querySelectorAll(".prize-thumb")
+  .forEach(button => {
+
+    button.addEventListener("click",() => {
+
+      const image =
+        button.dataset.image;
+
+      if(!image) return;
+
+      document
+        .getElementById("mainPrizeImage")
+        .src = image;
+
+      document
+        .querySelectorAll(".prize-thumb")
+        .forEach(item =>
+          item.classList.remove("active")
+        );
+
+      button.classList.add("active");
+
+      if(
+        window.innerWidth <= 520 &&
+        button.closest(".extra-prizes")
+      ){
+        document
+          .getElementById("mainPrizeImage")
+          .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+      }
 
     });
 
+  });
 
-  /* =========================
-     INTERESSES
-     MAIS DE UMA OPÇÃO
-     ========================= */
+/* =========================
+   PERGUNTAS
+========================= */
 
-  document
-    .querySelectorAll(
-      ".interest-btn"
-    )
-    .forEach(button => {
+document
+  .querySelectorAll(".poll-btn[data-group]")
+  .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+    button.addEventListener("click",() => {
 
-          const value =
-            button.dataset.value;
+      const group =
+        button.dataset.group;
 
+      answers[group] =
+        button.dataset.value;
 
-          if (
-            interests.has(value)
-          ) {
+      document
+        .querySelectorAll(
+          `[data-group="${group}"]`
+        )
+        .forEach(btn =>
+          btn.classList.remove("selected")
+        );
 
-            interests.delete(value);
+      button.classList.add("selected");
 
-            button.classList.remove(
-              "selected"
-            );
+      if(group === "filho"){
+        updateChildrenBox();
+      }
 
-          } else {
-
-            interests.add(value);
-
-            button.classList.add(
-              "selected"
-            );
-
-          }
-
-
-          showToast();
-
-        }
-      );
+      showToast();
 
     });
 
+  });
 
-  /* =========================
-     TOAST
-     ========================= */
+/* INTERESSES */
 
-  function showToast() {
+document
+  .querySelectorAll(".interest-btn")
+  .forEach(button => {
 
-    const toast =
-      document.getElementById(
-        "toast"
-      );
+    button.addEventListener("click",() => {
 
+      const value =
+        button.dataset.value;
 
-    toast.classList.add(
-      "show"
-    );
+      if(interests.has(value)){
 
+        interests.delete(value);
+        button.classList.remove("selected");
 
-    setTimeout(
-      () => {
+      }else{
 
-        toast.classList.remove(
-          "show"
-        );
+        interests.add(value);
+        button.classList.add("selected");
 
-      },
-      1200
-    );
+      }
 
+      showToast();
+
+    });
+
+  });
+
+/* =========================
+   FILHOS / NETOS
+========================= */
+
+function updateChildrenBox(){
+
+  const box =
+    document.getElementById("childrenBox");
+
+  if(
+    answers.filho === "Sim" ||
+    answers.filho === "Talvez"
+  ){
+    box.classList.add("visible");
+  }else{
+    box.classList.remove("visible");
   }
 
+}
 
-  /* =========================
-     FILHOS / NETOS
-     ========================= */
+function selectFamily(){
 
-  function updateChildrenBox() {
+  answers.filho = "Sim";
 
-    const box =
-      document.getElementById(
-        "childrenBox"
-      );
+  document
+    .querySelectorAll('[data-group="filho"]')
+    .forEach(btn =>
+      btn.classList.remove("selected")
+    );
 
+  const sim =
+    document.querySelector(
+      '[data-group="filho"][data-value="Sim"]'
+    );
 
-    if (
-      answers.filho === "Sim" ||
-      answers.filho === "Talvez"
-    ) {
-
-      box.classList.add(
-        "visible"
-      );
-
-    } else {
-
-      box.classList.remove(
-        "visible"
-      );
-
-    }
-
+  if(sim){
+    sim.classList.add("selected");
   }
 
+  updateChildrenBox();
 
-  function selectFamily() {
+  document
+    .getElementById("participar")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
-    answers.filho =
-      "Sim";
+}
 
+function addChild(){
+
+  const list =
+    document.getElementById("childrenList");
+
+  const row =
+    document.createElement("div");
+
+  row.className = "child-row";
+
+  row.innerHTML = `
+    <select class="child-field child-relation">
+      <option value="">Parentesco</option>
+      <option value="Filho(a)">Filho(a)</option>
+      <option value="Neto(a)">Neto(a)</option>
+    </select>
+
+    <input
+      class="child-field child-name"
+      type="text"
+      placeholder="Nome da criança">
+
+    <input
+      class="child-field child-age"
+      type="number"
+      min="6"
+      max="13"
+      inputmode="numeric"
+      placeholder="Idade">
+
+    <button
+      type="button"
+      class="remove-child"
+      onclick="removeChild(this)">
+      Remover
+    </button>
+  `;
+
+  list.appendChild(row);
+
+}
+
+function removeChild(button){
+
+  const rows =
+    document.querySelectorAll(".child-row");
+
+  if(rows.length === 1){
+
+    const row = rows[0];
+
+    row.querySelector(".child-relation").value = "";
+    row.querySelector(".child-name").value = "";
+    row.querySelector(".child-age").value = "";
+
+    return;
+  }
+
+  button.closest(".child-row").remove();
+
+}
+
+function getChildren(){
+
+  const children = [];
+
+  document
+    .querySelectorAll(".child-row")
+    .forEach(row => {
+
+      const relation =
+        row.querySelector(".child-relation").value;
+
+      const name =
+        row.querySelector(".child-name")
+        .value.trim();
+
+      const age =
+        row.querySelector(".child-age")
+        .value.trim();
+
+      if(relation || name || age){
+
+        children.push({
+          relation,
+          name,
+          age
+        });
+
+      }
+
+    });
+
+  return children;
+
+}
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  },1200);
+
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsApp(message){
+
+  const url =
+    `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+
+  window.open(url,"_blank");
+
+}
+
+/* =========================
+   ERRO
+========================= */
+
+function showError(message){
+
+  const alertBox =
+    document.getElementById("formAlert");
+
+  alertBox.innerHTML = message;
+  alertBox.classList.add("visible");
+
+  alertBox.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+document
+  .getElementById("confirmationForm")
+  .addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    const nome =
+      document.getElementById("nome")
+      .value.trim();
+
+    const telefone =
+      document.getElementById("telefone")
+      .value.trim();
+
+    const mensagem =
+      document.getElementById("mensagem")
+      .value.trim();
 
     document
-      .querySelectorAll(
-        '[data-group="filho"]'
-      )
-      .forEach(btn => {
+      .getElementById("formAlert")
+      .classList.remove("visible");
 
-        btn.classList.remove(
-          "selected"
-        );
+    /* OBRIGATÓRIOS */
 
-      });
+    if(
+      !answers.participou ||
+      !answers.filho
+    ){
 
-
-    const sim =
-      document.querySelector(
-        '[data-group="filho"][data-value="Sim"]'
+      showError(
+        "⚠️ Responda as etapas 01 e 02 antes de confirmar."
       );
-
-
-    if (sim) {
-
-      sim.classList.add(
-        "selected"
-      );
-
-    }
-
-
-    updateChildrenBox();
-
-
-    document
-      .getElementById(
-        "participar"
-      )
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-
-  function addChild() {
-
-    const list =
-      document.getElementById(
-        "childrenList"
-      );
-
-
-    const row =
-      document.createElement(
-        "div"
-      );
-
-
-    row.className =
-      "child-row";
-
-
-    row.innerHTML = `
-
-      <select
-        class="child-field child-relation"
-      >
-        <option value="">
-          Parentesco
-        </option>
-
-        <option value="Filho(a)">
-          Filho(a)
-        </option>
-
-        <option value="Neto(a)">
-          Neto(a)
-        </option>
-      </select>
-
-      <input
-        class="child-field child-name"
-        type="text"
-        placeholder="Nome"
-      >
-
-      <input
-        class="child-field child-age"
-        type="number"
-        min="0"
-        max="99"
-        placeholder="Idade"
-      >
-
-      <button
-        type="button"
-        class="remove-child"
-        onclick="removeChild(this)"
-      >
-        Remover
-      </button>
-
-    `;
-
-
-    list.appendChild(
-      row
-    );
-
-  }
-
-
-  function removeChild(button) {
-
-    const rows =
-      document.querySelectorAll(
-        ".child-row"
-      );
-
-
-    if (
-      rows.length === 1
-    ) {
-
-      const row =
-        rows[0];
-
-
-      row
-        .querySelector(
-          ".child-relation"
-        )
-        .value = "";
-
-
-      row
-        .querySelector(
-          ".child-name"
-        )
-        .value = "";
-
-
-      row
-        .querySelector(
-          ".child-age"
-        )
-        .value = "";
-
 
       return;
+    }
+
+    if(interests.size === 0){
+
+      showError(
+        "⚠️ Escolha pelo menos uma opção na etapa 03."
+      );
+
+      return;
+    }
+
+    if(!nome || !telefone){
+
+      showError(
+        "⚠️ Preencha seu nome e telefone na etapa 04."
+      );
+
+      return;
+    }
+
+    /* FILHOS E NETOS */
+
+    let childrenText =
+      "Não levará filhos ou netos.";
+
+    if(
+      answers.filho === "Sim" ||
+      answers.filho === "Talvez"
+    ){
+
+      const children =
+        getChildren();
+
+      if(children.length === 0){
+
+        showError(
+          "⚠️ Informe pelo menos um filho ou neto de 6 a 13 anos."
+        );
+
+        return;
+      }
+
+      for(const child of children){
+
+        if(
+          !child.relation ||
+          !child.name ||
+          child.age === ""
+        ){
+
+          showError(
+            "⚠️ Preencha parentesco, nome e idade de cada criança."
+          );
+
+          return;
+        }
+
+        const age =
+          Number(child.age);
+
+        if(
+          !Number.isInteger(age) ||
+          age < 6 ||
+          age > 13
+        ){
+
+          showError(
+            "⚠️ Para o Conecta 26, informe apenas filhos ou netos com idade entre 6 e 13 anos."
+          );
+
+          document
+            .getElementById("childrenBox")
+            .scrollIntoView({
+              behavior:"smooth",
+              block:"center"
+            });
+
+          return;
+        }
+
+      }
+
+      childrenText =
+        children
+        .map(
+          (child,index) =>
+            `${index + 1}. ${child.name} — ${child.relation} — ${child.age} anos`
+        )
+        .join("\n");
 
     }
 
+    const interestText =
+      Array.from(interests).join(", ");
 
-    button
-      .closest(
-        ".child-row"
-      )
-      .remove();
-
-  }
-
-
-  function getChildren() {
-
-    const children = [];
-
-
-    document
-      .querySelectorAll(
-        ".child-row"
-      )
-      .forEach(row => {
-
-        const relation =
-          row
-            .querySelector(
-              ".child-relation"
-            )
-            .value;
-
-
-        const name =
-          row
-            .querySelector(
-              ".child-name"
-            )
-            .value
-            .trim();
-
-
-        const age =
-          row
-            .querySelector(
-              ".child-age"
-            )
-            .value
-            .trim();
-
-
-        if (
-          relation ||
-          name ||
-          age
-        ) {
-
-          children.push({
-            relation,
-            name,
-            age
-          });
-
-        }
-
-      });
-
-
-    return children;
-
-  }
-
-
-  /* =========================
-     WHATSAPP
-     ========================= */
-
-  function sendWhatsApp(message) {
-
-    const url =
-      `https://wa.me/${whatsapp}?text=${
-        encodeURIComponent(message)
-      }`;
-
-
-    window.open(
-      url,
-      "_blank"
-    );
-
-  }
-
-
-  /* =========================
-     ERRO
-     ========================= */
-
-  function showError(message) {
-
-    const alertBox =
-      document.getElementById(
-        "formAlert"
-      );
-
-
-    alertBox.innerHTML =
-      message;
-
-
-    alertBox.classList.add(
-      "visible"
-    );
-
-
-    alertBox.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-  }
-
-
-  /* =========================
-     FORMULÁRIO
-     ========================= */
-
-  document
-    .getElementById(
-      "confirmationForm"
-    )
-    .addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-
-        const nome =
-          document
-            .getElementById(
-              "nome"
-            )
-            .value
-            .trim();
-
-
-        const telefone =
-          document
-            .getElementById(
-              "telefone"
-            )
-            .value
-            .trim();
-
-
-        const mensagem =
-          document
-            .getElementById(
-              "mensagem"
-            )
-            .value
-            .trim();
-
-
-        const alertBox =
-          document.getElementById(
-            "formAlert"
-          );
-
-
-        alertBox.classList.remove(
-          "visible"
-        );
-
-
-        /* =====================
-           ETAPAS 01 E 02
-           ===================== */
-
-        if (
-          !answers.participou ||
-          !answers.filho
-        ) {
-
-          showError(
-            "⚠️ Responda as etapas 01 e 02 antes de confirmar."
-          );
-
-          return;
-
-        }
-
-
-        /* =====================
-           ETAPA 03
-           ===================== */
-
-        if (
-          interests.size === 0
-        ) {
-
-          showError(
-            "⚠️ Escolha pelo menos uma opção na etapa 03."
-          );
-
-          return;
-
-        }
-
-
-        /* =====================
-           DADOS
-           ===================== */
-
-        if (
-          !nome ||
-          !telefone
-        ) {
-
-          showError(
-            "⚠️ Preencha seu nome e telefone na etapa 04."
-          );
-
-          return;
-
-        }
-
-
-        /* =====================
-           FILHOS / NETOS
-           ===================== */
-
-        let childrenText =
-          "Não levará filhos ou netos.";
-
-
-        if (
-          answers.filho === "Sim" ||
-          answers.filho === "Talvez"
-        ) {
-
-          const children =
-            getChildren();
-
-
-          if (
-            children.length === 0
-          ) {
-
-            showError(
-              "⚠️ Informe pelo menos um filho ou neto, com parentesco, nome e idade."
-            );
-
-
-            document
-              .getElementById(
-                "childrenBox"
-              )
-              .scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-              });
-
-
-            return;
-
-          }
-
-
-          for (
-            const child of children
-          ) {
-
-            if (
-              !child.relation ||
-              !child.name ||
-              child.age === ""
-            ) {
-
-              showError(
-                "⚠️ Preencha parentesco, nome e idade de cada filho ou neto informado."
-              );
-
-
-              document
-                .getElementById(
-                  "childrenBox"
-                )
-                .scrollIntoView({
-                  behavior: "smooth",
-                  block: "center"
-                });
-
-
-              return;
-
-            }
-
-
-            const age =
-              Number(
-                child.age
-              );
-
-
-            if (
-              !Number.isInteger(age) ||
-              age < 0 ||
-              age > 99
-            ) {
-
-              showError(
-                "⚠️ Confira a idade informada para cada filho ou neto."
-              );
-
-
-              return;
-
-            }
-
-          }
-
-
-          childrenText =
-            children
-              .map(
-                (child,index) =>
-                  `${index + 1}. ${child.name} — ${child.relation} — ${child.age} anos`
-              )
-              .join("\n");
-
-        }
-
-
-        /* =====================
-           INTERESSES
-           ===================== */
-
-        const interestText =
-          Array
-            .from(
-              interests
-            )
-            .join(", ");
-
-
-        /* =====================
-           MENSAGEM FINAL
-           ===================== */
-
-        const text =
+    const text =
 `Olá! Quero participar do Conecta Profissionais 26. 🎉
 
 👤 Nome:
@@ -3634,7 +2764,7 @@ ${telefone}
 🔥 Já participou de algum Conecta?
 ${answers.participou}
 
-👧 Vai levar filho ou neto?
+👧 Vai levar filho ou neto de 6 a 13 anos?
 ${answers.filho}
 
 👨‍👩‍👧 Filhos/netos:
@@ -3652,16 +2782,24 @@ ${mensagem || "Sem mensagem adicional"}
 
 Conecta Profissionais 26 — A festa de quem faz!`;
 
+    sendWhatsApp(text);
 
-        sendWhatsApp(
-          text
-        );
-
-      }
-    );
+  });
 
 </script>
 
+<style>
+/* ajuste mobile da galeria extra de prêmios */
+@media(max-width:700px){
+  .extra-prizes{
+    grid-template-columns:1fr 1fr!important;
+  }
+
+  .extra-prizes .prize-thumb{
+    height:170px!important;
+  }
+}
+</style>
 
 </body>
 </html>
