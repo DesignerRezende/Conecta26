@@ -901,10 +901,6 @@ section{
 }
 
 /* PERGUNTA 03 */
-/*
-  O bloco assume exatamente a largura da primeira linha.
-  A segunda linha ocupa 100% dessa mesma largura e é centralizada.
-*/
 
 .interest-options{
   display:flex;
@@ -1575,7 +1571,7 @@ data-alt="Experiências no Conecta">
 <div class="experience-body">
 <span class="tag">Profissão</span>
 <h3>Experiências e fornecedores</h3>
-<p>Demonstrações, workshops, grandes marcas e muito conteúdo.</p>
+<p>Demonstrações, treinamentos, grandes marcas e muito conteúdo.</p>
 </div>
 
 </article>
@@ -1908,19 +1904,11 @@ As informações serão registradas diretamente pela equipe Rezende.
 
 <div class="poll-options">
 
-<button
-type="button"
-class="poll-btn"
-data-group="participou"
-data-value="Sim">
+<button type="button" class="poll-btn" data-group="participou" data-value="Sim">
 🔥 Sim
 </button>
 
-<button
-type="button"
-class="poll-btn"
-data-group="participou"
-data-value="Não">
+<button type="button" class="poll-btn" data-group="participou" data-value="Não">
 👀 Ainda não
 </button>
 
@@ -1941,27 +1929,15 @@ data-value="Não">
 
 <div class="poll-options">
 
-<button
-type="button"
-class="poll-btn"
-data-group="filho"
-data-value="Sim">
+<button type="button" class="poll-btn" data-group="filho" data-value="Sim">
 👧 Sim
 </button>
 
-<button
-type="button"
-class="poll-btn"
-data-group="filho"
-data-value="Talvez">
+<button type="button" class="poll-btn" data-group="filho" data-value="Talvez">
 🤔 Talvez
 </button>
 
-<button
-type="button"
-class="poll-btn"
-data-group="filho"
-data-value="Não">
+<button type="button" class="poll-btn" data-group="filho" data-value="Não">
 Não
 </button>
 
@@ -2036,7 +2012,7 @@ Não é permitida a inclusão de outros acompanhantes.
 
 <div>
 
-<h3>O que mais te anima no Conecta? *</h3>
+<h3>O que te faz querer ir ao Conecta? *</h3>
 
 <div class="interest-options">
 
@@ -2045,8 +2021,8 @@ Não é permitida a inclusão de outros acompanhantes.
 <button
 type="button"
 class="poll-btn interest-btn"
-data-value="Workshops">
-🛠 Workshops
+data-value="Treinamentos">
+🛠 Treinamentos
 </button>
 
 <button
@@ -2107,51 +2083,27 @@ data-value="Música">
 
 <div class="store-grid">
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Moisés Amélio - NF">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Moisés Amélio - NF">
 Loja Moisés Amélio - NF
 </button>
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Duque de Caxias - NF">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Duque de Caxias - NF">
 Loja Duque de Caxias - NF
 </button>
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Conselheiro - NF">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Conselheiro - NF">
 Loja Conselheiro - NF
 </button>
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Niterói">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Niterói">
 Loja Niterói
 </button>
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Gávea - RJ">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Gávea - RJ">
 Loja Gávea - RJ
 </button>
 
-<button
-type="button"
-class="poll-btn store-btn"
-data-group="unidade"
-data-value="Loja Leblon - RJ">
+<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Leblon - RJ">
 Loja Leblon - RJ
 </button>
 
@@ -2885,7 +2837,7 @@ document
   if(interests.size === 0){
 
     showError(
-      "⚠️ Escolha pelo menos uma opção em 'O que mais te anima no Conecta?'."
+      "⚠️ Escolha pelo menos uma opção em 'O que te faz querer ir ao Conecta?'."
     );
 
     return;
