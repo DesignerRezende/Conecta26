@@ -849,7 +849,7 @@ section{
 
 .form-step{
   display:grid;
-  grid-template-columns:68px 1fr;
+  grid-template-columns:68px minmax(0,1fr);
   gap:22px;
   padding:32px 0;
   border-bottom:1px solid rgba(255,255,255,.1);
@@ -900,33 +900,32 @@ section{
   font-weight:800;
 }
 
-/* OPÇÕES DA PERGUNTA 03 */
+/* PERGUNTA 03 */
 
 .interest-options{
-  display:grid;
-  grid-template-columns:max-content max-content max-content;
-  justify-content:center;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.interest-row{
+  width:100%;
+  display:flex;
+  align-items:center;
   gap:8px;
 }
 
-.interest-options .interest-btn{
+.interest-row-top{
+  justify-content:flex-start;
+}
+
+.interest-row-bottom{
+  justify-content:center;
+}
+
+.interest-btn{
   white-space:nowrap;
-}
-
-/* Centraliza os três últimos itens na segunda linha */
-.interest-options .interest-btn:nth-child(4){
-  grid-column:1;
-  justify-self:end;
-}
-
-.interest-options .interest-btn:nth-child(5){
-  grid-column:2;
-  justify-self:center;
-}
-
-.interest-options .interest-btn:nth-child(6){
-  grid-column:3;
-  justify-self:start;
 }
 
 /* UNIDADES */
@@ -1200,9 +1199,12 @@ footer{
     padding:35px 25px;
   }
 
-  .interest-options{
-    display:flex;
+  .interest-row{
     flex-wrap:wrap;
+  }
+
+  .interest-row-top,
+  .interest-row-bottom{
     justify-content:center;
   }
 
@@ -1315,11 +1317,13 @@ footer{
     grid-column:auto;
   }
 
-  .interest-options{
+  .interest-row,
+  .interest-row-top,
+  .interest-row-bottom{
     justify-content:flex-start;
   }
 
-  .interest-options .interest-btn{
+  .interest-btn{
     white-space:normal;
     text-align:left;
   }
@@ -1485,59 +1489,105 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 <div class="experience-grid">
 
 <article class="experience-card">
-<div class="card-carousel dynamic-carousel" data-prefix="churrasco" data-alt="Gastronomia no Conecta">
+
+<div
+class="card-carousel dynamic-carousel"
+data-prefix="churrasco"
+data-alt="Gastronomia no Conecta">
+
 <div class="carousel-track"></div>
+
 <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
 <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
 <div class="carousel-dots"></div>
+
 </div>
+
 <div class="experience-body">
 <span class="tag">Gastronomia</span>
 <h3>Comida de verdade</h3>
 <p>Comida boa e aquele clima perfeito para confraternizar.</p>
 </div>
+
 </article>
 
 <article class="experience-card">
-<div class="card-carousel dynamic-carousel" data-prefix="musica" data-alt="Música ao vivo no Conecta">
+
+<div
+class="card-carousel dynamic-carousel"
+data-prefix="musica"
+data-alt="Música ao vivo no Conecta">
+
 <div class="carousel-track"></div>
+
 <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
 <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
 <div class="carousel-dots"></div>
+
 </div>
+
 <div class="experience-body">
 <span class="tag">Celebração</span>
 <h3>Música ao vivo</h3>
 <p>Música, diversão e bons momentos.</p>
 </div>
+
 </article>
 
 <article class="experience-card">
-<div class="card-carousel dynamic-carousel" data-prefix="experiencia" data-base="publico.jpg" data-alt="Experiências no Conecta">
+
+<div
+class="card-carousel dynamic-carousel"
+data-prefix="experiencia"
+data-base="publico.jpg"
+data-alt="Experiências no Conecta">
+
 <div class="carousel-track"></div>
+
 <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
 <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
 <div class="carousel-dots"></div>
+
 </div>
+
 <div class="experience-body">
 <span class="tag">Profissão</span>
 <h3>Experiências e fornecedores</h3>
 <p>Demonstrações, workshops, grandes marcas e muito conteúdo.</p>
 </div>
+
 </article>
 
 <article class="experience-card">
-<div class="card-carousel dynamic-carousel" data-prefix="recreacao" data-alt="Recreação no Conecta">
+
+<div
+class="card-carousel dynamic-carousel"
+data-prefix="recreacao"
+data-alt="Recreação no Conecta">
+
 <div class="carousel-track"></div>
+
 <button class="carousel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
 <button class="carousel-arrow next" type="button" aria-label="Próxima foto">›</button>
+
 <div class="carousel-dots"></div>
+
 </div>
+
 <div class="experience-body">
 <span class="tag">Para os pequenos</span>
 <h3>Recreação</h3>
-<p>Um espaço pensado para que os filhos e netos dos profissionais também aproveitem esse dia especial.</p>
+
+<p>
+Um espaço pensado para que os filhos e netos dos profissionais
+também aproveitem esse dia especial.
+</p>
+
 </div>
+
 </article>
 
 </div>
@@ -1550,19 +1600,23 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 <div class="container">
 
 <div class="section-head">
+
 <div>
 <div class="eyebrow" style="color:var(--orange)">Aperte o play</div>
 <h2>Quer saber como <span>é o Conecta?</span></h2>
 </div>
+
 <p>
 Relembre as últimas edições e sinta um pouco do clima
 que estamos preparando para 2026.
 </p>
+
 </div>
 
 <div class="video-grid">
 
 <article class="video-card">
+
 <div class="video-frame">
 <iframe
 src="https://www.youtube.com/embed/-gRIIjdD5RI"
@@ -1572,14 +1626,17 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 </div>
+
 <div class="video-info">
 <span>Conecta Profissionais</span>
 <h3>Edição 2024</h3>
 <p>Em 2026, voltamos ao Haras Kaylua.</p>
 </div>
+
 </article>
 
 <article class="video-card">
+
 <div class="video-frame">
 <iframe
 src="https://www.youtube.com/embed/qhNBxtJoTIM"
@@ -1589,11 +1646,13 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 </div>
+
 <div class="video-info">
 <span>Conecta Profissionais</span>
 <h3>Edição 2025</h3>
 <p>Encontros, experiências, parceiros e histórias.</p>
 </div>
+
 </article>
 
 </div>
@@ -1607,15 +1666,23 @@ allowfullscreen>
 
 <div class="family">
 
-<div class="family-image" role="img" aria-label="Crianças no Conecta Profissionais"></div>
+<div
+class="family-image"
+role="img"
+aria-label="Crianças no Conecta Profissionais">
+</div>
 
 <div class="family-content">
 
-<div class="eyebrow" style="color:var(--navy)">Esse dia também é deles</div>
+<div class="eyebrow" style="color:var(--navy)">
+Esse dia também é deles
+</div>
 
 <h2>Pode trazer seus filhos e netos.</h2>
 
-<div class="family-age">👧 Crianças de 6 a 11 anos</div>
+<div class="family-age">
+👧 Crianças de 6 a 11 anos
+</div>
 
 <p>
 Os profissionais podem trazer seus filhos ou netos
@@ -1629,7 +1696,9 @@ ou netos de 6 a 11 anos. Não será permitida a inclusão
 de outros acompanhantes.
 </p>
 
-<a href="#participar" class="btn btn-dark">Vou levar filho ou neto</a>
+<a href="#participar" class="btn btn-dark">
+Vou levar filho ou neto
+</a>
 
 </div>
 </div>
@@ -1646,9 +1715,14 @@ de outros acompanhantes.
 
 <div>
 
-<img class="points-logo" src="logo-ponto-premiado.png" alt="Programa Ponto Premiado">
+<img
+class="points-logo"
+src="logo-ponto-premiado.png"
+alt="Programa Ponto Premiado">
 
-<div class="eyebrow" style="color:var(--navy)">Ponto Premiado no Conecta</div>
+<div class="eyebrow" style="color:var(--navy)">
+Ponto Premiado no Conecta
+</div>
 
 <h2>Seus pontos também vêm pra festa.</h2>
 
@@ -1662,7 +1736,10 @@ Você poderá usar seus pontos para resgatar produtos.
 <div class="prize-showcase">
 
 <div class="prize-main">
-<img id="mainPrizeImage" src="ponto-premiado.png" alt="Ponto Premiado">
+<img
+id="mainPrizeImage"
+src="ponto-premiado.png"
+alt="Ponto Premiado">
 </div>
 
 <div class="prize-thumbs">
@@ -1715,17 +1792,21 @@ Você poderá usar seus pontos para resgatar produtos.
 <div class="instagram-challenge-box">
 
 <div class="instagram-video">
+
 <blockquote
 class="instagram-media"
 data-instgrm-captioned
 data-instgrm-permalink="https://www.instagram.com/reel/DczJ9NgyE8M/?utm_source=ig_embed&amp;utm_campaign=loading"
 data-instgrm-version="14">
 </blockquote>
+
 </div>
 
 <div class="instagram-content">
 
-<div class="eyebrow" style="color:var(--orange)">🔥 O Conecta já começou</div>
+<div class="eyebrow" style="color:var(--orange)">
+🔥 O Conecta já começou
+</div>
 
 <h2>
 Seu comentário pode valer uma
@@ -1790,7 +1871,9 @@ Responda todas as perguntas marcadas com *.
 As informações serão registradas diretamente pela equipe Rezende.
 </p>
 
-<div class="required-note">* Campos obrigatórios</div>
+<div class="required-note">
+* Campos obrigatórios
+</div>
 
 </div>
 
@@ -1806,11 +1889,19 @@ As informações serão registradas diretamente pela equipe Rezende.
 
 <div class="poll-options">
 
-<button type="button" class="poll-btn" data-group="participou" data-value="Sim">
+<button
+type="button"
+class="poll-btn"
+data-group="participou"
+data-value="Sim">
 🔥 Sim
 </button>
 
-<button type="button" class="poll-btn" data-group="participou" data-value="Não">
+<button
+type="button"
+class="poll-btn"
+data-group="participou"
+data-value="Não">
 👀 Ainda não
 </button>
 
@@ -1831,15 +1922,27 @@ As informações serão registradas diretamente pela equipe Rezende.
 
 <div class="poll-options">
 
-<button type="button" class="poll-btn" data-group="filho" data-value="Sim">
+<button
+type="button"
+class="poll-btn"
+data-group="filho"
+data-value="Sim">
 👧 Sim
 </button>
 
-<button type="button" class="poll-btn" data-group="filho" data-value="Talvez">
+<button
+type="button"
+class="poll-btn"
+data-group="filho"
+data-value="Talvez">
 🤔 Talvez
 </button>
 
-<button type="button" class="poll-btn" data-group="filho" data-value="Não">
+<button
+type="button"
+class="poll-btn"
+data-group="filho"
+data-value="Não">
 Não
 </button>
 
@@ -1862,11 +1965,23 @@ Informe somente filhos ou netos que tenham entre 6 e 11 anos.
 <option value="Neto(a)">Neto(a)</option>
 </select>
 
-<input class="child-field child-name" type="text" placeholder="Nome da criança">
+<input
+class="child-field child-name"
+type="text"
+placeholder="Nome da criança">
 
-<input class="child-field child-age" type="number" min="6" max="11" inputmode="numeric" placeholder="Idade">
+<input
+class="child-field child-age"
+type="number"
+min="6"
+max="11"
+inputmode="numeric"
+placeholder="Idade">
 
-<button type="button" class="remove-child" onclick="removeChild(this)">
+<button
+type="button"
+class="remove-child"
+onclick="removeChild(this)">
 Remover
 </button>
 
@@ -1874,7 +1989,11 @@ Remover
 
 </div>
 
-<button type="button" class="btn btn-yellow" style="margin-top:8px" onclick="addChild()">
+<button
+type="button"
+class="btn btn-yellow"
+style="margin-top:8px"
+onclick="addChild()">
 + Adicionar filho ou neto
 </button>
 
@@ -1900,7 +2019,9 @@ Não é permitida a inclusão de outros acompanhantes.
 
 <h3>O que mais te anima no Conecta? *</h3>
 
-<div class="poll-options interest-options">
+<div class="interest-options">
+
+<div class="interest-row interest-row-top">
 
 <button
 type="button"
@@ -1922,6 +2043,10 @@ class="poll-btn interest-btn"
 data-value="Contato direto com marcas e fornecedores">
 🏗️ Contato direto com marcas e fornecedores
 </button>
+
+</div>
+
+<div class="interest-row interest-row-bottom">
 
 <button
 type="button"
@@ -1947,6 +2072,8 @@ data-value="Música">
 </div>
 
 </div>
+
+</div>
 </div>
 
 <!-- 04 -->
@@ -1961,27 +2088,51 @@ data-value="Música">
 
 <div class="store-grid">
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Moisés Amélio - NF">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Moisés Amélio - NF">
 Loja Moisés Amélio - NF
 </button>
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Duque de Caxias - NF">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Duque de Caxias - NF">
 Loja Duque de Caxias - NF
 </button>
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Conselheiro - NF">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Conselheiro - NF">
 Loja Conselheiro - NF
 </button>
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Niterói">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Niterói">
 Loja Niterói
 </button>
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Gávea - RJ">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Gávea - RJ">
 Loja Gávea - RJ
 </button>
 
-<button type="button" class="poll-btn store-btn" data-group="unidade" data-value="Loja Leblon - RJ">
+<button
+type="button"
+class="poll-btn store-btn"
+data-group="unidade"
+data-value="Loja Leblon - RJ">
 Loja Leblon - RJ
 </button>
 
@@ -2078,7 +2229,10 @@ Obrigado por responder. Nos vemos no Conecta! 🎉
 
 <div>
 
-<img class="footer-logo" src="logo-conecta26.png" alt="Conecta Profissionais 26">
+<img
+class="footer-logo"
+src="logo-conecta26.png"
+alt="Conecta Profissionais 26">
 
 <div class="footer-copy">
 Conecta Profissionais 26 • Rezende Materiais para Construção
@@ -2117,7 +2271,8 @@ let enviando = false;
 
 /* TELEFONE */
 
-const telefoneInput = document.getElementById("telefone");
+const telefoneInput =
+  document.getElementById("telefone");
 
 function formatarTelefone(valor){
 
@@ -2172,8 +2327,11 @@ function imageExists(src){
 
 async function getCategoryImages(carousel){
 
-  const prefix = carousel.dataset.prefix;
-  const base = carousel.dataset.base || `${prefix}.jpg`;
+  const prefix =
+    carousel.dataset.prefix;
+
+  const base =
+    carousel.dataset.base || `${prefix}.jpg`;
 
   const candidates = [base];
 
@@ -2198,7 +2356,9 @@ async function getCategoryImages(carousel){
 function startCarousel(carousel){
 
   const slides =
-    Array.from(carousel.querySelectorAll(".carousel-slide"));
+    Array.from(
+      carousel.querySelectorAll(".carousel-slide")
+    );
 
   const dotsBox =
     carousel.querySelector(".carousel-dots");
@@ -2222,7 +2382,8 @@ function startCarousel(carousel){
 
     slide.classList.toggle("active",index === 0);
 
-    const dot = document.createElement("button");
+    const dot =
+      document.createElement("button");
 
     dot.type = "button";
 
@@ -2245,7 +2406,9 @@ function startCarousel(carousel){
   });
 
   const dots =
-    Array.from(dotsBox.querySelectorAll(".carousel-dot"));
+    Array.from(
+      dotsBox.querySelectorAll(".carousel-dot")
+    );
 
   function goTo(index){
 
@@ -2364,7 +2527,8 @@ document
 
   button.addEventListener("click",() => {
 
-    const image = button.dataset.image;
+    const image =
+      button.dataset.image;
 
     if(!image){
       return;
@@ -2395,8 +2559,11 @@ document
 
   button.addEventListener("click",() => {
 
-    const group = button.dataset.group;
-    const value = button.dataset.value;
+    const group =
+      button.dataset.group;
+
+    const value =
+      button.dataset.value;
 
     answers[group] = value;
 
@@ -2424,7 +2591,8 @@ document
 
   button.addEventListener("click",() => {
 
-    const value = button.dataset.value;
+    const value =
+      button.dataset.value;
 
     if(interests.has(value)){
 
@@ -2453,9 +2621,13 @@ function updateChildrenBox(){
     answers.filho === "Sim" ||
     answers.filho === "Talvez"
   ){
+
     box.classList.add("visible");
+
   }else{
+
     box.classList.remove("visible");
+
   }
 
 }
@@ -2636,7 +2808,8 @@ document
     answers.filho === "Talvez"
   ){
 
-    const children = getChildren();
+    const children =
+      getChildren();
 
     if(children.length === 0){
 
@@ -2779,6 +2952,7 @@ document
       SCRIPT_URL,
       {
         method:"POST",
+
         mode:"no-cors",
 
         headers:{
