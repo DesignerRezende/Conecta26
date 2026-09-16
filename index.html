@@ -75,9 +75,7 @@ section{
   padding:95px 0;
 }
 
-/* =========================
-   TOPO
-========================= */
+/* TOPO */
 
 .topbar{
   position:fixed;
@@ -122,9 +120,7 @@ section{
   border-radius:999px;
 }
 
-/* =========================
-   BOTÕES
-========================= */
+/* BOTÕES */
 
 .btn{
   border:0;
@@ -164,9 +160,7 @@ section{
   background:transparent;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   min-height:100vh;
@@ -321,9 +315,7 @@ section{
   gap:12px;
 }
 
-/* =========================
-   TÍTULOS
-========================= */
+/* TÍTULOS */
 
 .section-head{
   display:grid;
@@ -350,9 +342,7 @@ section{
   color:var(--muted);
 }
 
-/* =========================
-   GALERIA
-========================= */
+/* GALERIA */
 
 .gallery{
   display:grid;
@@ -396,9 +386,7 @@ section{
   font-weight:900;
 }
 
-/* =========================
-   EXPERIÊNCIAS
-========================= */
+/* EXPERIÊNCIAS */
 
 .dark-section{
   background:var(--navy2);
@@ -529,9 +517,7 @@ section{
   color:rgba(255,255,255,.7);
 }
 
-/* =========================
-   VÍDEOS
-========================= */
+/* VÍDEOS */
 
 .videos-section{
   background:white;
@@ -586,9 +572,7 @@ section{
   line-height:1.5;
 }
 
-/* =========================
-   FAMÍLIA
-========================= */
+/* FAMÍLIA */
 
 .family{
   display:grid;
@@ -644,9 +628,7 @@ section{
   border-radius:15px;
 }
 
-/* =========================
-   PONTO PREMIADO
-========================= */
+/* PONTO PREMIADO */
 
 .points{
   background:
@@ -753,9 +735,7 @@ section{
   object-fit:cover;
 }
 
-/* =========================
-   INSTAGRAM
-========================= */
+/* INSTAGRAM */
 
 .instagram-challenge{
   background:var(--cream);
@@ -816,9 +796,7 @@ section{
   font-weight:700;
 }
 
-/* =========================
-   FORMULÁRIO
-========================= */
+/* FORMULÁRIO */
 
 .participate{
   background:var(--navy2);
@@ -1122,9 +1100,7 @@ textarea.form-field{
   margin:auto;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   background:#080b1c;
@@ -1149,9 +1125,7 @@ footer{
   font-size:13px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* RESPONSIVO */
 
 @media(max-width:850px){
 
@@ -1466,8 +1440,6 @@ seus filhos e netos. Um encontro feito para celebrar quem constrói todos os dia
 
 <div class="experience-grid">
 
-<!-- GASTRONOMIA -->
-
 <article class="experience-card">
 
 <div
@@ -1491,8 +1463,6 @@ data-alt="Gastronomia no Conecta">
 </div>
 
 </article>
-
-<!-- MÚSICA -->
 
 <article class="experience-card">
 
@@ -1518,8 +1488,6 @@ data-alt="Música ao vivo no Conecta">
 
 </article>
 
-<!-- EXPERIÊNCIAS -->
-
 <article class="experience-card">
 
 <div
@@ -1544,8 +1512,6 @@ data-alt="Experiências no Conecta">
 </div>
 
 </article>
-
-<!-- RECREAÇÃO -->
 
 <article class="experience-card">
 
@@ -2007,24 +1973,46 @@ Não é permitida a inclusão de outros acompanhantes.
 
 <div class="poll-options">
 
-<button type="button" class="poll-btn interest-btn" data-value="Comida">
-🍖 Comida
-</button>
-
-<button type="button" class="poll-btn interest-btn" data-value="Música">
-🎵 Música
-</button>
-
-<button type="button" class="poll-btn interest-btn" data-value="Ponto Premiado">
-🎁 Ponto Premiado
-</button>
-
-<button type="button" class="poll-btn interest-btn" data-value="Workshops">
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Workshops">
 🛠 Workshops
 </button>
 
-<button type="button" class="poll-btn interest-btn" data-value="Recreação">
-👧 Recreação
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Troca com outros profissionais">
+🤝 Troca com outros profissionais
+</button>
+
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Contato direto com marcas e fornecedores">
+🏗️ Contato direto com marcas e fornecedores
+</button>
+
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Ponto Premiado">
+🎁 Ponto Premiado
+</button>
+
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Comida">
+🍖 Comida
+</button>
+
+<button
+type="button"
+class="poll-btn interest-btn"
+data-value="Música">
+🎵 Música
 </button>
 
 </div>
@@ -2137,11 +2125,7 @@ placeholder="O que você gostaria de encontrar no Conecta 26?"></textarea>
 
 <div class="submit-area">
 
-<div
-id="formAlert"
-class="form-alert"
-role="alert">
-</div>
+<div id="formAlert" class="form-alert" role="alert"></div>
 
 <p class="confirmation-note">
 Ao confirmar, suas respostas serão registradas
@@ -2212,16 +2196,12 @@ Voltar ao topo ↑
 
 <script>
 
-/* =========================================================
-   GOOGLE APPS SCRIPT
-========================================================= */
+/* GOOGLE APPS SCRIPT */
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwWk549KgDb8m2U3-i5Ug002HIM-LwohurSlw0tpWhlVSooU3m_I3Zuca9nZFjWdXjB/exec";
 
-/* =========================================================
-   RESPOSTAS
-========================================================= */
+/* RESPOSTAS */
 
 const answers = {
   participou:"",
@@ -2233,9 +2213,7 @@ const interests = new Set();
 
 let enviando = false;
 
-/* =========================================================
-   TELEFONE
-========================================================= */
+/* TELEFONE */
 
 const telefoneInput =
   document.getElementById("telefone");
@@ -2267,33 +2245,7 @@ telefoneInput.addEventListener("input",function(){
   this.value = formatarTelefone(this.value);
 });
 
-/* =========================================================
-   CARROSSÉIS DINÂMICOS
-========================================================= */
-
-/*
-  PADRÃO:
-
-  churrasco.jpg
-  churrasco-1.jpg
-  churrasco-2.jpg
-  ...
-  churrasco-10.jpg
-
-  musica.jpg
-  musica-1.jpg
-  ...
-
-  recreacao.jpg
-  recreacao-1.jpg
-  ...
-
-  Para experiências, a imagem inicial continua sendo
-  publico.jpg e depois são procuradas:
-  experiencia-1.jpg
-  experiencia-2.jpg
-  ...
-*/
+/* CARROSSÉIS DINÂMICOS */
 
 const MAX_CATEGORY_IMAGES = 10;
 
@@ -2372,10 +2324,7 @@ function startCarousel(carousel){
 
   slides.forEach((slide,index) => {
 
-    slide.classList.toggle(
-      "active",
-      index === 0
-    );
+    slide.classList.toggle("active",index === 0);
 
     const dot =
       document.createElement("button");
@@ -2392,10 +2341,8 @@ function startCarousel(carousel){
     );
 
     dot.addEventListener("click",() => {
-
       goTo(index);
       restart();
-
     });
 
     dotsBox.appendChild(dot);
@@ -2421,13 +2368,8 @@ function startCarousel(carousel){
       dot.classList.remove("active");
     });
 
-    slides[current]
-      .classList
-      .add("active");
-
-    dots[current]
-      .classList
-      .add("active");
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
 
   }
 
@@ -2460,25 +2402,15 @@ function startCarousel(carousel){
   nextButton.style.display = "";
   dotsBox.style.display = "";
 
-  prevButton.addEventListener(
-    "click",
-    () => {
+  prevButton.addEventListener("click",() => {
+    goTo(current - 1);
+    restart();
+  });
 
-      goTo(current - 1);
-      restart();
-
-    }
-  );
-
-  nextButton.addEventListener(
-    "click",
-    () => {
-
-      goTo(current + 1);
-      restart();
-
-    }
-  );
+  nextButton.addEventListener("click",() => {
+    goTo(current + 1);
+    restart();
+  });
 
   restart();
 
@@ -2487,25 +2419,18 @@ function startCarousel(carousel){
 async function buildDynamicCarousels(){
 
   const carousels =
-    document.querySelectorAll(
-      ".dynamic-carousel"
-    );
+    document.querySelectorAll(".dynamic-carousel");
 
   for(const carousel of carousels){
 
     const track =
-      carousel.querySelector(
-        ".carousel-track"
-      );
+      carousel.querySelector(".carousel-track");
 
     const alt =
-      carousel.dataset.alt ||
-      "Foto do Conecta";
+      carousel.dataset.alt || "Foto do Conecta";
 
     const images =
-      await getCategoryImages(
-        carousel
-      );
+      await getCategoryImages(carousel);
 
     track.innerHTML = "";
 
@@ -2538,9 +2463,7 @@ async function buildDynamicCarousels(){
 
 buildDynamicCarousels();
 
-/* =========================================================
-   PONTO PREMIADO
-========================================================= */
+/* PONTO PREMIADO */
 
 document
 .querySelectorAll(".prize-thumb")
@@ -2556,9 +2479,7 @@ document
     }
 
     const mainImage =
-      document.getElementById(
-        "mainPrizeImage"
-      );
+      document.getElementById("mainPrizeImage");
 
     mainImage.src = image;
 
@@ -2574,9 +2495,7 @@ document
 
 });
 
-/* =========================================================
-   BOTÕES DE RESPOSTA
-========================================================= */
+/* BOTÕES DE RESPOSTA */
 
 document
 .querySelectorAll(".poll-btn[data-group]")
@@ -2593,13 +2512,9 @@ document
     answers[group] = value;
 
     document
-      .querySelectorAll(
-        `[data-group="${group}"]`
-      )
+      .querySelectorAll(`[data-group="${group}"]`)
       .forEach(btn => {
-
         btn.classList.remove("selected");
-
       });
 
     button.classList.add("selected");
@@ -2612,9 +2527,7 @@ document
 
 });
 
-/* =========================================================
-   INTERESSES
-========================================================= */
+/* INTERESSES */
 
 document
 .querySelectorAll(".interest-btn")
@@ -2628,18 +2541,12 @@ document
     if(interests.has(value)){
 
       interests.delete(value);
-
-      button.classList.remove(
-        "selected"
-      );
+      button.classList.remove("selected");
 
     }else{
 
       interests.add(value);
-
-      button.classList.add(
-        "selected"
-      );
+      button.classList.add("selected");
 
     }
 
@@ -2647,16 +2554,12 @@ document
 
 });
 
-/* =========================================================
-   FILHOS / NETOS
-========================================================= */
+/* FILHOS / NETOS */
 
 function updateChildrenBox(){
 
   const box =
-    document.getElementById(
-      "childrenBox"
-    );
+    document.getElementById("childrenBox");
 
   if(
     answers.filho === "Sim" ||
@@ -2676,9 +2579,7 @@ function updateChildrenBox(){
 function addChild(){
 
   const list =
-    document.getElementById(
-      "childrenList"
-    );
+    document.getElementById("childrenList");
 
   const row =
     document.createElement("div");
@@ -2688,19 +2589,9 @@ function addChild(){
   row.innerHTML = `
 
     <select class="child-field child-relation">
-
-      <option value="">
-        Parentesco
-      </option>
-
-      <option value="Filho(a)">
-        Filho(a)
-      </option>
-
-      <option value="Neto(a)">
-        Neto(a)
-      </option>
-
+      <option value="">Parentesco</option>
+      <option value="Filho(a)">Filho(a)</option>
+      <option value="Neto(a)">Neto(a)</option>
     </select>
 
     <input
@@ -2732,32 +2623,20 @@ function addChild(){
 function removeChild(button){
 
   const rows =
-    document.querySelectorAll(
-      ".child-row"
-    );
+    document.querySelectorAll(".child-row");
 
   if(rows.length === 1){
 
     const row = rows[0];
 
-    row.querySelector(
-      ".child-relation"
-    ).value = "";
-
-    row.querySelector(
-      ".child-name"
-    ).value = "";
-
-    row.querySelector(
-      ".child-age"
-    ).value = "";
+    row.querySelector(".child-relation").value = "";
+    row.querySelector(".child-name").value = "";
+    row.querySelector(".child-age").value = "";
 
     return;
   }
 
-  button
-    .closest(".child-row")
-    .remove();
+  button.closest(".child-row").remove();
 
 }
 
@@ -2770,33 +2649,15 @@ function getChildren(){
     .forEach(row => {
 
       const relation =
-        row
-          .querySelector(
-            ".child-relation"
-          )
-          .value;
+        row.querySelector(".child-relation").value;
 
       const name =
-        row
-          .querySelector(
-            ".child-name"
-          )
-          .value
-          .trim();
+        row.querySelector(".child-name").value.trim();
 
       const age =
-        row
-          .querySelector(
-            ".child-age"
-          )
-          .value
-          .trim();
+        row.querySelector(".child-age").value.trim();
 
-      if(
-        relation ||
-        name ||
-        age
-      ){
+      if(relation || name || age){
 
         children.push({
           relation,
@@ -2812,23 +2673,15 @@ function getChildren(){
 
 }
 
-/* =========================================================
-   MENSAGENS
-========================================================= */
+/* MENSAGENS */
 
 function showError(message){
 
   const alertBox =
-    document.getElementById(
-      "formAlert"
-    );
+    document.getElementById("formAlert");
 
-  alertBox.textContent =
-    message;
-
-  alertBox.classList.add(
-    "visible"
-  );
+  alertBox.textContent = message;
+  alertBox.classList.add("visible");
 
   alertBox.scrollIntoView({
     behavior:"smooth",
@@ -2840,296 +2693,253 @@ function showError(message){
 function clearError(){
 
   const alertBox =
-    document.getElementById(
-      "formAlert"
-    );
+    document.getElementById("formAlert");
 
-  alertBox.classList.remove(
-    "visible"
-  );
-
+  alertBox.classList.remove("visible");
   alertBox.textContent = "";
 
 }
 
-/* =========================================================
-   ENVIO PARA GOOGLE SHEETS
-========================================================= */
+/* ENVIO PARA GOOGLE SHEETS */
 
 document
 .getElementById("confirmationForm")
-.addEventListener(
-  "submit",
-  async function(event){
+.addEventListener("submit",async function(event){
 
-    event.preventDefault();
+  event.preventDefault();
 
-    if(enviando){
-      return;
-    }
+  if(enviando){
+    return;
+  }
 
-    clearError();
+  clearError();
 
-    const nome =
-      document
-        .getElementById("nome")
-        .value
-        .trim();
+  const nome =
+    document.getElementById("nome").value.trim();
 
-    const telefone =
-      document
-        .getElementById("telefone")
-        .value
-        .trim();
+  const telefone =
+    document.getElementById("telefone").value.trim();
 
-    const telefoneNumeros =
-      telefone.replace(/\D/g,"");
+  const telefoneNumeros =
+    telefone.replace(/\D/g,"");
 
-    const mensagem =
-      document
-        .getElementById("mensagem")
-        .value
-        .trim();
+  const mensagem =
+    document.getElementById("mensagem").value.trim();
 
-    /* VALIDAÇÕES */
+  if(!answers.participou){
 
-    if(!answers.participou){
+    showError(
+      "⚠️ Responda se você já participou de algum Conecta."
+    );
+
+    return;
+  }
+
+  if(!answers.filho){
+
+    showError(
+      "⚠️ Informe se vai levar filho ou neto."
+    );
+
+    return;
+  }
+
+  let childrenText =
+    "Não levará filhos ou netos.";
+
+  if(
+    answers.filho === "Sim" ||
+    answers.filho === "Talvez"
+  ){
+
+    const children =
+      getChildren();
+
+    if(children.length === 0){
 
       showError(
-        "⚠️ Responda se você já participou de algum Conecta."
+        "⚠️ Informe pelo menos um filho ou neto de 6 a 11 anos."
       );
 
       return;
     }
 
-    if(!answers.filho){
+    for(const child of children){
 
-      showError(
-        "⚠️ Informe se vai levar filho ou neto."
-      );
-
-      return;
-    }
-
-    let childrenText =
-      "Não levará filhos ou netos.";
-
-    if(
-      answers.filho === "Sim" ||
-      answers.filho === "Talvez"
-    ){
-
-      const children =
-        getChildren();
-
-      if(children.length === 0){
+      if(
+        !child.relation ||
+        !child.name ||
+        child.age === ""
+      ){
 
         showError(
-          "⚠️ Informe pelo menos um filho ou neto de 6 a 11 anos."
+          "⚠️ Preencha parentesco, nome e idade de cada criança."
         );
 
         return;
       }
 
-      for(const child of children){
+      const age =
+        Number(child.age);
 
-        if(
-          !child.relation ||
-          !child.name ||
-          child.age === ""
-        ){
+      if(
+        !Number.isInteger(age) ||
+        age < 6 ||
+        age > 11
+      ){
 
-          showError(
-            "⚠️ Preencha parentesco, nome e idade de cada criança."
-          );
-
-          return;
-        }
-
-        const age =
-          Number(child.age);
-
-        if(
-          !Number.isInteger(age) ||
-          age < 6 ||
-          age > 11
-        ){
-
-          showError(
-            "⚠️ Informe somente filhos ou netos com idade entre 6 e 11 anos."
-          );
-
-          return;
-        }
-
-      }
-
-      childrenText =
-        children
-          .map(
-            (child,index) =>
-              `${index + 1}. ${child.name} — ${child.relation} — ${child.age} anos`
-          )
-          .join(" | ");
-
-    }
-
-    if(interests.size === 0){
-
-      showError(
-        "⚠️ Escolha pelo menos uma opção em 'O que mais te anima no Conecta?'."
-      );
-
-      return;
-    }
-
-    if(!answers.unidade){
-
-      showError(
-        "⚠️ Selecione a unidade em que você compra."
-      );
-
-      return;
-    }
-
-    if(!nome){
-
-      showError(
-        "⚠️ Preencha seu nome."
-      );
-
-      return;
-    }
-
-    if(!telefone){
-
-      showError(
-        "⚠️ Preencha seu telefone com DDD."
-      );
-
-      return;
-    }
-
-    if(
-      telefoneNumeros.length !== 11 ||
-      telefoneNumeros.charAt(2) !== "9"
-    ){
-
-      showError(
-        "⚠️ Digite um celular válido com DDD. Exemplo: (22) 99868-1248."
-      );
-
-      telefoneInput.focus();
-
-      return;
-    }
-
-    const telefoneFormatado =
-      formatarTelefone(
-        telefoneNumeros
-      );
-
-    /* DADOS ENVIADOS PARA A PLANILHA */
-
-    const dados = {
-
-      nome:nome,
-
-      telefone:telefoneFormatado,
-
-      unidade:answers.unidade,
-
-      participou:answers.participou,
-
-      filho:answers.filho,
-
-      criancas:childrenText,
-
-      interesses:
-        Array.from(interests)
-          .join(", "),
-
-      mensagem:
-        mensagem ||
-        "Sem observação"
-
-    };
-
-    const submitButton =
-      document.getElementById(
-        "submitButton"
-      );
-
-    enviando = true;
-
-    submitButton.disabled = true;
-
-    submitButton.textContent =
-      "Registrando...";
-
-    try{
-
-      await fetch(
-        SCRIPT_URL,
-        {
-          method:"POST",
-
-          mode:"no-cors",
-
-          headers:{
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-          body:
-            JSON.stringify(dados)
-        }
-      );
-
-      document
-        .getElementById(
-          "confirmationForm"
-        )
-        .style.display =
-        "none";
-
-      const successBox =
-        document.getElementById(
-          "successBox"
+        showError(
+          "⚠️ Informe somente filhos ou netos com idade entre 6 e 11 anos."
         );
 
-      successBox.classList.add(
-        "visible"
-      );
-
-      successBox.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-      });
-
-    }catch(error){
-
-      console.error(
-        "Erro ao registrar:",
-        error
-      );
-
-      showError(
-        "Não foi possível registrar seu interesse agora. Verifique sua conexão e tente novamente."
-      );
-
-      enviando = false;
-
-      submitButton.disabled =
-        false;
-
-      submitButton.textContent =
-        "Tentar novamente →";
+        return;
+      }
 
     }
 
+    childrenText =
+      children
+        .map(
+          (child,index) =>
+            `${index + 1}. ${child.name} — ${child.relation} — ${child.age} anos`
+        )
+        .join(" | ");
+
   }
-);
+
+  if(interests.size === 0){
+
+    showError(
+      "⚠️ Escolha pelo menos uma opção em 'O que mais te anima no Conecta?'."
+    );
+
+    return;
+  }
+
+  if(!answers.unidade){
+
+    showError(
+      "⚠️ Selecione a unidade em que você compra."
+    );
+
+    return;
+  }
+
+  if(!nome){
+
+    showError(
+      "⚠️ Preencha seu nome."
+    );
+
+    return;
+  }
+
+  if(!telefone){
+
+    showError(
+      "⚠️ Preencha seu telefone com DDD."
+    );
+
+    return;
+  }
+
+  if(
+    telefoneNumeros.length !== 11 ||
+    telefoneNumeros.charAt(2) !== "9"
+  ){
+
+    showError(
+      "⚠️ Digite um celular válido com DDD. Exemplo: (22) 99868-1248."
+    );
+
+    telefoneInput.focus();
+
+    return;
+  }
+
+  const telefoneFormatado =
+    formatarTelefone(telefoneNumeros);
+
+  const dados = {
+
+    nome:nome,
+
+    telefone:telefoneFormatado,
+
+    unidade:answers.unidade,
+
+    participou:answers.participou,
+
+    filho:answers.filho,
+
+    criancas:childrenText,
+
+    interesses:
+      Array.from(interests).join(", "),
+
+    mensagem:
+      mensagem || "Sem observação"
+
+  };
+
+  const submitButton =
+    document.getElementById("submitButton");
+
+  enviando = true;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Registrando...";
+
+  try{
+
+    await fetch(
+      SCRIPT_URL,
+      {
+        method:"POST",
+
+        mode:"no-cors",
+
+        headers:{
+          "Content-Type":"text/plain;charset=utf-8"
+        },
+
+        body:JSON.stringify(dados)
+      }
+    );
+
+    document
+      .getElementById("confirmationForm")
+      .style.display = "none";
+
+    const successBox =
+      document.getElementById("successBox");
+
+    successBox.classList.add("visible");
+
+    successBox.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }catch(error){
+
+    console.error(
+      "Erro ao registrar:",
+      error
+    );
+
+    showError(
+      "Não foi possível registrar seu interesse agora. Verifique sua conexão e tente novamente."
+    );
+
+    enviando = false;
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Tentar novamente →";
+
+  }
+
+});
 
 </script>
 
