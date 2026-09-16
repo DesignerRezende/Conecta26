@@ -901,26 +901,34 @@ section{
 }
 
 /* PERGUNTA 03 */
+/*
+  O bloco assume exatamente a largura da primeira linha.
+  A segunda linha ocupa 100% dessa mesma largura e é centralizada.
+*/
 
 .interest-options{
-  width:100%;
   display:flex;
   flex-direction:column;
+  align-items:stretch;
+  width:fit-content;
+  max-width:100%;
   gap:9px;
 }
 
 .interest-row{
-  width:100%;
   display:flex;
   align-items:center;
   gap:8px;
 }
 
 .interest-row-top{
+  width:max-content;
+  max-width:100%;
   justify-content:flex-start;
 }
 
 .interest-row-bottom{
+  width:100%;
   justify-content:center;
 }
 
@@ -1199,8 +1207,13 @@ footer{
     padding:35px 25px;
   }
 
+  .interest-options{
+    width:100%;
+  }
+
   .interest-row{
     flex-wrap:wrap;
+    width:100%;
   }
 
   .interest-row-top,
@@ -1317,10 +1330,16 @@ footer{
     grid-column:auto;
   }
 
+  .interest-options{
+    width:100%;
+  }
+
   .interest-row,
   .interest-row-top,
   .interest-row-bottom{
+    width:100%;
     justify-content:flex-start;
+    flex-wrap:wrap;
   }
 
   .interest-btn{
