@@ -803,6 +803,10 @@ section{
   color:white;
 }
 
+/*
+  A abertura usa a mesma largura do bloco do formulário.
+  Assim o conteúdo superior não ultrapassa visualmente o card.
+*/
 .participate-head{
   max-width:980px;
   margin-left:auto;
@@ -811,6 +815,67 @@ section{
 
 .participate .section-head p{
   color:rgba(255,255,255,.72);
+}
+
+/* NOVA CHAMADA DO CONVITE DIGITAL */
+
+.ticket-intro{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.ticket-intro-main{
+  font-size:18px;
+  line-height:1.6;
+  color:rgba(255,255,255,.72);
+}
+
+.ticket-status{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:2px;
+}
+
+.ticket-status-item{
+  padding:16px 18px;
+  border-radius:17px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.ticket-status-item:first-child{
+  border-color:rgba(255,210,31,.25);
+}
+
+.ticket-status-item:last-child{
+  border-color:rgba(245,130,32,.32);
+}
+
+.ticket-status-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+  font-size:14px;
+  font-weight:900;
+  color:white;
+}
+
+.ticket-status-item:last-child .ticket-status-title{
+  color:var(--orange);
+}
+
+.ticket-status-text{
+  color:rgba(255,255,255,.67);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.ticket-status-link{
+  color:var(--yellow);
+  font-weight:900;
 }
 
 .form-journey{
@@ -1173,6 +1238,10 @@ footer{
 
   .section-head{
     gap:20px;
+  }
+
+  .ticket-status{
+    grid-template-columns:1fr;
   }
 
   .gallery{
@@ -1862,14 +1931,55 @@ Ir para o Instagram
 <div class="section-head participate-head">
 
 <div>
-<div class="eyebrow">Sua presença começa aqui</div>
-<h2>Faça parte <span>desde agora.</span></h2>
+
+<div class="eyebrow">
+Sua presença começa aqui
 </div>
 
-<p>
-Responda todas as etapas abaixo e registre seu interesse
-no Conecta Profissionais 26.
+<h2>
+Faça parte <span>desde agora.</span>
+</h2>
+
+</div>
+
+<div class="ticket-intro">
+
+<p class="ticket-intro-main">
+Responda as etapas abaixo e conte pra gente o que você espera
+do Conecta Profissionais 26.
 </p>
+
+<div class="ticket-status">
+
+<div class="ticket-status-item">
+
+<div class="ticket-status-title">
+🎟️ Já está com seu ingresso?
+</div>
+
+<div class="ticket-status-text">
+Então aproveite para conhecer tudo o que estamos preparando
+para você e registre suas respostas abaixo.
+</div>
+
+</div>
+
+<div class="ticket-status-item">
+
+<div class="ticket-status-title">
+Ainda não garantiu seu ingresso?
+</div>
+
+<div class="ticket-status-text">
+Registre seu interesse abaixo e venha fazer parte do
+<span class="ticket-status-link">Conecta 26.</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -2156,7 +2266,7 @@ placeholder="O que você gostaria de encontrar no Conecta 26?"></textarea>
 
 <p class="confirmation-note">
 Ao confirmar, suas respostas serão registradas
-para a equipe Rezende. Não é necessário enviar mensagem pelo WhatsApp.
+para a equipe Rezende.
 </p>
 
 <button
